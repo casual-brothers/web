@@ -1,0 +1,1273 @@
+{
+    "manifest_version": "1.0.21",
+    "title": "Gamehost",
+    "page_builder": "elementor",
+    "kit_version": "1.0.5",
+    "templates": [
+        {
+            "name": "Global Kit Styles",
+            "screenshot": "screenshots\/global-kit-styles.jpg",
+            "source": "templates\/global.json",
+            "preview_url": "https:\/\/kitpro.site",
+            "type": "section",
+            "category": "page",
+            "metadata": {
+                "template_type": "global-styles",
+                "include_in_zip": "1",
+                "elementor_pro_required": null,
+                "additional_template_information": [
+                    "These are the global theme styles configured through the Elementor Theme Styles area."
+                ]
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Home",
+            "screenshot": "screenshots\/home.jpg",
+            "source": "templates\/home.json",
+            "preview_url": "https:\/\/kitpro.site\/kit-gamehost\/template-kit\/home\/",
+            "type": "section",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-home",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "About",
+            "screenshot": "screenshots\/about.jpg",
+            "source": "templates\/about.json",
+            "preview_url": "https:\/\/kitpro.site\/kit-gamehost\/template-kit\/about\/",
+            "type": "page",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-page",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Service",
+            "screenshot": "screenshots\/service.jpg",
+            "source": "templates\/service.json",
+            "preview_url": "https:\/\/kitpro.site\/kit-gamehost\/template-kit\/service\/",
+            "type": "page",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-page",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Contact",
+            "screenshot": "screenshots\/contact.jpg",
+            "source": "templates\/contact.json",
+            "preview_url": "https:\/\/kitpro.site\/kit-gamehost\/template-kit\/contact\/",
+            "type": "page",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-page",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Datacenters",
+            "screenshot": "screenshots\/datacenters.jpg",
+            "source": "templates\/datacenters.json",
+            "preview_url": "https:\/\/kitpro.site\/kit-gamehost\/template-kit\/datacenters\/",
+            "type": "page",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-page",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Team",
+            "screenshot": "screenshots\/team.jpg",
+            "source": "templates\/team.json",
+            "preview_url": "https:\/\/kitpro.site\/kit-gamehost\/template-kit\/team\/",
+            "type": "page",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-page",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Support",
+            "screenshot": "screenshots\/support.jpg",
+            "source": "templates\/support.json",
+            "preview_url": "https:\/\/kitpro.site\/kit-gamehost\/template-kit\/support\/",
+            "type": "page",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-page",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Single-games",
+            "screenshot": "screenshots\/single-games.jpg",
+            "source": "templates\/single-games.json",
+            "preview_url": "https:\/\/kitpro.site\/kit-gamehost\/template-kit\/single-games\/",
+            "type": "page",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-page",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Blog",
+            "screenshot": "screenshots\/blog.jpg",
+            "source": "templates\/blog.json",
+            "preview_url": "https:\/\/kitpro.site\/kit-gamehost\/template-kit\/blog\/",
+            "type": "page",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-page",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "404",
+            "screenshot": "screenshots\/404.jpg",
+            "source": "templates\/404.json",
+            "preview_url": "https:\/\/kitpro.site\/kit-gamehost\/template-kit\/404\/",
+            "type": "page",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-page",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Header",
+            "screenshot": "screenshots\/header.jpg",
+            "source": "templates\/header.json",
+            "preview_url": "https:\/\/kitpro.site\/kit-gamehost\/template-kit\/header\/",
+            "type": "section",
+            "category": "section",
+            "metadata": {
+                "template_type": "section-header",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Footer",
+            "screenshot": "screenshots\/footer.jpg",
+            "source": "templates\/footer.json",
+            "preview_url": "https:\/\/kitpro.site\/kit-gamehost\/template-kit\/footer\/",
+            "type": "section",
+            "category": "section",
+            "metadata": {
+                "template_type": "section-footer",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Pricing List Monthly",
+            "screenshot": "screenshots\/pricing-list-monthly.jpg",
+            "source": "templates\/pricing-list-monthly.json",
+            "preview_url": "https:\/\/kitpro.site\/kit-gamehost\/template-kit\/pricing-list-monthly\/",
+            "type": "section",
+            "category": "section",
+            "metadata": {
+                "template_type": "section-pricing",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Pricing List Quarterly",
+            "screenshot": "screenshots\/pricing-list-quarterly.jpg",
+            "source": "templates\/pricing-list-quarterly.json",
+            "preview_url": "https:\/\/kitpro.site\/kit-gamehost\/template-kit\/pricing-list-quarterly\/",
+            "type": "section",
+            "category": "section",
+            "metadata": {
+                "template_type": "section-pricing",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Pricing List Annually",
+            "screenshot": "screenshots\/pricing-list-annually.jpg",
+            "source": "templates\/pricing-list-annually.json",
+            "preview_url": "https:\/\/kitpro.site\/kit-gamehost\/template-kit\/pricing-list-annually\/",
+            "type": "section",
+            "category": "section",
+            "metadata": {
+                "template_type": "section-pricing",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Contact-Metform",
+            "screenshot": "screenshots\/contact-metform.jpg",
+            "source": "templates\/contact-metform.json",
+            "preview_url": "https:\/\/kitpro.site\/kit-gamehost\/template-kit\/contact-metform\/",
+            "type": "section",
+            "category": "section",
+            "metadata": {
+                "template_type": "section-other",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        }
+    ],
+    "required_plugins": [
+        {
+            "name": "ElementsKit Lite",
+            "version": "3.0.6",
+            "file": "elementskit-lite\/elementskit-lite.php",
+            "author": "Wpmet"
+        },
+        {
+            "name": "Jeg Elementor Kit",
+            "version": "2.6.3",
+            "file": "jeg-elementor-kit\/jeg-elementor-kit.php",
+            "author": "Jegtheme"
+        },
+        {
+            "name": "Elementor",
+            "version": "3.20.1",
+            "file": "elementor\/elementor.php",
+            "author": "Elementor.com"
+        },
+        {
+            "name": "Elementor Header & Footer Builder",
+            "version": "1.6.16",
+            "file": "header-footer-elementor\/header-footer-elementor.php",
+            "author": "Brainstorm Force, Nikhil Chavan"
+        },
+        {
+            "name": "MetForm",
+            "version": "3.5.0",
+            "file": "metform\/metform.php",
+            "author": "Wpmet"
+        }
+    ],
+    "images": [
+        {
+            "filename": "Picture1.png",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/Picture1-800x866.png",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                }
+            ],
+            "filesize": 14304,
+            "dimensions": [
+                990,
+                1072
+            ],
+            "image_source": "self_created",
+            "person_or_place": "no",
+            "image_urls": ""
+        },
+        {
+            "filename": "blue1.png",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/blue1.png",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                },
+                {
+                    "source": "templates\/service.json",
+                    "name": "Service"
+                },
+                {
+                    "source": "templates\/contact.json",
+                    "name": "Contact"
+                },
+                {
+                    "source": "templates\/datacenters.json",
+                    "name": "Datacenters"
+                },
+                {
+                    "source": "templates\/team.json",
+                    "name": "Team"
+                },
+                {
+                    "source": "templates\/blog.json",
+                    "name": "Blog"
+                }
+            ],
+            "filesize": 601,
+            "dimensions": [
+                300,
+                150
+            ],
+            "image_source": "self_created",
+            "person_or_place": "no",
+            "image_urls": ""
+        },
+        {
+            "filename": "blue2.png",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/blue2.png",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                },
+                {
+                    "source": "templates\/service.json",
+                    "name": "Service"
+                },
+                {
+                    "source": "templates\/contact.json",
+                    "name": "Contact"
+                },
+                {
+                    "source": "templates\/datacenters.json",
+                    "name": "Datacenters"
+                },
+                {
+                    "source": "templates\/team.json",
+                    "name": "Team"
+                },
+                {
+                    "source": "templates\/blog.json",
+                    "name": "Blog"
+                }
+            ],
+            "filesize": 601,
+            "dimensions": [
+                300,
+                150
+            ],
+            "image_source": "self_created",
+            "person_or_place": "no",
+            "image_urls": ""
+        },
+        {
+            "filename": "blue3.png",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/blue3.png",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                },
+                {
+                    "source": "templates\/service.json",
+                    "name": "Service"
+                },
+                {
+                    "source": "templates\/contact.json",
+                    "name": "Contact"
+                },
+                {
+                    "source": "templates\/datacenters.json",
+                    "name": "Datacenters"
+                },
+                {
+                    "source": "templates\/team.json",
+                    "name": "Team"
+                },
+                {
+                    "source": "templates\/blog.json",
+                    "name": "Blog"
+                }
+            ],
+            "filesize": 601,
+            "dimensions": [
+                300,
+                150
+            ],
+            "image_source": "self_created",
+            "person_or_place": "no",
+            "image_urls": ""
+        },
+        {
+            "filename": "blue4.png",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/blue4.png",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                },
+                {
+                    "source": "templates\/service.json",
+                    "name": "Service"
+                },
+                {
+                    "source": "templates\/contact.json",
+                    "name": "Contact"
+                },
+                {
+                    "source": "templates\/datacenters.json",
+                    "name": "Datacenters"
+                },
+                {
+                    "source": "templates\/team.json",
+                    "name": "Team"
+                },
+                {
+                    "source": "templates\/blog.json",
+                    "name": "Blog"
+                }
+            ],
+            "filesize": 601,
+            "dimensions": [
+                300,
+                150
+            ],
+            "image_source": "self_created",
+            "person_or_place": "no",
+            "image_urls": ""
+        },
+        {
+            "filename": "blue5.png",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/blue5.png",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                },
+                {
+                    "source": "templates\/service.json",
+                    "name": "Service"
+                },
+                {
+                    "source": "templates\/contact.json",
+                    "name": "Contact"
+                },
+                {
+                    "source": "templates\/datacenters.json",
+                    "name": "Datacenters"
+                },
+                {
+                    "source": "templates\/team.json",
+                    "name": "Team"
+                },
+                {
+                    "source": "templates\/blog.json",
+                    "name": "Blog"
+                }
+            ],
+            "filesize": 601,
+            "dimensions": [
+                300,
+                150
+            ],
+            "image_source": "self_created",
+            "person_or_place": "no",
+            "image_urls": ""
+        },
+        {
+            "filename": "cube3.png",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/cube3-800x610.png",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                },
+                {
+                    "source": "templates\/service.json",
+                    "name": "Service"
+                }
+            ],
+            "filesize": 141187,
+            "dimensions": [
+                1050,
+                800
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/TAXG7Y4ML5"
+        },
+        {
+            "filename": "game6.png",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/game6-800x610.png",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                },
+                {
+                    "source": "templates\/service.json",
+                    "name": "Service"
+                }
+            ],
+            "filesize": 189662,
+            "dimensions": [
+                1050,
+                800
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/TAXG7Y4ML5"
+        },
+        {
+            "filename": "teamchat4.png",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/teamchat4-800x610.png",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                },
+                {
+                    "source": "templates\/service.json",
+                    "name": "Service"
+                }
+            ],
+            "filesize": 165729,
+            "dimensions": [
+                1050,
+                800
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/TAXG7Y4ML5"
+        },
+        {
+            "filename": "8-copy.jpg",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/8-copy-800x533.jpg",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                }
+            ],
+            "filesize": 192480,
+            "dimensions": [
+                1800,
+                1200
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/TAXG7Y4ML5"
+        },
+        {
+            "filename": "Robot-Avatars_17.png",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/Robot-Avatars_17.png",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                }
+            ],
+            "filesize": 26620,
+            "dimensions": [
+                512,
+                512
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/TAXG7Y4ML5"
+        },
+        {
+            "filename": "Robot-Avatars_20.png",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/Robot-Avatars_20.png",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                }
+            ],
+            "filesize": 25909,
+            "dimensions": [
+                512,
+                512
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/TAXG7Y4ML5"
+        },
+        {
+            "filename": "Robot-Avatars_11.png",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/Robot-Avatars_11.png",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                }
+            ],
+            "filesize": 19863,
+            "dimensions": [
+                512,
+                512
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/TAXG7Y4ML5"
+        },
+        {
+            "filename": "Robot-Avatars_10.png",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/Robot-Avatars_10.png",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                }
+            ],
+            "filesize": 32256,
+            "dimensions": [
+                512,
+                512
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/TAXG7Y4ML5"
+        },
+        {
+            "filename": "knight.png",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/knight.png",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                }
+            ],
+            "filesize": 96452,
+            "dimensions": [
+                566,
+                800
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/TAXG7Y4ML5"
+        },
+        {
+            "filename": "troop.png",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/troop.png",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                }
+            ],
+            "filesize": 119168,
+            "dimensions": [
+                566,
+                800
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/TAXG7Y4ML5"
+        },
+        {
+            "filename": "s1.png",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/s1.png",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                },
+                {
+                    "source": "templates\/service.json",
+                    "name": "Service"
+                },
+                {
+                    "source": "templates\/datacenters.json",
+                    "name": "Datacenters"
+                },
+                {
+                    "source": "templates\/single-games.json",
+                    "name": "Single-games"
+                }
+            ],
+            "filesize": 5970,
+            "dimensions": [
+                300,
+                300
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/TAXG7Y4ML5"
+        },
+        {
+            "filename": "s2.png",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/s2.png",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                },
+                {
+                    "source": "templates\/service.json",
+                    "name": "Service"
+                },
+                {
+                    "source": "templates\/datacenters.json",
+                    "name": "Datacenters"
+                },
+                {
+                    "source": "templates\/single-games.json",
+                    "name": "Single-games"
+                }
+            ],
+            "filesize": 8965,
+            "dimensions": [
+                300,
+                300
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/TAXG7Y4ML5"
+        },
+        {
+            "filename": "s3.png",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/s3.png",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                },
+                {
+                    "source": "templates\/service.json",
+                    "name": "Service"
+                },
+                {
+                    "source": "templates\/datacenters.json",
+                    "name": "Datacenters"
+                },
+                {
+                    "source": "templates\/single-games.json",
+                    "name": "Single-games"
+                }
+            ],
+            "filesize": 6712,
+            "dimensions": [
+                300,
+                300
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/TAXG7Y4ML5"
+        },
+        {
+            "filename": "s4a.png",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/s4a.png",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                },
+                {
+                    "source": "templates\/service.json",
+                    "name": "Service"
+                },
+                {
+                    "source": "templates\/datacenters.json",
+                    "name": "Datacenters"
+                },
+                {
+                    "source": "templates\/single-games.json",
+                    "name": "Single-games"
+                }
+            ],
+            "filesize": 7902,
+            "dimensions": [
+                300,
+                300
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/TAXG7Y4ML5"
+        },
+        {
+            "filename": "phone.png",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/phone.png",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                },
+                {
+                    "source": "templates\/service.json",
+                    "name": "Service"
+                }
+            ],
+            "filesize": 119503,
+            "dimensions": [
+                724,
+                1500
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/TAXG7Y4ML5"
+        },
+        {
+            "filename": "tesbot2.png",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/tesbot2.png",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                },
+                {
+                    "source": "templates\/service.json",
+                    "name": "Service"
+                }
+            ],
+            "filesize": 136917,
+            "dimensions": [
+                563,
+                1028
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/TAXG7Y4ML5"
+        },
+        {
+            "filename": "apps-store2.png",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/apps-store2.png",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                },
+                {
+                    "source": "templates\/service.json",
+                    "name": "Service"
+                }
+            ],
+            "filesize": 13121,
+            "dimensions": [
+                508,
+                161
+            ],
+            "image_source": "self_created",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/TAXG7Y4ML5"
+        },
+        {
+            "filename": "google-play-icon.png",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/google-play-icon.png",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                },
+                {
+                    "source": "templates\/service.json",
+                    "name": "Service"
+                }
+            ],
+            "filesize": 12030,
+            "dimensions": [
+                508,
+                161
+            ],
+            "image_source": "self_created",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/TAXG7Y4ML5"
+        },
+        {
+            "filename": "Robot-Avatars_34.png",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/Robot-Avatars_34.png",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                },
+                {
+                    "source": "templates\/datacenters.json",
+                    "name": "Datacenters"
+                }
+            ],
+            "filesize": 21388,
+            "dimensions": [
+                512,
+                512
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/TAXG7Y4ML5"
+        },
+        {
+            "filename": "Robot-Avatars_26.png",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/Robot-Avatars_26.png",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                },
+                {
+                    "source": "templates\/datacenters.json",
+                    "name": "Datacenters"
+                }
+            ],
+            "filesize": 23699,
+            "dimensions": [
+                512,
+                512
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/TAXG7Y4ML5"
+        },
+        {
+            "filename": "Robot-Avatars_12.png",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/Robot-Avatars_12.png",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                },
+                {
+                    "source": "templates\/datacenters.json",
+                    "name": "Datacenters"
+                }
+            ],
+            "filesize": 26202,
+            "dimensions": [
+                512,
+                512
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/TAXG7Y4ML5"
+        },
+        {
+            "filename": "14-copy.jpg",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/14-copy-800x533.jpg",
+            "templates": [
+                {
+                    "source": "templates\/home.json",
+                    "name": "Home"
+                },
+                {
+                    "source": "templates\/about.json",
+                    "name": "About"
+                },
+                {
+                    "source": "templates\/service.json",
+                    "name": "Service"
+                },
+                {
+                    "source": "templates\/contact.json",
+                    "name": "Contact"
+                },
+                {
+                    "source": "templates\/datacenters.json",
+                    "name": "Datacenters"
+                },
+                {
+                    "source": "templates\/team.json",
+                    "name": "Team"
+                },
+                {
+                    "source": "templates\/support.json",
+                    "name": "Support"
+                },
+                {
+                    "source": "templates\/single-games.json",
+                    "name": "Single-games"
+                },
+                {
+                    "source": "templates\/blog.json",
+                    "name": "Blog"
+                }
+            ],
+            "filesize": 206466,
+            "dimensions": [
+                1800,
+                1200
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/TAXG7Y4ML5"
+        },
+        {
+            "filename": "happy-men-exercise-group-and-portrait-in-city-on-2023-11-27-05-30-07-utc-copy.jpg",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/happy-men-exercise-group-and-portrait-in-city-on-2023-11-27-05-30-07-utc-copy-800x549.jpg",
+            "templates": [
+                {
+                    "source": "templates\/about.json",
+                    "name": "About"
+                },
+                {
+                    "source": "templates\/team.json",
+                    "name": "Team"
+                }
+            ],
+            "filesize": 155805,
+            "dimensions": [
+                1200,
+                824
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/TAXG7Y4ML5"
+        },
+        {
+            "filename": "picture-of-database-center-with-professional-compu-2023-11-27-05-16-23-utc-copy-1.jpg",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/picture-of-database-center-with-professional-compu-2023-11-27-05-16-23-utc-copy-1-800x533.jpg",
+            "templates": [
+                {
+                    "source": "templates\/datacenters.json",
+                    "name": "Datacenters"
+                }
+            ],
+            "filesize": 234055,
+            "dimensions": [
+                1200,
+                800
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/TAXG7Y4ML5"
+        },
+        {
+            "filename": "Artboard-3.png",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/Artboard-3-800x463.png",
+            "templates": [
+                {
+                    "source": "templates\/datacenters.json",
+                    "name": "Datacenters"
+                }
+            ],
+            "filesize": 135162,
+            "dimensions": [
+                1500,
+                868
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/TAXG7Y4ML5"
+        },
+        {
+            "filename": "pp2.jpg",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/pp2-800x978.jpg",
+            "templates": [
+                {
+                    "source": "templates\/team.json",
+                    "name": "Team"
+                }
+            ],
+            "filesize": 240592,
+            "dimensions": [
+                900,
+                1100
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/TAXG7Y4ML5"
+        },
+        {
+            "filename": "pp3.jpg",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/pp3-800x978.jpg",
+            "templates": [
+                {
+                    "source": "templates\/team.json",
+                    "name": "Team"
+                }
+            ],
+            "filesize": 241370,
+            "dimensions": [
+                900,
+                1100
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/TAXG7Y4ML5"
+        },
+        {
+            "filename": "pp1.jpg",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/pp1-800x978.jpg",
+            "templates": [
+                {
+                    "source": "templates\/team.json",
+                    "name": "Team"
+                }
+            ],
+            "filesize": 157387,
+            "dimensions": [
+                900,
+                1100
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/TAXG7Y4ML5"
+        },
+        {
+            "filename": "pp4.jpg",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/pp4-800x978.jpg",
+            "templates": [
+                {
+                    "source": "templates\/team.json",
+                    "name": "Team"
+                }
+            ],
+            "filesize": 230718,
+            "dimensions": [
+                900,
+                1100
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/TAXG7Y4ML5"
+        },
+        {
+            "filename": "united-states-army-ranger-2023-11-27-05-00-39-utc-copy2.jpg",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/united-states-army-ranger-2023-11-27-05-00-39-utc-copy2-800x349.jpg",
+            "templates": [
+                {
+                    "source": "templates\/single-games.json",
+                    "name": "Single-games"
+                }
+            ],
+            "filesize": 221284,
+            "dimensions": [
+                2000,
+                873
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/TAXG7Y4ML5"
+        },
+        {
+            "filename": "black-silhouettes-of-soldiers-2023-11-27-05-04-46-utc-copy2.jpg",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/black-silhouettes-of-soldiers-2023-11-27-05-04-46-utc-copy2-800x533.jpg",
+            "templates": [
+                {
+                    "source": "templates\/single-games.json",
+                    "name": "Single-games"
+                }
+            ],
+            "filesize": 185638,
+            "dimensions": [
+                1200,
+                800
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/TAXG7Y4ML5"
+        },
+        {
+            "filename": "logo-1.png",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/logo-1.png",
+            "templates": [
+                {
+                    "source": "templates\/header.json",
+                    "name": "Header"
+                },
+                {
+                    "source": "templates\/footer.json",
+                    "name": "Footer"
+                }
+            ],
+            "filesize": 21661,
+            "dimensions": [
+                771,
+                222
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/TAXG7Y4ML5"
+        },
+        {
+            "filename": "1.png",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/1.png",
+            "templates": [
+                {
+                    "source": "templates\/pricing-list-monthly.json",
+                    "name": "Pricing List Monthly"
+                },
+                {
+                    "source": "templates\/pricing-list-quarterly.json",
+                    "name": "Pricing List Quarterly"
+                },
+                {
+                    "source": "templates\/pricing-list-annually.json",
+                    "name": "Pricing List Annually"
+                }
+            ],
+            "filesize": 87806,
+            "dimensions": [
+                256,
+                256
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/TAXG7Y4ML5"
+        },
+        {
+            "filename": "2o.png",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/2o.png",
+            "templates": [
+                {
+                    "source": "templates\/pricing-list-monthly.json",
+                    "name": "Pricing List Monthly"
+                },
+                {
+                    "source": "templates\/pricing-list-quarterly.json",
+                    "name": "Pricing List Quarterly"
+                },
+                {
+                    "source": "templates\/pricing-list-annually.json",
+                    "name": "Pricing List Annually"
+                }
+            ],
+            "filesize": 71222,
+            "dimensions": [
+                256,
+                256
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/TAXG7Y4ML5"
+        },
+        {
+            "filename": "9.png",
+            "thumbnail_url": "https:\/\/kitpro.site\/kit-gamehost\/wp-content\/uploads\/sites\/233\/2024\/03\/9.png",
+            "templates": [
+                {
+                    "source": "templates\/pricing-list-monthly.json",
+                    "name": "Pricing List Monthly"
+                },
+                {
+                    "source": "templates\/pricing-list-quarterly.json",
+                    "name": "Pricing List Quarterly"
+                },
+                {
+                    "source": "templates\/pricing-list-annually.json",
+                    "name": "Pricing List Annually"
+                }
+            ],
+            "filesize": 88093,
+            "dimensions": [
+                256,
+                256
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/collections\/TAXG7Y4ML5"
+        }
+    ]
+}

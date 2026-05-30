@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Id: fa-IR.xml 0506753738 2011-10-18 07:07:16 Joomla   Farsi Team $ -->
+<metafile version="1.7" client="site" >
+	<name>persian</name>
+	<description>persian language for Joomla 1.7</description>
+	<version>1.7.2</version>
+	<creationDate>2011-10-18</creationDate>
+    <author>Persian Translation Team, Joomlafarsi.com</author>
+    <authorEmail>team@joomlafarsi.com</authorEmail>
+    <authorUrl>www.joomlafarsi.com</authorUrl>
+    <copyright>Copyright (C) 2005 - 2011 Open Source Matters. All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <description>fa-IR site language for Joomla 1.7.2</description>
+	<metadata>
+		<name>Persian</name>
+		<tag>fa-IR</tag>
+		<rtl>1</rtl>
+        <locale>fa_IR.utf8, fa_IR.UTF-8, fa_IR, Persian_IR, Persian, fa_IR, far_fa, fa, iran, ir, farsi_ir</locale> //the locale is used to sort translated lists when present on the server.
+        <firstDay>6</firstDay>  // used for the Calendar icon to specify what is the first day of the week in that language. 0 is Sunday, 1 is Monday, etc.
+	</metadata>
+	<params />
+</metafile>
