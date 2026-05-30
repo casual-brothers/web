@@ -1,4 +1,0 @@
-[19-Mar-2025 02:34:20 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function is_main_site() in /home/casua9/public_html/wp-includes/update.php:1145
-Stack trace:
-#0 {main}
-  thrown in /home/casua9/public_html/wp-includes/update.php on line 1145
