@@ -1,0 +1,36 @@
+# Local/sensitive WordPress config
+wp-config.php
+
+# Backups and dumps
+*.sql
+*.sql.gz
+*.zip
+*.tar
+*.tar.gz
+
+# Logs and runtime files
+error_log
+*.log
+.maintenance
+
+# WordPress generated/cache directories
+wp-content/advanced-cache.php
+wp-content/maintenance.php
+wp-content/cache/
+wp-content/upgrade/
+wp-content/upgrade-temp-backup/
+wp-content/w3tc-config/
+wp-content/wflogs/
+wp-content/uploads/ithemes-security/
+wp-content/uploads/template-kits/
+wp-content/uploads/unlimited_elements_cache/
+
+# Private form uploads
+wp-content/uploads/elementor/forms/
+
+# Hosting/static-site leftovers
+*.shtml
+*.mobirise
+index.html_
+.ftpquota
+cgi-bin/
