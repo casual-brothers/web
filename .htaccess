@@ -396,6 +396,10 @@ Require all denied
 RewriteEngine On
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 RewriteBase /
+
+# Redirect /newweb (no slash) to /newweb/ to prevent 403 Forbidden
+RewriteRule ^/?newweb$ /newweb/ [R=301,L]
+
 RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
