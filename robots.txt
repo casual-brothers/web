@@ -1,2 +1,5 @@
 User-agent: *
-Crawl-delay: 10
+Allow: /
+Disallow: /_next/
+
+Sitemap: https://casualbrothers.com/sitemap.xml
