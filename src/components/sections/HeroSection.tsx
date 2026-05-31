@@ -197,7 +197,7 @@ export default function HeroSection({ dict, locale }: { dict: Dictionary; locale
           >
             {dict.home.heroLine1}
             <br />
-            <span className="text-gradient-brand" style={{ backgroundImage: 'linear-gradient(135deg, #7cff00 0%, #ffffff 48%, #34b300 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', color: 'transparent' }}>{dict.home.heroLine2}</span>
+            <span className="text-gradient-brand" style={{ backgroundImage: 'linear-gradient(135deg, #7cff00 0%, #ffffff 50%, #9eff24 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', color: 'transparent' }}>{dict.home.heroLine2}</span>
             <br />
             {dict.home.heroLine3}
           </motion.h1>

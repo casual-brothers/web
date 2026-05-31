@@ -20,7 +20,7 @@ export default async function LegalNoticePage({ params }: { params: Promise<{ lo
           </div>
           <h1 className="font-display text-5xl md:text-6xl font-bold uppercase leading-[0.95] tracking-tight">
             {isEs ? "AVISO " : "LEGAL "}
-            <span className="text-gradient-brand" style={{ backgroundImage: 'linear-gradient(135deg, #7cff00 0%, #ffffff 48%, #34b300 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', color: 'transparent' }}>{isEs ? "LEGAL" : "NOTICE"}</span>
+            <span className="text-gradient-brand" style={{ backgroundImage: 'linear-gradient(135deg, #7cff00 0%, #ffffff 50%, #9eff24 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', color: 'transparent' }}>{isEs ? "LEGAL" : "NOTICE"}</span>
           </h1>
         </div>
       </section>

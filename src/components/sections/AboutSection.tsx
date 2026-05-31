@@ -43,7 +43,7 @@ export default function AboutSection({ dict, locale }: { dict: Dictionary; local
             {dict.home.aboutTitle1}
             <br />
             {dict.home.aboutTitle2}{" "}
-            <span className="text-gradient-brand" style={{ backgroundImage: 'linear-gradient(135deg, #7cff00 0%, #ffffff 48%, #34b300 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', color: 'transparent' }}>{dict.home.aboutTitle3}</span>
+            <span className="text-gradient-brand" style={{ backgroundImage: 'linear-gradient(135deg, #7cff00 0%, #ffffff 50%, #9eff24 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', color: 'transparent' }}>{dict.home.aboutTitle3}</span>
           </h2>
 
           <p className="text-lg text-white/50 leading-relaxed max-w-lg">
