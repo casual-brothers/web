@@ -1,15 +1,76 @@
 "use client";
 
-import { assetPath } from "@/lib/basePath";
+import { assetPath, basePath } from "@/lib/basePath";
 
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { Briefcase, Send } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Briefcase, Send, X } from "lucide-react";
 import type { Dictionary } from "@/i18n/getDictionary";
 import CTASection from "@/components/sections/CTASection";
 
 export default function CareersPageClient({ dict, locale }: { dict: Dictionary; locale: string }) {
   const data = dict.careers;
+
+  // ─── Application Modal State ─────────────────────
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalPosition, setModalPosition] = useState("");
+  const [applyForm, setApplyForm] = useState({ name: "", email: "", message: "" });
+  const [applyStatus, setApplyStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [applyError, setApplyError] = useState("");
+
+  const openModal = (position: string) => {
+    setModalPosition(position);
+    setApplyForm({ name: "", email: "", message: "" });
+    setApplyStatus("idle");
+    setApplyError("");
+    setModalOpen(true);
+  };
+
+  const closeModal = useCallback(() => {
+    setModalOpen(false);
+  }, []);
+
+  // Close on Escape
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => { if (e.key === "Escape") closeModal(); };
+    if (modalOpen) {
+      document.addEventListener("keydown", handleKey);
+      document.body.style.overflow = "hidden";
+    }
+    return () => {
+      document.removeEventListener("keydown", handleKey);
+      document.body.style.overflow = "";
+    };
+  }, [modalOpen, closeModal]);
+
+  const handleApplySubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!applyForm.name || !applyForm.email || !applyForm.message) return;
+
+    setApplyStatus("submitting");
+    setApplyError("");
+
+    try {
+      const res = await fetch(`${basePath}/api/apply.php`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: applyForm.name,
+          email: applyForm.email,
+          message: applyForm.message,
+          position: modalPosition,
+          website: "", // honeypot
+        }),
+      });
+      const result = await res.json().catch(() => ({}));
+      if (!res.ok || !result.ok) throw new Error(result.error || "Failed to send");
+      setApplyStatus("success");
+    } catch (err: any) {
+      setApplyStatus("error");
+      setApplyError(err.message || "");
+    }
+  };
 
   return (
     <>
@@ -143,15 +204,15 @@ export default function CareersPageClient({ dict, locale }: { dict: Dictionary; 
                 </div>
 
                 <div className="shrink-0 w-full md:w-auto">
-                  <Link
-                    href={`/${locale}/contact`}
-                    className="flex items-center justify-center gap-2 px-8 py-3 bg-brand text-background text-[11px] font-bold uppercase tracking-wider rounded hover:bg-brand-hover hover:text-white transition-all duration-200 shadow-lg" style={{ boxShadow: '0 10px 15px -3px rgba(124,255,0,0.1)' }}
+                  <button
+                    onClick={() => openModal(job.title)}
+                    className="flex items-center justify-center gap-2 px-8 py-3 bg-brand text-background text-[11px] font-bold uppercase tracking-wider rounded hover:bg-brand-hover hover:text-white transition-all duration-200 shadow-lg cursor-pointer" style={{ boxShadow: '0 10px 15px -3px rgba(124,255,0,0.1)' }}
                   >
                     {data.applyNow}
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
-                  </Link>
+                  </button>
                 </div>
               </div>
             </motion.div>
@@ -177,21 +238,160 @@ export default function CareersPageClient({ dict, locale }: { dict: Dictionary; 
             <p className="text-base text-white/60 max-w-2xl mx-auto leading-relaxed">
               {data.generalApplication}
             </p>
-            <Link
-              href={`/${locale}/contact`}
-              className="inline-flex items-center gap-2 px-8 py-3 border border-white/10 text-white text-[11px] font-bold uppercase tracking-wider rounded hover:bg-white/5 hover:border-white/20 transition-all duration-200"
+            <button
+              onClick={() => openModal(locale === "es" ? "Aplicación General / Portfolio" : "General Application / Portfolio")}
+              className="inline-flex items-center gap-2 px-8 py-3 border border-white/10 text-white text-[11px] font-bold uppercase tracking-wider rounded hover:bg-white/5 hover:border-white/20 transition-all duration-200 cursor-pointer"
             >
               {data.submitGeneral}
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </Link>
+            </button>
           </div>
         </motion.div>
       </section>
 
       {/* CTA */}
       <CTASection dict={dict} locale={locale} />
+
+      {/* ─── Application Modal ─────────────────────── */}
+      <AnimatePresence>
+        {modalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[9999] flex items-center justify-center"
+            onClick={(e) => { if (e.target === e.currentTarget) closeModal(); }}
+          >
+            {/* Backdrop */}
+            <div className="absolute inset-0 bg-black/75 backdrop-blur-sm" />
+
+            {/* Modal */}
+            <motion.div
+              initial={{ opacity: 0, y: 20, scale: 0.97 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 20, scale: 0.97 }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="relative w-[min(520px,calc(100vw-32px))] max-h-[90vh] overflow-y-auto rounded-xl border border-white/8 bg-[#12131b] p-8 shadow-2xl"
+            >
+              {/* Close button */}
+              <button
+                onClick={closeModal}
+                className="absolute top-3 right-3 w-8 h-8 rounded-lg flex items-center justify-center bg-white/5 border border-white/10 text-white/50 hover:bg-white/10 hover:text-white transition-all cursor-pointer"
+              >
+                <X className="w-4 h-4" />
+              </button>
+
+              <h3 className="font-display text-lg font-bold uppercase tracking-tight text-white mb-1">
+                {data.applyModalTitle}
+              </h3>
+              <p className="text-[12px] font-bold uppercase tracking-[0.15em] text-brand mb-6">
+                {modalPosition}
+              </p>
+
+              {applyStatus === "success" ? (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="text-center py-8 space-y-4"
+                >
+                  <div className="w-14 h-14 rounded-full bg-brand/10 border border-brand/20 flex items-center justify-center text-brand mx-auto">
+                    <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <p className="text-sm text-brand font-bold">{data.applyFormSuccess}</p>
+                  <button
+                    onClick={closeModal}
+                    className="px-6 py-2 bg-white/5 border border-white/10 rounded-lg text-[11px] font-bold uppercase tracking-wider hover:bg-brand hover:text-background hover:border-brand transition-all duration-200 cursor-pointer"
+                  >
+                    {data.applyFormClose}
+                  </button>
+                </motion.div>
+              ) : (
+                <form onSubmit={handleApplySubmit} className="space-y-4">
+                  {applyStatus === "error" && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="p-3 bg-red-500/10 border border-red-500/20 text-red-400 text-xs rounded-lg"
+                    >
+                      {applyError || data.applyFormError}
+                    </motion.div>
+                  )}
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <label className="text-[11px] font-bold uppercase tracking-widest text-white/30">
+                        {data.applyFormName} *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={applyForm.name}
+                        onChange={(e) => setApplyForm(p => ({ ...p, name: e.target.value }))}
+                        disabled={applyStatus === "submitting"}
+                        className="w-full px-4 py-3 bg-white/[0.03] border border-white/8 rounded-lg focus:outline-none focus:border-brand focus:bg-white/[0.05] transition-all duration-300 text-white text-sm placeholder:text-white/20 disabled:opacity-50"
+                        placeholder={data.applyFormNamePlaceholder}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-[11px] font-bold uppercase tracking-widest text-white/30">
+                        {data.applyFormEmail} *
+                      </label>
+                      <input
+                        type="email"
+                        required
+                        value={applyForm.email}
+                        onChange={(e) => setApplyForm(p => ({ ...p, email: e.target.value }))}
+                        disabled={applyStatus === "submitting"}
+                        className="w-full px-4 py-3 bg-white/[0.03] border border-white/8 rounded-lg focus:outline-none focus:border-brand focus:bg-white/[0.05] transition-all duration-300 text-white text-sm placeholder:text-white/20 disabled:opacity-50"
+                        placeholder={data.applyFormEmailPlaceholder}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-[11px] font-bold uppercase tracking-widest text-white/30">
+                      {data.applyFormMessage} *
+                    </label>
+                    <textarea
+                      required
+                      rows={5}
+                      value={applyForm.message}
+                      onChange={(e) => setApplyForm(p => ({ ...p, message: e.target.value }))}
+                      disabled={applyStatus === "submitting"}
+                      className="w-full px-4 py-3 bg-white/[0.03] border border-white/8 rounded-lg focus:outline-none focus:border-brand focus:bg-white/[0.05] transition-all duration-300 text-white text-sm resize-none placeholder:text-white/20 disabled:opacity-50"
+                      placeholder={data.applyFormMessagePlaceholder}
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={applyStatus === "submitting"}
+                    className="w-full flex items-center justify-center gap-2 py-3.5 bg-brand text-background text-[11px] font-bold uppercase tracking-wider rounded-lg hover:bg-brand-hover hover:text-white transition-all duration-200 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                    style={{ boxShadow: '0 10px 15px -3px rgba(124,255,0,0.1)' }}
+                  >
+                    {applyStatus === "submitting" ? data.applyFormSending : data.applyFormSubmit}
+                    {applyStatus === "submitting" ? (
+                      <svg className="animate-spin h-4 w-4" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                      </svg>
+                    ) : (
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    )}
+                  </button>
+                </form>
+              )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

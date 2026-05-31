@@ -15,12 +15,13 @@ export default function ContactPageClient({ dict }: { dict: Dictionary }) {
     email: "",
     subject: "",
     message: "",
+    type: "GENERAL" as "GENERAL" | "BUSINESS",
   });
 
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorDetails, setErrorDetails] = useState("");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { id, value } = e.target;
     setFormData((prev) => ({ ...prev, [id]: value }));
   };
@@ -41,27 +42,27 @@ export default function ContactPageClient({ dict }: { dict: Dictionary }) {
     setErrorDetails("");
 
     try {
-      // Direct post to local PHP mailer copied from testemail
-      const formPayload = new FormData();
-      formPayload.append("name", formData.name);
-      formPayload.append("email", formData.email);
-      formPayload.append("subject", formData.subject || "Nuevo mensaje de contacto");
-      formPayload.append("message", formData.message);
-      formPayload.append("website", ""); // honeypot empty
-
-      const response = await fetch(`${basePath}/send.php`, {
+      const response = await fetch(`${basePath}/api/contact.php`, {
         method: "POST",
-        body: formPayload,
         headers: {
+          "Content-Type": "application/json",
           Accept: "application/json",
         },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          type: formData.type,
+          website: "", // honeypot
+        }),
       });
 
       const resultData = await response.json().catch(() => ({}));
 
       if (response.ok && resultData.ok) {
         setStatus("success");
-        setFormData({ name: "", email: "", subject: "", message: "" });
+        setFormData({ name: "", email: "", subject: "", message: "", type: "GENERAL" });
       } else {
         throw new Error(resultData.error || "Failed to send message.");
       }
@@ -294,19 +295,37 @@ export default function ContactPageClient({ dict }: { dict: Dictionary }) {
                     </div>
                   </div>
 
-                  <div className="space-y-2">
-                    <label htmlFor="subject" className="text-[11px] font-bold uppercase tracking-widest text-white/30">
-                      {data.formSubject}
-                    </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      disabled={status === "submitting"}
-                      className="w-full px-4 py-3 bg-white/[0.03] border border-white/8 rounded-lg focus:outline-none focus:border-brand focus:bg-white/[0.05] transition-all duration-300 text-white text-sm placeholder:text-white/20 disabled:opacity-50"
-                      placeholder={data.formSubjectPlaceholder}
-                    />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div className="space-y-2">
+                      <label htmlFor="type" className="text-[11px] font-bold uppercase tracking-widest text-white/30">
+                        {data.formType}
+                      </label>
+                      <select
+                        id="type"
+                        value={formData.type}
+                        onChange={handleChange}
+                        disabled={status === "submitting"}
+                        className="w-full px-4 py-3 bg-white/[0.03] border border-white/8 rounded-lg focus:outline-none focus:border-brand focus:bg-white/[0.05] transition-all duration-300 text-white text-sm disabled:opacity-50 cursor-pointer appearance-none"
+                        style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='rgba(255,255,255,0.4)' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 14px center' }}
+                      >
+                        <option value="GENERAL" className="bg-[#12131b] text-white">{data.formTypeGeneral}</option>
+                        <option value="BUSINESS" className="bg-[#12131b] text-white">{data.formTypeBusiness}</option>
+                      </select>
+                    </div>
+                    <div className="space-y-2">
+                      <label htmlFor="subject" className="text-[11px] font-bold uppercase tracking-widest text-white/30">
+                        {data.formSubject}
+                      </label>
+                      <input
+                        type="text"
+                        id="subject"
+                        value={formData.subject}
+                        onChange={handleChange}
+                        disabled={status === "submitting"}
+                        className="w-full px-4 py-3 bg-white/[0.03] border border-white/8 rounded-lg focus:outline-none focus:border-brand focus:bg-white/[0.05] transition-all duration-300 text-white text-sm placeholder:text-white/20 disabled:opacity-50"
+                        placeholder={data.formSubjectPlaceholder}
+                      />
+                    </div>
                   </div>
 
                   <div className="space-y-2">
