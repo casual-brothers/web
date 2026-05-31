@@ -4,7 +4,7 @@ const basePath = "";
 
 /**
  * Prefix a public asset path with the configured basePath.
- * Usage: assetPath("/images/foo.png") → "/newweb/images/foo.png"
+ * Usage: assetPath("/images/foo.png") → "/images/foo.png"
  */
 export function assetPath(path: string): string {
   if (!basePath || !path.startsWith("/")) return path;

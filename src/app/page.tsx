@@ -9,7 +9,7 @@ export default function RootPage() {
   useEffect(() => {
     if (typeof window !== "undefined") {
       const preferredLocale = navigator.language?.startsWith("es") ? "es" : "en";
-      // Next.js router.replace automatically respects the config's basePath ("/newweb")
+      // Redirect to the user's preferred locale
       router.replace(`/${preferredLocale}`);
     }
   }, [router]);

@@ -6,12 +6,12 @@ Options -Indexes
 
 # Enable rewrite engine
 RewriteEngine On
-RewriteBase /newweb/
+RewriteBase /
 
 # ── Clean URLs ───────────────────────────────────────
 # If request matches a directory AND a sibling .html file exists, serve the .html
 # This handles: /en → /en.html, /en/about → /en/about.html
-RewriteCond %{DOCUMENT_ROOT}/newweb/$1.html -f
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
 RewriteRule ^(.*?)/?$ $1.html [L]
 
 # ── LiteSpeed Cache Disable ──────────────────────────
