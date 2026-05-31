@@ -1,8 +1,6 @@
-const isProd = process.env.NODE_ENV === "production";
+// The website is deployed at the root domain (casualbrothers.com/), so basePath is empty.
+const basePath = "";
 
-// During static export for casualbrothers.com/newweb, the production basePath is "/newweb".
-// For local development (next dev), it is empty "" to avoid 404s.
-const basePath = isProd ? "/newweb" : "";
 
 /**
  * Prefix a public asset path with the configured basePath.

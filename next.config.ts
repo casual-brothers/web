@@ -7,9 +7,8 @@ const nextConfig: NextConfig = {
   images: { unoptimized: true },
 
   // ── Subdirectorio de publicación ──────────────────────────────
-  // Mientras la web esté en casualbrothers.com/newweb/, dejar esto activo en producción.
-  // Cuando la web se mueva a la raíz (casualbrothers.com/), comentar o eliminar esta línea.
-  ...(isProd ? { basePath: "/newweb" } : {}),
+  // Configuración eliminada: la web se despliega en la raíz absoluta (casualbrothers.com/).
+
 };
 
 export default nextConfig;
