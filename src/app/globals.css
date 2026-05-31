@@ -1,0 +1,215 @@
+@import "tailwindcss";
+@source "../components/**/*.tsx";
+@source "../app/**/*.tsx";
+@source "../data/**/*.ts";
+
+@theme inline {
+  /* Brand Colors */
+  --color-brand: #7cff00;
+  --color-brand-hover: #34b300;
+  --color-brand-glow: #7cff00;
+  --color-brand-dark: #34b300;
+
+  /* Surfaces */
+  --color-background: #0e0e0e;
+  --color-foreground: #ffffff;
+  --color-surface: #121212;
+  --color-surface-light: #1a1a1a;
+  --color-surface-card: #101010;
+  --color-subtle: #e6e6e6;
+
+  /* Fonts */
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-montserrat);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  --background: #0e0e0e;
+  --foreground: #ffffff;
+  --brand-rgb: 124, 255, 0;
+  --brand-dark-rgb: 52, 179, 0;
+  --ease-cinematic: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+  font-family: var(--font-inter);
+}
+
+/* ========== TYPOGRAPHY ========== */
+
+.font-display {
+  font-family: var(--font-montserrat);
+}
+
+.text-gradient-brand {
+  background-image: linear-gradient(135deg, #7cff00 0%, #ffffff 48%, #34b300 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ========== GLASSMORPHISM ========== */
+
+.glass-panel {
+  background: rgba(14, 14, 14, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-card {
+  background: rgba(14, 14, 14, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.5s var(--ease-cinematic);
+}
+
+.glass-card:hover {
+  border-color: rgba(var(--brand-rgb), 0.18);
+  box-shadow: 0 0 30px rgba(var(--brand-rgb), 0.08);
+}
+
+/* ========== GLOW EFFECTS ========== */
+
+.glow-brand {
+  box-shadow: 0 0 30px rgba(var(--brand-rgb), 0.12),
+              0 0 60px rgba(var(--brand-rgb), 0.05);
+}
+
+.glow-brand-strong {
+  box-shadow: 0 0 40px rgba(var(--brand-rgb), 0.2),
+              0 0 80px rgba(var(--brand-rgb), 0.08);
+}
+
+/* ========== BUTTONS ========== */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 2rem;
+  background: #7cff00;
+  color: #0e0e0e;
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 0.25rem;
+  transition: all 0.4s var(--ease-cinematic);
+  border: 1px solid transparent;
+}
+
+.btn-primary:hover {
+  background: #34b300;
+  box-shadow: 0 0 20px rgba(var(--brand-rgb), 0.24);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 2rem;
+  background: transparent;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 0.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.4s var(--ease-cinematic);
+}
+
+.btn-outline:hover {
+  border-color: #7cff00;
+  color: #7cff00;
+  box-shadow: 0 0 15px rgba(var(--brand-rgb), 0.12);
+  transform: translateY(-1px);
+}
+
+/* ========== SCROLLBAR ========== */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0e0e0e;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f1f1f;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7cff00;
+}
+
+/* ========== ANIMATIONS ========== */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.4s ease-out;
+}
+
+.animate-shimmer {
+  animation: shimmer 1.5s ease-in-out;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin 20s linear infinite;
+}
+
+/* ========== PRODUCTION-SAFE BRAND OPACITIES ========== */
+/* These replace Tailwind's brand/XX modifiers that break in Turbopack prod builds */
+
+.border-brand-50 { border-color: rgba(var(--brand-rgb), 0.5); }
+.border-brand-20 { border-color: rgba(var(--brand-rgb), 0.2); }
+.border-brand-10 { border-color: rgba(var(--brand-rgb), 0.1); }
+.border-brand-8 { border-color: rgba(var(--brand-rgb), 0.08); }
+.bg-brand-glow-5 { background: rgba(var(--brand-rgb), 0.05); }
+.bg-brand-glow-3 { background: rgba(var(--brand-rgb), 0.03); }
+.focus\:border-brand-50:focus { border-color: rgba(var(--brand-rgb), 0.5); }
+.hover\:border-brand-20:hover { border-color: rgba(var(--brand-rgb), 0.2); }
+.hover\:bg-brand-glow:hover { background: rgba(var(--brand-rgb), 0.1); }
