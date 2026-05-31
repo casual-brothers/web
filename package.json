@@ -8,7 +8,9 @@
     "start": "npx -y serve out -l 3000",
     "lint": "eslint",
     "deploy": "node scripts/deploy.mjs",
+    "deploy:git": "node scripts/deploy-git.mjs",
     "deploy:upload": "node scripts/deploy.mjs --skip-build"
+
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",
