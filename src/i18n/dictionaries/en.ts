@@ -74,9 +74,15 @@ const en = {
   ],
   games: {
     title: "OUR",
-    titleBrand: "GAMES",
-    subtitle: "Global IPs. Original titles. Every one shipped on time.",
+    titleBrand: "WORK",
+    subtitle: "Global IPs. Original titles. Delivered across multiple platforms.",
     noImage: "No Image Available",
+    categoryFull: "FULL DEVELOPMENT",
+    categoryFullDesc: "Games we built from the ground up — concept to ship.",
+    categoryCodev: "CO-DEVELOPMENT",
+    categoryCodevDesc: "Embedded with partner teams to deliver together.",
+    categoryConsole: "CONSOLE DEVELOPMENT",
+    categoryConsoleDesc: "Platform ports, optimization, and certification.",
   },
   careers: {
     joinTitle: "Come Build",
