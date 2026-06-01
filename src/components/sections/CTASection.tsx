@@ -46,67 +46,7 @@ export default function CTASection({ dict, locale }: { dict: Dictionary; locale:
       <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, #0e0e0e, transparent, #0e0e0e)' }} />
       <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(14,14,14,0.6), transparent, rgba(14,14,14,0.6))' }} />
 
-      <style>{`
-        @keyframes storm-a {
-          0%   { opacity: 0; }
-          4%   { opacity: 0.6; }
-          6%   { opacity: 0; }
-          8%   { opacity: 0.4; }
-          10%  { opacity: 0; }
-          45%  { opacity: 0; }
-          47%  { opacity: 0.7; }
-          49%  { opacity: 0.05; }
-          51%  { opacity: 0.5; }
-          53%  { opacity: 0; }
-          100% { opacity: 0; }
-        }
-        @keyframes storm-b {
-          0%   { opacity: 0; }
-          18%  { opacity: 0; }
-          20%  { opacity: 0.55; }
-          22%  { opacity: 0; }
-          24%  { opacity: 0.35; }
-          25%  { opacity: 0; }
-          60%  { opacity: 0; }
-          62%  { opacity: 0.75; }
-          63%  { opacity: 0.1; }
-          64%  { opacity: 0.5; }
-          66%  { opacity: 0; }
-          82%  { opacity: 0; }
-          83%  { opacity: 0.3; }
-          84%  { opacity: 0; }
-          100% { opacity: 0; }
-        }
-        @keyframes storm-c {
-          0%   { opacity: 0; }
-          30%  { opacity: 0; }
-          32%  { opacity: 0.4; }
-          33%  { opacity: 0; }
-          70%  { opacity: 0; }
-          71%  { opacity: 0.6; }
-          73%  { opacity: 0.05; }
-          74%  { opacity: 0.35; }
-          75%  { opacity: 0; }
-          100% { opacity: 0; }
-        }
-        @keyframes drift-x {
-          0%   { margin-left: 0px; }
-          16%  { margin-left: -18px; }
-          33%  { margin-left: 12px; }
-          50%  { margin-left: -8px; }
-          66%  { margin-left: 20px; }
-          83%  { margin-left: -5px; }
-          100% { margin-left: 0px; }
-        }
-        @keyframes drift-y {
-          0%   { margin-top: 0px; }
-          20%  { margin-top: -14px; }
-          40%  { margin-top: 10px; }
-          60%  { margin-top: -20px; }
-          80%  { margin-top: 8px; }
-          100% { margin-top: 0px; }
-        }
-      `}</style>
+      {/* Keyframes moved to globals.css for performance */}
 
       {/* Top border */}
       <div className="absolute top-0 left-6 right-6 h-px" style={{ background: 'linear-gradient(to right, transparent, rgba(124,255,0,0.15), transparent)' }} />

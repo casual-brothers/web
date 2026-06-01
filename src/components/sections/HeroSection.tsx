@@ -4,8 +4,14 @@ import { assetPath } from "@/lib/basePath";
 
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useSyncExternalStore } from "react";
 import { motion } from "framer-motion";
+
+// Avoids mounting heavy 3D canvas on mobile/tablet where it's not visible
+const subscribeResize = (cb: () => void) => { window.addEventListener("resize", cb); return () => window.removeEventListener("resize", cb); };
+const getIsDesktop = () => window.innerWidth >= 1024;
+const getIsDesktopServer = () => false;
+function useIsDesktop() { return useSyncExternalStore(subscribeResize, getIsDesktop, getIsDesktopServer); }
 import type { Dictionary } from "@/i18n/getDictionary";
 import PlatformLogos from "@/components/ui/PlatformLogos";
 
@@ -16,6 +22,7 @@ const cinematic = { ease: [0.22, 1, 0.36, 1] as const };
 
 export default function HeroSection({ dict, locale }: { dict: Dictionary; locale: string }) {
   const [partyMode, setPartyMode] = useState(false);
+  const isDesktop = useIsDesktop();
 
   // Keyboard Konami Code Cheat listener (Unlocks Retro Party Mode!)
   useEffect(() => {
@@ -65,30 +72,7 @@ export default function HeroSection({ dict, locale }: { dict: Dictionary; locale
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, #0e0e0e, transparent, rgba(14,14,14,0.6))' }} />
       </div>
 
-      {/* Camera drift & Party neon rainbow keyframes */}
-      <style>{`
-        @keyframes hero-drift-x {
-          0%   { margin-left: 0px; }
-          20%  { margin-left: -15px; }
-          45%  { margin-left: 10px; }
-          70%  { margin-left: -8px; }
-          100% { margin-left: 0px; }
-        }
-        @keyframes hero-drift-y {
-          0%   { margin-top: 0px; }
-          25%  { margin-top: -12px; }
-          50%  { margin-top: 8px; }
-          75%  { margin-top: -16px; }
-          100% { margin-top: 0px; }
-        }
-        @keyframes party-hue {
-          0% { filter: hue-rotate(0deg); }
-          100% { filter: hue-rotate(360deg); }
-        }
-        .party-rainbow-mode {
-          animation: party-hue 8s linear infinite;
-        }
-      `}</style>
+      {/* Keyframes moved to globals.css for performance */}
 
       {/* Ambient green glow — subtle and cinematic */}
       <div className="absolute inset-0 pointer-events-none">
@@ -100,33 +84,35 @@ export default function HeroSection({ dict, locale }: { dict: Dictionary; locale
           Covers right ~65% of the hero and extends 
           120px BELOW the section for that "loose" feel.
           ============================================ */}
-      <motion.div
-        initial={false}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.2, delay: 0.5, ...cinematic }}
-        className="hidden lg:block absolute z-10 animate-grab-guide"
-        style={{
-          top: "-40px",
-          bottom: "0px",
-          left: "30%",
-          right: "-40px",
-          willChange: "transform",
-          transform: "translateZ(0)",
-        }}
-      >
-        <Scene3DWrapper className="absolute inset-0" interactive>
-          <HeroModel3D />
-        </Scene3DWrapper>
-
-        {/* Bottom fade — smooth blend before console icons section */}
-        <div
-          className="absolute bottom-0 left-0 right-0 pointer-events-none z-10"
+      {isDesktop && (
+        <motion.div
+          initial={false}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2, delay: 0.5, ...cinematic }}
+          className="absolute z-10 animate-grab-guide"
           style={{
-            height: "30%",
-            background: "linear-gradient(to top, #0e0e0e 5%, rgba(14,14,14,0.7) 35%, transparent 100%)",
+            top: "-40px",
+            bottom: "0px",
+            left: "30%",
+            right: "-40px",
+            willChange: "transform",
+            transform: "translateZ(0)",
           }}
-        />
-      </motion.div>
+        >
+          <Scene3DWrapper className="absolute inset-0" interactive>
+            <HeroModel3D />
+          </Scene3DWrapper>
+
+          {/* Bottom fade — smooth blend before console icons section */}
+          <div
+            className="absolute bottom-0 left-0 right-0 pointer-events-none z-10"
+            style={{
+              height: "30%",
+              background: "linear-gradient(to top, #0e0e0e 5%, rgba(14,14,14,0.7) 35%, transparent 100%)",
+            }}
+          />
+        </motion.div>
+      )}
 
       {/* Konami falling pixel elements (Party Mode!) */}
       {partyMode && (
