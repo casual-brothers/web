@@ -8,80 +8,78 @@ import CookieBanner from "@/components/ui/CookieBanner";
 import ScrollHeader from "@/components/ui/ScrollHeader";
 import HeaderNav from "@/components/ui/HeaderNav";
 import JsonLd from "@/components/seo/JsonLd";
+import { getSeoAlternates } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://casualbrothers.com"),
-  title: {
-    default: "Casual Brothers — Game Development Studio",
-    template: "%s | Casual Brothers",
-  },
-  description:
-    "We make games worth remembering. 15+ titles shipped, 100M+ downloads. Game development, co-development, porting, and live ops for the world's biggest entertainment IPs.",
-  keywords: [
-    "game development studio",
-    "co-development",
-    "game porting",
-    "Unity development",
-    "Unreal Engine",
-    "live ops",
-    "AA game studio",
-    "Casual Brothers",
-    "video game development UK",
-  ],
-  authors: [{ name: "Casual Brothers", url: "https://casualbrothers.com" }],
-  creator: "Casual Brothers",
-  publisher: "Casual Brothers",
-  icons: {
-    icon: `${basePath}/images/branding/cb-icon-01.svg`,
-    shortcut: `${basePath}/images/branding/cb-icon-01.svg`,
-    apple: `${basePath}/images/branding/cb-icon-01.svg`,
-  },
-  openGraph: {
-    type: "website",
-    locale: "en_GB",
-    alternateLocale: "es_ES",
-    siteName: "Casual Brothers",
-    title: "Casual Brothers — Game Development Studio",
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    metadataBase: new URL("https://casualbrothers.com"),
+    title: {
+      default: "Casual Brothers — Game Development Studio",
+      template: "%s | Casual Brothers",
+    },
     description:
-      "We make games worth remembering. 15+ titles shipped, 100M+ downloads. The studio trusted by the world's biggest entertainment IPs and publishers.",
-    url: "https://casualbrothers.com",
-    images: [
-      {
-        url: `${basePath}/images/branding/og-cover.png`,
-        width: 1200,
-        height: 630,
-        alt: "Casual Brothers — Game Development Studio",
-      },
+      "We make games worth remembering. 15+ titles shipped, 100M+ downloads. Game development, co-development, porting, and live ops for the world's biggest entertainment IPs.",
+    keywords: [
+      "game development studio",
+      "co-development",
+      "game porting",
+      "Unity development",
+      "Unreal Engine",
+      "live ops",
+      "AA game studio",
+      "Casual Brothers",
+      "video game development UK",
     ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    site: "@casualbrothers",
-    creator: "@casualbrothers",
-    title: "Casual Brothers — Game Development Studio",
-    description:
-      "We make games worth remembering. 15+ titles shipped. 100M+ downloads.",
-    images: [`${basePath}/images/branding/og-cover.png`],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
+    authors: [{ name: "Casual Brothers", url: "https://casualbrothers.com" }],
+    creator: "Casual Brothers",
+    publisher: "Casual Brothers",
+    icons: {
+      icon: `${basePath}/images/branding/cb-icon-01.svg`,
+      shortcut: `${basePath}/images/branding/cb-icon-01.svg`,
+      apple: `${basePath}/images/branding/cb-icon-01.svg`,
+    },
+    openGraph: {
+      type: "website",
+      locale: locale === "es" ? "es_ES" : "en_GB",
+      alternateLocale: locale === "es" ? "en_GB" : "es_ES",
+      siteName: "Casual Brothers",
+      title: "Casual Brothers — Game Development Studio",
+      description:
+        "We make games worth remembering. 15+ titles shipped, 100M+ downloads. The studio trusted by the world's biggest entertainment IPs and publishers.",
+      url: `https://casualbrothers.com/${locale}`,
+      images: [
+        {
+          url: `${basePath}/images/branding/og-cover.png`,
+          width: 1200,
+          height: 630,
+          alt: "Casual Brothers — Game Development Studio",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      site: "@casualbrothers",
+      creator: "@casualbrothers",
+      title: "Casual Brothers — Game Development Studio",
+      description:
+        "We make games worth remembering. 15+ titles shipped. 100M+ downloads.",
+      images: [`${basePath}/images/branding/og-cover.png`],
+    },
+    robots: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
-  },
-  alternates: {
-    canonical: "https://casualbrothers.com",
-    languages: {
-      en: "https://casualbrothers.com/en",
-      es: "https://casualbrothers.com/es",
-    },
-  },
-};
+    alternates: getSeoAlternates(locale),
+  };
+}
 
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ locale }));

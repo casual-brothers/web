@@ -6,6 +6,7 @@ import TeamGrid from "@/components/ui/TeamGrid";
 import CTASection from "@/components/sections/CTASection";
 
 import type { Metadata } from "next";
+import { getSeoAlternates } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -13,6 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: dict.nav.about,
     description: dict.about.teamSubtitle,
+    alternates: getSeoAlternates(locale, "about"),
   };
 }
 

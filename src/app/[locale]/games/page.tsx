@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getDictionary } from "@/i18n/getDictionary";
 import GamesPageClient from "./GamesPageClient";
+import { getSeoAlternates } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -8,6 +9,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: dict.nav.games,
     description: dict.games.subtitle,
+    alternates: getSeoAlternates(locale, "games"),
   };
 }
 

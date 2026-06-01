@@ -10,6 +10,7 @@ import { assetPath } from "@/lib/basePath";
 import GamingStudioGraphic from "@/components/ui/GamingStudioGraphic";
 
 import type { Metadata } from "next";
+import { getSeoAlternates } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -17,6 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: dict.nav.services,
     description: dict.home.servicesSubtitle,
+    alternates: getSeoAlternates(locale, "services"),
   };
 }
 

@@ -1,4 +1,15 @@
+import type { Metadata } from "next";
 import { getDictionary } from "@/i18n/getDictionary";
+import { getSeoAlternates } from "@/lib/seo";
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const dict = await getDictionary(locale);
+  return {
+    title: dict.privacy.title,
+    alternates: getSeoAlternates(locale, "privacy-policy"),
+  };
+}
 
 export default async function PrivacyPolicyPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
