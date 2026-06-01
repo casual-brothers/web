@@ -336,7 +336,6 @@ export default function GamesPageClient({ dict, locale }: { dict: Dictionary; lo
                 <GameCard
                   key={game.id}
                   game={game}
-                  viewGameText={dict.home.viewGame}
                   index={catIdx * 10 + idx}
                 />
               ))}

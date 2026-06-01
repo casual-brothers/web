@@ -8,7 +8,6 @@ import type { GameData } from "@/data/games";
 
 interface GameCardProps {
   game: GameData;
-  viewGameText: string;
   index: number;
   isHero?: boolean;
 }
@@ -51,7 +50,7 @@ function applyConstraints(img: HTMLImageElement): string | null {
   return null;
 }
 
-export default function GameCard({ game, viewGameText, index, isHero = false }: GameCardProps) {
+export default function GameCard({ game, index, isHero = false }: GameCardProps) {
   const [logoConstraints, setLogoConstraints] = useState("max-w-[80%] max-h-[80%]");
   const measured = useRef(false);
 
@@ -250,20 +249,6 @@ export default function GameCard({ game, viewGameText, index, isHero = false }: 
         <h3 className="sr-only">
           {game.title}
         </h3>
-
-        {/* Interactive Action call text on hover */}
-        {isHovered && (
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className="mt-1"
-          >
-            <span className="text-[10px] font-bold uppercase tracking-widest text-brand border-b border-brand/40 pb-0.5 hover:text-white transition-colors duration-300">
-              {viewGameText}
-            </span>
-          </motion.div>
-        )}
       </div>
         </motion.div>
       </motion.div>

@@ -44,7 +44,6 @@ export default function GamesSection({
       <div className="w-full overflow-visible">
         <GameCarousel3D
           games={games}
-          viewGameText={dict.home.viewGame}
           locale={locale}
         />
       </div>

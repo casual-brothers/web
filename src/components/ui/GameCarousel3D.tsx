@@ -7,11 +7,10 @@ import type { GameData } from "@/data/games";
 
 interface GameCarousel3DProps {
   games: GameData[];
-  viewGameText: string;
   locale: string;
 }
 
-export default function GameCarousel3D({ games, viewGameText, locale }: GameCarousel3DProps) {
+export default function GameCarousel3D({ games, locale }: GameCarousel3DProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
@@ -336,19 +335,6 @@ export default function GameCarousel3D({ games, viewGameText, locale }: GameCaro
                   </motion.div>
                 )}
 
-                {/* Play Interactive Action on Active Card */}
-                {isActive && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.15, duration: 0.3 }}
-                    className="mt-1"
-                  >
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-brand border-b border-brand/40 pb-0.5 hover:text-white transition-colors duration-300">
-                      {viewGameText}
-                    </span>
-                  </motion.div>
-                )}
               </div>
             </motion.div>
           );
