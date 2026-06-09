@@ -7,6 +7,7 @@
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en"/>
   </url>
   <url>
     <loc>https://casualbrothers.com/es</loc>
@@ -14,6 +15,7 @@
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en"/>
   </url>
   <url>
     <loc>https://casualbrothers.com/en/games</loc>
@@ -21,6 +23,7 @@
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/games"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/games"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/games"/>
   </url>
   <url>
     <loc>https://casualbrothers.com/es/games</loc>
@@ -28,6 +31,7 @@
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/games"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/games"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/games"/>
   </url>
   <url>
     <loc>https://casualbrothers.com/en/services</loc>
@@ -35,6 +39,7 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/services"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/services"/>
   </url>
   <url>
     <loc>https://casualbrothers.com/es/services</loc>
@@ -42,6 +47,7 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/services"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/services"/>
   </url>
   <url>
     <loc>https://casualbrothers.com/en/about</loc>
@@ -49,6 +55,7 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/about"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/about"/>
   </url>
   <url>
     <loc>https://casualbrothers.com/es/about</loc>
@@ -56,6 +63,7 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/about"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/about"/>
   </url>
   <url>
     <loc>https://casualbrothers.com/en/careers</loc>
@@ -63,6 +71,7 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/careers"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/careers"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/careers"/>
   </url>
   <url>
     <loc>https://casualbrothers.com/es/careers</loc>
@@ -70,6 +79,7 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/careers"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/careers"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/careers"/>
   </url>
   <url>
     <loc>https://casualbrothers.com/en/contact</loc>
@@ -77,6 +87,7 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/contact"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/contact"/>
   </url>
   <url>
     <loc>https://casualbrothers.com/es/contact</loc>
@@ -84,47 +95,54 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/contact"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/contact"/>
   </url>
   <url>
     <loc>https://casualbrothers.com/en/privacy-policy</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.2</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/privacy-policy"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/privacy-policy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/privacy-policy"/>
   </url>
   <url>
     <loc>https://casualbrothers.com/es/privacy-policy</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.2</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/privacy-policy"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/privacy-policy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/privacy-policy"/>
   </url>
   <url>
     <loc>https://casualbrothers.com/en/cookie-policy</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.2</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/cookie-policy"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/cookie-policy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/cookie-policy"/>
   </url>
   <url>
     <loc>https://casualbrothers.com/es/cookie-policy</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.2</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/cookie-policy"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/cookie-policy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/cookie-policy"/>
   </url>
   <url>
     <loc>https://casualbrothers.com/en/legal-notice</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.2</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/legal-notice"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/legal-notice"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/legal-notice"/>
   </url>
   <url>
     <loc>https://casualbrothers.com/es/legal-notice</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.2</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/legal-notice"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/legal-notice"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/legal-notice"/>
   </url>
 </urlset>

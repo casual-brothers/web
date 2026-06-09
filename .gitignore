@@ -54,3 +54,10 @@ next-env.d.ts
 .gemini/credentials*.json
 .gemini/venv*/
 # Keep shared: AGENTS.md, KnowledgeBase/, .gemini/google_mcp_server.py
+
+# ── Local dev helpers ────────────────────────────────
+dev.bat
+
+# ── Internal / private docs (never push to repo) ────
+scripts/*.txt
+scripts/*.py

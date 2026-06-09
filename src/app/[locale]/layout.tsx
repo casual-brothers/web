@@ -8,22 +8,24 @@ import CookieBanner from "@/components/ui/CookieBanner";
 import ScrollHeader from "@/components/ui/ScrollHeader";
 import HeaderNav from "@/components/ui/HeaderNav";
 import JsonLd from "@/components/seo/JsonLd";
-import { getSeoAlternates } from "@/lib/seo";
+import { getDefaultSeo, getSeoAlternates, siteUrl } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
+  const seo = getDefaultSeo(locale);
   return {
-    metadataBase: new URL("https://casualbrothers.com"),
-    title: {
-      default: "Casual Brothers — Game Development Studio",
-      template: "%s | Casual Brothers",
-    },
-    description:
-      "We make games worth remembering. 15+ titles shipped, 100M+ downloads. Game development, co-development, porting, and live ops for the world's biggest entertainment IPs.",
+    metadataBase: new URL(siteUrl),
+    title: seo.title,
+    description: seo.description,
     keywords: [
       "game development studio",
+      "casual game company",
+      "casual game developers",
+      "casual game development company",
+      "hybrid casual game development",
       "co-development",
       "game porting",
+      "console porting",
       "Unity development",
       "Unreal Engine",
       "live ops",
@@ -44,10 +46,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       locale: locale === "es" ? "es_ES" : "en_GB",
       alternateLocale: locale === "es" ? "en_GB" : "es_ES",
       siteName: "Casual Brothers",
-      title: "Casual Brothers — Game Development Studio",
-      description:
-        "We make games worth remembering. 15+ titles shipped, 100M+ downloads. The studio trusted by the world's biggest entertainment IPs and publishers.",
-      url: `https://casualbrothers.com/${locale}`,
+      title: `${seo.title} | Casual Brothers`,
+      description: seo.description,
+      url: `${siteUrl}/${locale}`,
       images: [
         {
           url: `${basePath}/images/branding/og-cover.png`,
@@ -61,9 +62,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       card: "summary_large_image",
       site: "@casualbrothers",
       creator: "@casualbrothers",
-      title: "Casual Brothers — Game Development Studio",
-      description:
-        "We make games worth remembering. 15+ titles shipped. 100M+ downloads.",
+      title: `${seo.title} | Casual Brothers`,
+      description: seo.description,
       images: [`${basePath}/images/branding/og-cover.png`],
     },
     robots: {

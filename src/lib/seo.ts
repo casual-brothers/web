@@ -1,5 +1,80 @@
 import { Metadata } from "next";
 
+export const siteUrl = "https://casualbrothers.com";
+
+const defaultDescriptions = {
+  en: "Game development studio for publishers and IP owners: full-cycle development, co-development, porting, live ops, and art/tech production. 15+ titles shipped, 100M+ downloads.",
+  es: "Estudio de desarrollo de videojuegos para publishers y titulares de IP: desarrollo completo, co-desarrollo, porting, live ops y arte/tech. 15+ titulos lanzados, 100M+ descargas.",
+};
+
+const pageSeo = {
+  en: {
+    home: {
+      title: "Game Development Studio for Publishers & IP Owners",
+      description: defaultDescriptions.en,
+    },
+    games: {
+      title: "Shipped Games Portfolio",
+      description:
+        "Explore Casual Brothers' shipped games across full development, co-development, console porting, kids entertainment, racing, adventure, and global entertainment IPs.",
+    },
+    services: {
+      title: "Game Development Services",
+      description:
+        "Full-cycle game development, co-development, console and PC porting, live ops, and art/tech support for publishers, IP owners, and game studios.",
+    },
+    about: {
+      title: "About the Studio",
+      description:
+        "Meet Casual Brothers: a remote game development studio with 50+ specialists, 15+ shipped titles, and production experience for major entertainment IPs.",
+    },
+    careers: {
+      title: "Game Development Careers",
+      description:
+        "Join a remote game development team shipping commercial Unity and Unreal projects across PC, console, mobile, and major entertainment IPs.",
+    },
+    contact: {
+      title: "Contact a Game Development Partner",
+      description:
+        "Talk to Casual Brothers about full game development, co-development, porting, live ops, art production, or a confidential publisher brief.",
+    },
+  },
+  es: {
+    home: {
+      title: "Estudio de Desarrollo de Videojuegos para Publishers e IPs",
+      description: defaultDescriptions.es,
+    },
+    games: {
+      title: "Portfolio de Juegos Lanzados",
+      description:
+        "Explora los juegos lanzados por Casual Brothers: desarrollo completo, co-desarrollo, porting a consola, entretenimiento familiar, racing, aventura e IPs globales.",
+    },
+    services: {
+      title: "Servicios de Desarrollo de Videojuegos",
+      description:
+        "Desarrollo completo de videojuegos, co-desarrollo, porting para consola y PC, live ops y soporte de arte/tech para publishers, titulares de IP y estudios.",
+    },
+    about: {
+      title: "Sobre el Estudio",
+      description:
+        "Conoce Casual Brothers: estudio remoto de desarrollo de videojuegos con 50+ especialistas, 15+ titulos lanzados y experiencia con grandes IPs de entretenimiento.",
+    },
+    careers: {
+      title: "Empleo en Desarrollo de Videojuegos",
+      description:
+        "Unete a un equipo remoto de desarrollo de videojuegos que lanza proyectos comerciales en Unity y Unreal para PC, consola, movil e IPs reconocidas.",
+    },
+    contact: {
+      title: "Contacta con un Partner de Desarrollo de Videojuegos",
+      description:
+        "Habla con Casual Brothers sobre desarrollo completo, co-desarrollo, porting, live ops, produccion artistica o un brief confidencial para publishers.",
+    },
+  },
+} as const;
+
+export type SeoPage = keyof typeof pageSeo.en;
+export type SeoLocale = keyof typeof pageSeo;
+
 /**
  * Genera el objeto `alternates` (canonical y hreflang alternos) para los metadatos de Next.js
  * de forma dinámica e independiente para cada página y su idioma.
@@ -10,10 +85,41 @@ import { Metadata } from "next";
 export function getSeoAlternates(locale: string, path: string = ""): Metadata["alternates"] {
   const cleanPath = path ? `/${path}` : "";
   return {
-    canonical: `https://casualbrothers.com/${locale}${cleanPath}`,
+    canonical: `${siteUrl}/${locale}${cleanPath}`,
     languages: {
-      en: `https://casualbrothers.com/en${cleanPath}`,
-      es: `https://casualbrothers.com/es${cleanPath}`,
+      en: `${siteUrl}/en${cleanPath}`,
+      es: `${siteUrl}/es${cleanPath}`,
+      "x-default": `${siteUrl}/en${cleanPath}`,
+    },
+  };
+}
+
+export function getPageSeo(locale: string, page: SeoPage) {
+  const safeLocale: SeoLocale = locale === "es" ? "es" : "en";
+  return pageSeo[safeLocale][page];
+}
+
+export function getDefaultSeo(locale: string) {
+  const safeLocale: SeoLocale = locale === "es" ? "es" : "en";
+  return pageSeo[safeLocale].home;
+}
+
+export function getPageMetadata(locale: string, page: SeoPage, path: string = ""): Metadata {
+  const seo = getPageSeo(locale, page);
+  const cleanPath = path ? `/${path}` : "";
+
+  return {
+    title: seo.title,
+    description: seo.description,
+    alternates: getSeoAlternates(locale, path),
+    openGraph: {
+      title: `${seo.title} | Casual Brothers`,
+      description: seo.description,
+      url: `${siteUrl}/${locale}${cleanPath}`,
+    },
+    twitter: {
+      title: `${seo.title} | Casual Brothers`,
+      description: seo.description,
     },
   };
 }

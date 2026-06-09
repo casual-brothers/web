@@ -6,16 +6,11 @@ import TeamGrid from "@/components/ui/TeamGrid";
 import CTASection from "@/components/sections/CTASection";
 
 import type { Metadata } from "next";
-import { getSeoAlternates } from "@/lib/seo";
+import { getPageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  const dict = await getDictionary(locale);
-  return {
-    title: dict.nav.about,
-    description: dict.about.teamSubtitle,
-    alternates: getSeoAlternates(locale, "about"),
-  };
+  return getPageMetadata(locale, "about", "about");
 }
 
 export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
