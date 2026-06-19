@@ -26,7 +26,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <GamesSection dict={dict} locale={locale} games={featuredGames} />
 
         {/* SERVICES */}
-        <ServicesSection dict={dict} services={servicesData} />
+        <ServicesSection dict={dict} services={servicesData} locale={locale} />
       </div>
 
       {/* ABOUT — outside max-w container for full-bleed 3D */}

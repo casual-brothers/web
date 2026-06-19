@@ -23,6 +23,11 @@ const pageSeo = {
       description:
         "Full-cycle game development, co-development, console and PC porting, live ops, and art/tech support for publishers, IP owners, and game studios.",
     },
+    gameDevelopmentCompany: {
+      title: "Game Development Company for Publishers",
+      description:
+        "A game development company for publishers and IP owners: full-cycle production, co-development, console porting, live ops, and art/tech support from a 50+ specialist remote studio.",
+    },
     about: {
       title: "About the Studio",
       description:
@@ -53,6 +58,11 @@ const pageSeo = {
       title: "Servicios de Desarrollo de Videojuegos",
       description:
         "Desarrollo completo de videojuegos, co-desarrollo, porting para consola y PC, live ops y soporte de arte/tech para publishers, titulares de IP y estudios.",
+    },
+    gameDevelopmentCompany: {
+      title: "Game Development Company para Publishers",
+      description:
+        "Una game development company para publishers y titulares de IP: desarrollo completo, co-desarrollo, porting a consola, live ops y soporte de arte/tech con 50+ especialistas remotos.",
     },
     about: {
       title: "Sobre el Estudio",

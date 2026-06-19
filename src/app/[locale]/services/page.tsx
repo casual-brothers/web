@@ -60,13 +60,22 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
             </p>
 
             <div className="pt-4">
-              <Link
-                href={`/${locale}/contact`}
-                className="inline-flex items-center gap-3 px-8 py-4 bg-brand text-black font-bold uppercase tracking-wider text-sm rounded hover:bg-brand-light hover:scale-105 transition-all duration-300"
-              >
-                {dict.nav.workWithUs}
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  href={`/${locale}/contact`}
+                  className="inline-flex items-center gap-3 px-8 py-4 bg-brand text-black font-bold uppercase tracking-wider text-sm rounded hover:bg-brand-light hover:scale-105 transition-all duration-300"
+                >
+                  {dict.nav.workWithUs}
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  href={`/${locale}/game-development-company`}
+                  className="btn-outline"
+                >
+                  {isEs ? "SOLUCIONES PARA PUBLISHERS & IPS" : "PUBLISHER & IP SOLUTIONS"}
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
             </div>
           </div>
 

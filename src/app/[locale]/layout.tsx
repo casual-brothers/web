@@ -149,6 +149,12 @@ export default async function LocaleLayout({
                     {link.label}
                   </Link>
                 ))}
+                <Link
+                  href={`/${locale}/game-development-company`}
+                  className="text-sm text-white/40 hover:text-brand transition-colors duration-300 col-span-2 mt-1 pt-1 border-t border-white/5 font-semibold text-brand/80"
+                >
+                  {locale === 'es' ? 'Compañía de Desarrollo de Videojuegos' : 'Game Development Company'}
+                </Link>
               </div>
             </div>
 
