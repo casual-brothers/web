@@ -51,7 +51,7 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
               <div className="w-12 h-px bg-white/10" />
             </div>
 
-            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold uppercase leading-[0.95] tracking-tight">
+            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold uppercase leading-[0.95]">
               {heroDict.title}
             </h1>
 
@@ -72,7 +72,7 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
                   href={`/${locale}/game-development-company`}
                   className="btn-outline"
                 >
-                  {isEs ? "SOLUCIONES PARA PUBLISHERS & IPS" : "PUBLISHER & IP SOLUTIONS"}
+                  {isEs ? "CASUAL GAME DEVELOPERS" : "CASUAL GAME DEVELOPERS"}
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -114,8 +114,8 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
               <div className="w-12 h-px bg-white/10" />
             </div>
 
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold uppercase leading-[0.98] tracking-tight">
-              {isEs ? "Una game development company para publishers que necesitan lanzar." : "A casual game development company built for publishers who need to ship."}
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold uppercase leading-[0.98]">
+              {isEs ? "Una casual game development company para publishers que necesitan lanzar." : "A casual game development company built for publishers who need to ship."}
             </h2>
           </div>
 
@@ -141,15 +141,15 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
 
             <p className="text-sm text-white/40">
               {isEs
-                ? "Si buscas casual game developers, un partner de co-development o una game development company capaz de llevar un brief sensible hasta certificacion, esta es la conversacion que merece abrirse."
-                : "If you are looking for casual game developers, a co-development partner, or a game development company that can take a sensitive brief through certification, this is the conversation worth opening."}
+                ? "Si buscas casual game developers, una casual game company o casual game studios capaces de llevar un brief sensible hasta certificacion, revisa nuestro enfoque B2B."
+                : "If you are looking for casual game developers, a casual game company, or casual game studios that can take a sensitive brief through certification, review our B2B approach."}
             </p>
 
             <Link
-              href={`/${locale}/contact`}
+              href={`/${locale}/game-development-company`}
               className="btn-outline inline-flex"
             >
-              {dict.nav.workWithUs}
+              {isEs ? "Ver enfoque B2B" : "See B2B approach"}
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

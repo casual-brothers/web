@@ -19,6 +19,11 @@ const Scene3DWrapper = dynamic(() => import("@/components/3d/Scene3DWrapper"), {
 const HeroModel3D = dynamic(() => import("@/components/3d/HeroModel3D"), { ssr: false });
 
 const cinematic = { ease: [0.22, 1, 0.36, 1] as const };
+const partyShapes = ["👾", "🪙", "🍒", "❤️", "🎮", "⭐"];
+const seededRatio = (seed: number) => {
+  const value = Math.sin(seed * 12.9898) * 43758.5453;
+  return value - Math.floor(value);
+};
 
 export default function HeroSection({ dict, locale }: { dict: Dictionary; locale: string }) {
   const [partyMode, setPartyMode] = useState(false);
@@ -118,12 +123,11 @@ export default function HeroSection({ dict, locale }: { dict: Dictionary; locale
       {partyMode && (
         <div className="absolute inset-0 pointer-events-none z-30 overflow-hidden">
           {Array.from({ length: 45 }).map((_, i) => {
-            const left = Math.random() * 100;
-            const delay = Math.random() * 8;
-            const duration = 4 + Math.random() * 5;
-            const scale = 0.5 + Math.random() * 0.8;
-            const shapes = ["👾", "🪙", "🍒", "❤️", "🎮", "⭐"];
-            const shape = shapes[i % shapes.length];
+            const left = seededRatio(i + 1) * 100;
+            const delay = seededRatio(i + 11) * 8;
+            const duration = 4 + seededRatio(i + 21) * 5;
+            const scale = 0.5 + seededRatio(i + 31) * 0.8;
+            const shape = partyShapes[i % partyShapes.length];
 
             return (
               <div
@@ -179,11 +183,11 @@ export default function HeroSection({ dict, locale }: { dict: Dictionary; locale
             initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.3, ...cinematic }}
-            className="font-display text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold uppercase leading-[0.95] tracking-tight"
+            className="font-display text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold uppercase leading-[0.95]"
           >
             {dict.home.heroLine1}
             <br />
-            <span className="text-gradient-brand" style={{ backgroundImage: 'linear-gradient(135deg, #7cff00 0%, #ffffff 50%, #9eff24 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', color: 'transparent' }}>{dict.home.heroLine2}</span>
+            <span className="text-gradient-brand">{dict.home.heroLine2}</span>
             <br />
             {dict.home.heroLine3}
           </motion.h1>
@@ -209,14 +213,14 @@ export default function HeroSection({ dict, locale }: { dict: Dictionary; locale
             transition={{ duration: 0.7, delay: 0.7, ...cinematic }}
             className="flex flex-wrap gap-4 pt-2"
           >
-            <Link href={`/${locale}/games`} className="btn-primary">
-              {dict.home.viewGames}
+            <Link href={`/${locale}/contact`} className="btn-primary">
+              {dict.home.workWithUs}
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>
-            <Link href={`/${locale}/contact`} className="btn-outline">
-              {dict.home.workWithUs}
+            <Link href={`/${locale}/case-studies`} className="btn-outline">
+              {dict.home.viewGames}
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>

@@ -34,9 +34,137 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/games"/>
   </url>
   <url>
+    <loc>https://casualbrothers.com/en/case-studies</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/es/case-studies</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/en/publishers</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/publishers"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/publishers"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/publishers"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/es/publishers</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/publishers"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/publishers"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/publishers"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/en/game-development-services</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/game-development-services"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/game-development-services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/game-development-services"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/es/game-development-services</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/game-development-services"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/game-development-services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/game-development-services"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/en/co-development-game-studio</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/co-development-game-studio"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/co-development-game-studio"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/co-development-game-studio"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/es/co-development-game-studio</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/co-development-game-studio"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/co-development-game-studio"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/co-development-game-studio"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/en/console-porting-services</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/console-porting-services"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/console-porting-services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/console-porting-services"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/es/console-porting-services</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/console-porting-services"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/console-porting-services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/console-porting-services"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/en/licensed-ip-game-development</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/licensed-ip-game-development"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/licensed-ip-game-development"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/licensed-ip-game-development"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/es/licensed-ip-game-development</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/licensed-ip-game-development"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/licensed-ip-game-development"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/licensed-ip-game-development"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/en/unity-game-development-studio</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/unity-game-development-studio"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/unity-game-development-studio"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/unity-game-development-studio"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/es/unity-game-development-studio</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/unity-game-development-studio"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/unity-game-development-studio"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/unity-game-development-studio"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/en/resources</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.45</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/resources"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/resources"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/resources"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/es/resources</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.45</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/resources"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/resources"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/resources"/>
+  </url>
+  <url>
     <loc>https://casualbrothers.com/en/services</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/services"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/services"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/services"/>
@@ -44,7 +172,7 @@
   <url>
     <loc>https://casualbrothers.com/es/services</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/services"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/services"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/services"/>
@@ -84,7 +212,7 @@
   <url>
     <loc>https://casualbrothers.com/en/careers</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/careers"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/careers"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/careers"/>
@@ -92,7 +220,7 @@
   <url>
     <loc>https://casualbrothers.com/es/careers</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/careers"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/careers"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/careers"/>
@@ -100,7 +228,7 @@
   <url>
     <loc>https://casualbrothers.com/en/contact</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/contact"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/contact"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/contact"/>
@@ -108,7 +236,7 @@
   <url>
     <loc>https://casualbrothers.com/es/contact</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/contact"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/contact"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/contact"/>
@@ -160,5 +288,453 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/legal-notice"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/legal-notice"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/legal-notice"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/en/case-studies/marupoyo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/marupoyo"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/marupoyo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/marupoyo"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/es/case-studies/marupoyo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/marupoyo"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/marupoyo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/marupoyo"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/en/case-studies/hot-rod-mayhem</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/hot-rod-mayhem"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/hot-rod-mayhem"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/hot-rod-mayhem"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/es/case-studies/hot-rod-mayhem</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/hot-rod-mayhem"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/hot-rod-mayhem"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/hot-rod-mayhem"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/en/case-studies/cat-in-the-hat</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/cat-in-the-hat"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/cat-in-the-hat"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/cat-in-the-hat"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/es/case-studies/cat-in-the-hat</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/cat-in-the-hat"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/cat-in-the-hat"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/cat-in-the-hat"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/en/case-studies/grinch</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/grinch"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/grinch"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/grinch"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/es/case-studies/grinch</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/grinch"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/grinch"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/grinch"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/en/case-studies/westerner</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/westerner"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/westerner"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/westerner"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/es/case-studies/westerner</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/westerner"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/westerner"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/westerner"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/en/case-studies/matchbox</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/matchbox"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/matchbox"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/matchbox"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/es/case-studies/matchbox</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/matchbox"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/matchbox"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/matchbox"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/en/case-studies/3-skulls-of-the-toltecs</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/3-skulls-of-the-toltecs"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/3-skulls-of-the-toltecs"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/3-skulls-of-the-toltecs"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/es/case-studies/3-skulls-of-the-toltecs</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/3-skulls-of-the-toltecs"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/3-skulls-of-the-toltecs"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/3-skulls-of-the-toltecs"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/en/case-studies/orc-attack</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/orc-attack"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/orc-attack"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/orc-attack"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/es/case-studies/orc-attack</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/orc-attack"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/orc-attack"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/orc-attack"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/en/case-studies/elf</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/elf"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/elf"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/elf"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/es/case-studies/elf</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/elf"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/elf"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/elf"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/en/case-studies/levantate</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/levantate"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/levantate"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/levantate"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/es/case-studies/levantate</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/levantate"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/levantate"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/levantate"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/en/case-studies/ot</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/ot"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/ot"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/ot"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/es/case-studies/ot</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/ot"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/ot"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/ot"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/en/case-studies/gigantosaurus-world</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/gigantosaurus-world"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/gigantosaurus-world"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/gigantosaurus-world"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/es/case-studies/gigantosaurus-world</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/gigantosaurus-world"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/gigantosaurus-world"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/gigantosaurus-world"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/en/case-studies/killing-floor-2</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/killing-floor-2"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/killing-floor-2"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/killing-floor-2"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/es/case-studies/killing-floor-2</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/killing-floor-2"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/killing-floor-2"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/killing-floor-2"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/en/case-studies/monster-high</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/monster-high"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/monster-high"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/monster-high"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/es/case-studies/monster-high</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/monster-high"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/monster-high"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/monster-high"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/en/case-studies/evil-dead</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/evil-dead"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/evil-dead"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/evil-dead"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/es/case-studies/evil-dead</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/evil-dead"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/evil-dead"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/evil-dead"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/en/case-studies/bluey</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/bluey"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/bluey"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/bluey"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/es/case-studies/bluey</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/bluey"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/bluey"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/bluey"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/en/case-studies/barbie</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/barbie"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/barbie"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/barbie"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/es/case-studies/barbie</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/barbie"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/barbie"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/barbie"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/en/case-studies/ice-age</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/ice-age"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/ice-age"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/ice-age"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/es/case-studies/ice-age</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/ice-age"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/ice-age"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/ice-age"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/en/case-studies/gigantosaurus</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/gigantosaurus"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/gigantosaurus"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/gigantosaurus"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/es/case-studies/gigantosaurus</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/gigantosaurus"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/gigantosaurus"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/gigantosaurus"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/en/case-studies/jojo-siwa</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/jojo-siwa"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/jojo-siwa"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/jojo-siwa"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/es/case-studies/jojo-siwa</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/jojo-siwa"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/jojo-siwa"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/jojo-siwa"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/en/case-studies/jumanji</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/jumanji"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/jumanji"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/jumanji"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/es/case-studies/jumanji</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/jumanji"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/jumanji"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/jumanji"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/en/case-studies/dragons</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/dragons"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/dragons"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/dragons"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/es/case-studies/dragons</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/dragons"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/dragons"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/dragons"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/en/case-studies/chicken-run</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/chicken-run"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/chicken-run"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/chicken-run"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/es/case-studies/chicken-run</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/chicken-run"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/chicken-run"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/chicken-run"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/en/case-studies/transformers</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/transformers"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/transformers"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/transformers"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/es/case-studies/transformers</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/transformers"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/transformers"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/transformers"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/en/case-studies/ben-10</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/ben-10"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/ben-10"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/ben-10"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/es/case-studies/ben-10</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/ben-10"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/ben-10"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/ben-10"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/en/case-studies/addams-family</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/addams-family"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/addams-family"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/addams-family"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/es/case-studies/addams-family</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/addams-family"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/addams-family"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/addams-family"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/en/case-studies/trollhunters</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/trollhunters"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/trollhunters"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/trollhunters"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/es/case-studies/trollhunters</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/trollhunters"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/trollhunters"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/trollhunters"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/en/case-studies/my-little-pony</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/my-little-pony"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/my-little-pony"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/my-little-pony"/>
+  </url>
+  <url>
+    <loc>https://casualbrothers.com/es/case-studies/my-little-pony</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://casualbrothers.com/en/case-studies/my-little-pony"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://casualbrothers.com/es/case-studies/my-little-pony"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://casualbrothers.com/en/case-studies/my-little-pony"/>
   </url>
 </urlset>

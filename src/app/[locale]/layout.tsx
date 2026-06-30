@@ -99,8 +99,20 @@ export default async function LocaleLayout({
     { href: `/${locale}`, label: dict.nav.home },
     { href: `/${locale}/games`, label: dict.nav.games },
     { href: `/${locale}/services`, label: dict.nav.services },
+    { href: `/${locale}/publishers`, label: "PUBLISHERS" },
     { href: `/${locale}/about`, label: dict.nav.about },
     { href: `/${locale}/careers`, label: dict.nav.careers },
+    { href: `/${locale}/contact`, label: dict.nav.contact },
+  ];
+  const footerSeoLinks = [
+    { href: `/${locale}/game-development-services`, label: locale === "es" ? "Game Development Services" : "Game Development Services" },
+    { href: `/${locale}/co-development-game-studio`, label: locale === "es" ? "Co-Development" : "Co-Development" },
+    { href: `/${locale}/console-porting-services`, label: locale === "es" ? "Console Porting" : "Console Porting" },
+    { href: `/${locale}/licensed-ip-game-development`, label: locale === "es" ? "Licensed IP Game Development" : "Licensed IP Game Development" },
+    { href: `/${locale}/unity-game-development-studio`, label: locale === "es" ? "Unity Game Development" : "Unity Game Development" },
+    { href: `/${locale}/case-studies`, label: "Case Studies" },
+    { href: `/${locale}/resources`, label: "Resources" },
+    { href: `/${locale}/publishers`, label: locale === "es" ? "Publishers e IP holders" : "Publishers" },
     { href: `/${locale}/contact`, label: dict.nav.contact },
   ];
 
@@ -127,12 +139,14 @@ export default async function LocaleLayout({
       {/* ========== FOOTER ========== */}
       <footer className="border-t border-white/5 bg-background">
         <div className="max-w-[1400px] mx-auto px-6 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             {/* Brand */}
             <div className="space-y-4">
               <img src={assetPath("/images/branding/cb-digital-w.webp")} alt="Casual Brothers" className="h-10 w-auto" />
               <p className="text-sm text-white/40 max-w-xs">
-                {dict.footer.tagline}
+                {locale === "es"
+                  ? "Game development studio para publishers, titulares de IP y estudios financiados."
+                  : "Game development studio for publishers, IP holders and funded studios."}
               </p>
             </div>
 
@@ -155,6 +169,21 @@ export default async function LocaleLayout({
                 >
                   {locale === 'es' ? 'Compañía de Desarrollo de Videojuegos' : 'Game Development Company'}
                 </Link>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <h4 className="font-display text-xs font-bold uppercase tracking-widest text-white/25">Services</h4>
+              <div className="grid grid-cols-1 gap-2">
+                {footerSeoLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="text-sm text-white/40 hover:text-brand transition-colors duration-300"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
               </div>
             </div>
 

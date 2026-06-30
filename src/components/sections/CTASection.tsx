@@ -62,7 +62,7 @@ export default function CTASection({ dict, locale }: { dict: Dictionary; locale:
             <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold uppercase leading-[0.95] tracking-tight">
               {dict.home.ctaTitle1}
               <br />
-              <span className="text-gradient-brand" style={{ backgroundImage: 'linear-gradient(135deg, #7cff00 0%, #ffffff 50%, #9eff24 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', color: 'transparent' }}>{dict.home.ctaTitle2}</span>
+              <span className="text-gradient-brand">{dict.home.ctaTitle2}</span>
             </h2>
           </motion.div>
 

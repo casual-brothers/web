@@ -12,8 +12,12 @@ export default function ContactPageClient({ dict }: { dict: Dictionary }) {
 
   const [formData, setFormData] = useState({
     name: "",
+    company: "",
     email: "",
     subject: "",
+    serviceNeeded: "",
+    targetPlatforms: "",
+    productionStage: "",
     message: "",
     type: "GENERAL" as "GENERAL" | "BUSINESS",
   });
@@ -52,7 +56,19 @@ export default function ContactPageClient({ dict }: { dict: Dictionary }) {
           name: formData.name,
           email: formData.email,
           subject: formData.subject,
-          message: formData.message,
+          message: [
+            formData.message,
+            "",
+            "--- Project brief context ---",
+            `Company: ${formData.company || "Not provided"}`,
+            `Service needed: ${formData.serviceNeeded || "Not provided"}`,
+            `Target platforms: ${formData.targetPlatforms || "Not provided"}`,
+            `Production stage: ${formData.productionStage || "Not provided"}`,
+          ].join("\n"),
+          company: formData.company,
+          serviceNeeded: formData.serviceNeeded,
+          targetPlatforms: formData.targetPlatforms,
+          productionStage: formData.productionStage,
           type: formData.type,
           website: "", // honeypot
         }),
@@ -62,14 +78,14 @@ export default function ContactPageClient({ dict }: { dict: Dictionary }) {
 
       if (response.ok && resultData.ok) {
         setStatus("success");
-        setFormData({ name: "", email: "", subject: "", message: "", type: "GENERAL" });
+        setFormData({ name: "", company: "", email: "", subject: "", serviceNeeded: "", targetPlatforms: "", productionStage: "", message: "", type: "GENERAL" });
       } else {
         throw new Error(resultData.error || "Failed to send message.");
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Error submitting contact form:", err);
       setStatus("error");
-      setErrorDetails(err.message || "");
+      setErrorDetails(err instanceof Error ? err.message : "");
     }
   };
 
@@ -108,10 +124,10 @@ export default function ContactPageClient({ dict }: { dict: Dictionary }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-display text-5xl md:text-6xl lg:text-7xl font-bold uppercase leading-[0.95] tracking-tight"
+            className="font-display text-5xl md:text-6xl lg:text-7xl font-bold uppercase leading-[0.95]"
           >
             {data.title}{" "}
-            <span className="text-gradient-brand" style={{ backgroundImage: 'linear-gradient(135deg, #7cff00 0%, #ffffff 50%, #9eff24 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', color: 'transparent' }}>{data.titleBrand}</span>
+            <span className="text-gradient-brand">{data.titleBrand}</span>
           </motion.h1>
 
           <motion.p
@@ -142,8 +158,16 @@ export default function ContactPageClient({ dict }: { dict: Dictionary }) {
               <h2 className="font-display text-2xl font-bold uppercase tracking-tight">
                 {data.getInTouch}
               </h2>
-              <p className="text-sm text-white/50 leading-relaxed">{data.text1}</p>
-              <p className="text-sm text-white/40 leading-relaxed">{data.text2}</p>
+              <p className="text-sm text-white/50 leading-relaxed">
+                {dict.nav.contact === "CONTACTO"
+                  ? "Cuentanos que estas construyendo, que soporte necesitas y en que punto esta la produccion. Trabajamos habitualmente con publishers, titulares de IP y estudios financiados en desarrollo completo, co-desarrollo, porting, live ops y technical art."
+                  : "Tell us what you are building, what support you need and where production currently stands. We usually work with publishers, IP holders and funded studios across full development, co-development, porting, live ops and technical art."}
+              </p>
+              <p className="text-sm text-white/40 leading-relaxed">
+                {dict.nav.contact === "CONTACTO"
+                  ? "Si el proyecto es confidencial, envia una introduccion breve y podemos continuar bajo NDA cuando corresponda."
+                  : "If the project is confidential, send a short intro first and we can continue under NDA when appropriate."}
+              </p>
             </motion.div>
 
             {/* Direct Contact */}
@@ -279,6 +303,20 @@ export default function ContactPageClient({ dict }: { dict: Dictionary }) {
                       />
                     </div>
                     <div className="space-y-2">
+                      <label htmlFor="company" className="text-[11px] font-bold uppercase tracking-widest text-white/30">
+                        {dict.nav.contact === "CONTACTO" ? "Empresa" : "Company"}
+                      </label>
+                      <input
+                        type="text"
+                        id="company"
+                        value={formData.company}
+                        onChange={handleChange}
+                        disabled={status === "submitting"}
+                        className="w-full px-4 py-3 bg-white/[0.03] border border-white/8 rounded-lg focus:outline-none focus:border-brand focus:bg-white/[0.05] transition-all duration-300 text-white text-sm placeholder:text-white/20 disabled:opacity-50"
+                        placeholder={dict.nav.contact === "CONTACTO" ? "Tu estudio, publisher o empresa" : "Your studio, publisher or company"}
+                      />
+                    </div>
+                    <div className="space-y-2">
                       <label htmlFor="email" className="text-[11px] font-bold uppercase tracking-widest text-white/30">
                         {data.formEmail} *
                       </label>
@@ -313,19 +351,68 @@ export default function ContactPageClient({ dict }: { dict: Dictionary }) {
                       </select>
                     </div>
                     <div className="space-y-2">
-                      <label htmlFor="subject" className="text-[11px] font-bold uppercase tracking-widest text-white/30">
-                        {data.formSubject}
+                      <label htmlFor="serviceNeeded" className="text-[11px] font-bold uppercase tracking-widest text-white/30">
+                        {dict.nav.contact === "CONTACTO" ? "Servicio necesario" : "Service needed"}
+                      </label>
+                      <select
+                        id="serviceNeeded"
+                        value={formData.serviceNeeded}
+                        onChange={handleChange}
+                        disabled={status === "submitting"}
+                        className="w-full px-4 py-3 bg-white/[0.03] border border-white/8 rounded-lg focus:outline-none focus:border-brand focus:bg-white/[0.05] transition-all duration-300 text-white text-sm disabled:opacity-50 cursor-pointer appearance-none"
+                      >
+                        <option value="" className="bg-[#12131b] text-white">{dict.nav.contact === "CONTACTO" ? "Selecciona una opcion" : "Select an option"}</option>
+                        {["Full-cycle development", "Co-development", "Console porting", "Technical art", "Live ops", "Unity support", "Unreal support", "Other"].map((option) => (
+                          <option key={option} value={option} className="bg-[#12131b] text-white">{option}</option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div className="space-y-2">
+                      <label htmlFor="targetPlatforms" className="text-[11px] font-bold uppercase tracking-widest text-white/30">
+                        {dict.nav.contact === "CONTACTO" ? "Plataformas objetivo" : "Target platforms"}
                       </label>
                       <input
                         type="text"
-                        id="subject"
-                        value={formData.subject}
+                        id="targetPlatforms"
+                        value={formData.targetPlatforms}
                         onChange={handleChange}
                         disabled={status === "submitting"}
                         className="w-full px-4 py-3 bg-white/[0.03] border border-white/8 rounded-lg focus:outline-none focus:border-brand focus:bg-white/[0.05] transition-all duration-300 text-white text-sm placeholder:text-white/20 disabled:opacity-50"
-                        placeholder={data.formSubjectPlaceholder}
+                        placeholder="PC, PlayStation, Xbox, Nintendo Switch, mobile"
                       />
                     </div>
+                    <div className="space-y-2">
+                      <label htmlFor="productionStage" className="text-[11px] font-bold uppercase tracking-widest text-white/30">
+                        {dict.nav.contact === "CONTACTO" ? "Estado de produccion" : "Production stage"}
+                      </label>
+                      <input
+                        type="text"
+                        id="productionStage"
+                        value={formData.productionStage}
+                        onChange={handleChange}
+                        disabled={status === "submitting"}
+                        className="w-full px-4 py-3 bg-white/[0.03] border border-white/8 rounded-lg focus:outline-none focus:border-brand focus:bg-white/[0.05] transition-all duration-300 text-white text-sm placeholder:text-white/20 disabled:opacity-50"
+                        placeholder={dict.nav.contact === "CONTACTO" ? "Pitch, prototipo, produccion, live, porting..." : "Pitch, prototype, production, live, porting..."}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label htmlFor="subject" className="text-[11px] font-bold uppercase tracking-widest text-white/30">
+                      {data.formSubject}
+                    </label>
+                    <input
+                      type="text"
+                      id="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      disabled={status === "submitting"}
+                      className="w-full px-4 py-3 bg-white/[0.03] border border-white/8 rounded-lg focus:outline-none focus:border-brand focus:bg-white/[0.05] transition-all duration-300 text-white text-sm placeholder:text-white/20 disabled:opacity-50"
+                      placeholder={data.formSubjectPlaceholder}
+                    />
                   </div>
 
                   <div className="space-y-2">
@@ -350,7 +437,7 @@ export default function ContactPageClient({ dict }: { dict: Dictionary }) {
                     className="w-full flex items-center justify-center gap-2 py-4 bg-brand text-background text-[11px] font-bold uppercase tracking-wider rounded-lg hover:bg-brand-hover hover:text-white transition-all duration-200 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                     style={{ boxShadow: '0 10px 15px -3px rgba(124,255,0,0.1)' }}
                   >
-                    {status === "submitting" ? data.formSending : data.formSubmit}
+                    {status === "submitting" ? data.formSending : (dict.nav.contact === "CONTACTO" ? "ENVIAR BRIEF DE PROYECTO" : "SEND PROJECT BRIEF")}
                     {status === "submitting" ? (
                       <svg className="animate-spin h-4 w-4" fill="none" viewBox="0 0 24 24">
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />

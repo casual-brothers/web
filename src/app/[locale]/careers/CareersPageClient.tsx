@@ -110,7 +110,7 @@ export default function CareersPageClient({ dict, locale }: { dict: Dictionary; 
             className="font-display text-5xl md:text-6xl lg:text-7xl font-bold uppercase leading-[0.95] tracking-tight"
           >
             {data.joinTitle}{" "}
-            <span className="text-gradient-brand" style={{ backgroundImage: 'linear-gradient(135deg, #7cff00 0%, #ffffff 50%, #9eff24 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', color: 'transparent' }}>{data.joinBrand}</span>
+            <span className="text-gradient-brand">{data.joinBrand}</span>
           </motion.h1>
 
           <motion.p

@@ -3,14 +3,14 @@ import { Metadata } from "next";
 export const siteUrl = "https://casualbrothers.com";
 
 const defaultDescriptions = {
-  en: "Game development studio for publishers and IP owners: full-cycle development, co-development, porting, live ops, and art/tech production. 15+ titles shipped, 100M+ downloads.",
-  es: "Estudio de desarrollo de videojuegos para publishers y titulares de IP: desarrollo completo, co-desarrollo, porting, live ops y arte/tech. 15+ titulos lanzados, 100M+ descargas.",
+  en: "Casual Brothers is a game development studio helping publishers and IP holders build, co-develop and port licensed, family and multiplatform games across PC, console and mobile.",
+  es: "Casual Brothers es un estudio de desarrollo de videojuegos que ayuda a publishers y titulares de IP a crear, co-desarrollar y portar juegos licenciados, familiares y multiplataforma para PC, consola y movil.",
 };
 
 const pageSeo = {
   en: {
     home: {
-      title: "Game Development Studio for Publishers & IP Owners",
+      title: "Casual Brothers | Game Development Studio for Publishers",
       description: defaultDescriptions.en,
     },
     games: {
@@ -24,9 +24,9 @@ const pageSeo = {
         "Full-cycle game development, co-development, console and PC porting, live ops, and art/tech support for publishers, IP owners, and game studios.",
     },
     gameDevelopmentCompany: {
-      title: "Game Development Company for Publishers",
+      title: "Casual Game Development Company",
       description:
-        "A game development company for publishers and IP owners: full-cycle production, co-development, console porting, live ops, and art/tech support from a 50+ specialist remote studio.",
+        "Casual game development company for publishers and IP owners: full-cycle production, co-development, console porting, live ops, and art/tech support from a 50+ specialist remote studio.",
     },
     about: {
       title: "About the Studio",
@@ -46,7 +46,7 @@ const pageSeo = {
   },
   es: {
     home: {
-      title: "Estudio de Desarrollo de Videojuegos para Publishers e IPs",
+      title: "Casual Brothers | Estudio de Desarrollo para Publishers",
       description: defaultDescriptions.es,
     },
     games: {
@@ -60,9 +60,9 @@ const pageSeo = {
         "Desarrollo completo de videojuegos, co-desarrollo, porting para consola y PC, live ops y soporte de arte/tech para publishers, titulares de IP y estudios.",
     },
     gameDevelopmentCompany: {
-      title: "Game Development Company para Publishers",
+      title: "Casual Game Development Company para Publishers",
       description:
-        "Una game development company para publishers y titulares de IP: desarrollo completo, co-desarrollo, porting a consola, live ops y soporte de arte/tech con 50+ especialistas remotos.",
+        "Casual game development company para publishers y titulares de IP: desarrollo completo, co-desarrollo, porting a consola, live ops y soporte de arte/tech con 50+ especialistas remotos.",
     },
     about: {
       title: "Sobre el Estudio",
@@ -130,6 +130,53 @@ export function getPageMetadata(locale: string, page: SeoPage, path: string = ""
     twitter: {
       title: `${seo.title} | Casual Brothers`,
       description: seo.description,
+    },
+  };
+}
+
+export function buildCustomMetadata(
+  locale: string,
+  title: string,
+  description: string,
+  path: string,
+): Metadata {
+  const cleanPath = path ? `/${path}` : "";
+
+  return {
+    title,
+    description,
+    alternates: getSeoAlternates(locale, path),
+    openGraph: {
+      type: "website",
+      siteName: "Casual Brothers",
+      title: `${title} | Casual Brothers`,
+      description,
+      url: `${siteUrl}/${locale}${cleanPath}`,
+      images: [
+        {
+          url: "/images/branding/og-cover.png",
+          width: 1200,
+          height: 630,
+          alt: "Casual Brothers game development studio portfolio",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} | Casual Brothers`,
+      description,
+      images: ["/images/branding/og-cover.png"],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
   };
 }

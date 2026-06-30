@@ -15,6 +15,19 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - White: `#ffffff`.
 - Global brand tokens live in `src/app/globals.css`. Prefer using `bg-brand`, `text-brand`, `bg-background`, and the existing brand opacity helpers over hard-coded one-off colors.
 
+### Text Gradient (CRITICAL — DO NOT CHANGE)
+
+- The branded text gradient (green → white → green) is defined **once** in `globals.css` as `.text-gradient-brand` with `!important` on every property.
+- **NEVER** add inline `style={{…}}` props on elements that use `className="text-gradient-brand"`. The class alone is sufficient.
+- If you need a gradient text span, use `<span className="text-gradient-brand">…</span>` — nothing else.
+- Do not duplicate or override `backgroundImage`, `WebkitBackgroundClip`, `WebkitTextFillColor`, `backgroundClip`, or `color` inline.
+
+### SVG Service Icons (CRITICAL — DO NOT CHANGE)
+
+- All service icons in `src/components/ui/FuturisticServiceIcon.tsx` must use **only** the brand green palette: `#7cff00`, `rgba(124, 255, 0, …)`, and dark fills like `#12131b`.
+- **NEVER** use white or `rgba(255, 255, 255, …)` for strokes, fills, or text inside these SVGs. Use `rgba(124, 255, 0, …)` with appropriate opacity instead.
+- The same rule applies to `ServiceCard.tsx` — no white color accents on the icon containers.
+
 ## Logos And Assets
 
 - Current website logo for dark backgrounds: `public/images/branding/cb-digital-w.png`.

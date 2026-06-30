@@ -49,12 +49,16 @@ body {
   font-family: var(--font-montserrat);
 }
 
+/* ⚠️  BRAND GRADIENT — SINGLE SOURCE OF TRUTH
+   DO NOT override these properties with inline styles.
+   All gradient text MUST use this class alone.
+   !important prevents any accidental inline override.  */
 .text-gradient-brand {
-  background-image: linear-gradient(135deg, #7cff00 0%, #ffffff 50%, #9eff24 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(135deg, #7cff00 0%, #ffffff 50%, #9eff24 100%) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
 }
 
 /* ========== GLASSMORPHISM ========== */
@@ -306,3 +310,39 @@ body {
 .focus\:border-brand-50:focus { border-color: rgba(var(--brand-rgb), 0.5); }
 .hover\:border-brand-20:hover { border-color: rgba(var(--brand-rgb), 0.2); }
 .hover\:bg-brand-glow:hover { background: rgba(var(--brand-rgb), 0.1); }
+
+/* ========== SVG SERVICE ICON KEYFRAMES ==========
+   Moved here from inline <style> inside FuturisticServiceIcon SVGs
+   to prevent React hydration mismatches (SSR vs client).
+   DO NOT put @keyframes back inside inline SVG <defs><style> tags. */
+
+@keyframes sync-spin-left {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes sync-spin-right {
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes helix-flow {
+  to { stroke-dashoffset: -20; }
+}
+
+@keyframes terrain-slide {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(6px); }
+}
+
+@keyframes code-stream {
+  to { stroke-dashoffset: -20; }
+}
+
+@keyframes ping-expand {
+  0% { r: 1px; opacity: 1; }
+  100% { r: 12px; opacity: 0; }
+}
+
+@keyframes laser-sweep {
+  0%, 100% { transform: translateY(12px); opacity: 0.3; }
+  50% { transform: translateY(52px); opacity: 0.95; }
+}

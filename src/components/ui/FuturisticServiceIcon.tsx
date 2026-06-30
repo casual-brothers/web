@@ -12,19 +12,7 @@ export default function FuturisticServiceIcon({ iconName, className = "w-14 h-14
     // Co-desarrollo: Dual cyber profile VR headsets linked by double-helix synchronization stream
     return (
       <svg className={`${className} overflow-visible`} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <style>{`
-            @keyframes sync-spin-left {
-              to { transform: rotate(360deg); }
-            }
-            @keyframes sync-spin-right {
-              to { transform: rotate(-360deg); }
-            }
-            @keyframes helix-flow {
-              to { stroke-dashoffset: -20; }
-            }
-          `}</style>
-        </defs>
+
 
         {/* Technical framing calibration corners */}
         <path d="M 6 12 L 6 6 L 12 6 M 58 12 L 58 6 L 52 6 M 6 52 L 6 58 L 12 58 M 58 52 L 58 58 L 52 58" stroke="rgba(124, 255, 0, 0.3)" strokeWidth="0.8" />
@@ -64,7 +52,7 @@ export default function FuturisticServiceIcon({ iconName, className = "w-14 h-14
         
         {/* Technical overlay text */}
         <text x="32" y="11" fill="rgba(124, 255, 0, 0.5)" fontSize="5.5" fontWeight="bold" textAnchor="middle" className="font-display tracking-widest">NET_SYNC: 99.8%</text>
-        <text x="32" y="55" fill="rgba(255, 255, 255, 0.25)" fontSize="5.5" textAnchor="middle" className="font-display tracking-widest">CORE_LINK: ESTABLISHED</text>
+        <text x="32" y="55" fill="rgba(124, 255, 0, 0.25)" fontSize="5.5" textAnchor="middle" className="font-display tracking-widest">CORE_LINK: ESTABLISHED</text>
         
         {/* Connection core node */}
         <circle cx="32" cy="32" r="3.5" fill="#7cff00" className="animate-ping" style={{ animationDuration: '2s' }} />
@@ -77,17 +65,7 @@ export default function FuturisticServiceIcon({ iconName, className = "w-14 h-14
     // Porting y Plataformas: Widescreen curved gaming screen overlapping phone with orbital platform badges
     return (
       <svg className={`${className} overflow-visible`} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <style>{`
-            @keyframes terrain-slide {
-              0% { transform: translateY(0); }
-              100% { transform: translateY(6px); }
-            }
-            @keyframes code-stream {
-              to { stroke-dashoffset: -20; }
-            }
-          `}</style>
-        </defs>
+
 
         {/* Rotating technical indicators */}
         <circle cx="32" cy="32" r="29" stroke="rgba(124, 255, 0, 0.08)" strokeWidth="0.8" strokeDasharray="6 12" />
@@ -135,7 +113,7 @@ export default function FuturisticServiceIcon({ iconName, className = "w-14 h-14
         
         {/* Technical text metrics */}
         <text x="32" y="9" fill="rgba(124, 255, 0, 0.5)" fontSize="5.5" fontWeight="bold" textAnchor="middle" className="font-display tracking-widest">PORTING_ENGINE</text>
-        <text x="32" y="58" fill="rgba(255, 255, 255, 0.25)" fontSize="5.5" textAnchor="middle" className="font-display tracking-widest">COMPILER_ACTIVE</text>
+        <text x="32" y="58" fill="rgba(124, 255, 0, 0.25)" fontSize="5.5" textAnchor="middle" className="font-display tracking-widest">COMPILER_ACTIVE</text>
       </svg>
     );
   }
@@ -144,14 +122,7 @@ export default function FuturisticServiceIcon({ iconName, className = "w-14 h-14
     // Live Ops y Crecimiento: Revolving 3D globe core with degree tick sonar and growing chart line
     return (
       <svg className={`${className} overflow-visible`} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <style>{`
-            @keyframes ping-expand {
-              0% { r: 1px; opacity: 1; }
-              100% { r: 12px; opacity: 0; }
-            }
-          `}</style>
-        </defs>
+
 
         {/* Outer technical radar lines and degree ticks */}
         <circle cx="32" cy="32" r="30" stroke="rgba(124, 255, 0, 0.05)" strokeWidth="0.5" />
@@ -192,7 +163,7 @@ export default function FuturisticServiceIcon({ iconName, className = "w-14 h-14
         
         {/* Technical indicators */}
         <text x="6" y="11" fill="rgba(124, 255, 0, 0.6)" fontSize="5.5" fontWeight="bold" className="font-display tracking-wider">LIVE_OPS</text>
-        <text x="58" y="55" fill="rgba(255, 255, 255, 0.25)" fontSize="5.5" textAnchor="end" className="font-display tracking-widest">ONLINE: 1.4M</text>
+        <text x="58" y="55" fill="rgba(124, 255, 0, 0.25)" fontSize="5.5" textAnchor="end" className="font-display tracking-widest">ONLINE: 1.4M</text>
       </svg>
     );
   }
@@ -201,14 +172,7 @@ export default function FuturisticServiceIcon({ iconName, className = "w-14 h-14
     // Arte y Tech: Majestic rotating 3D wireframe mesh asset with sweeping laser scan line
     return (
       <svg className={`${className} overflow-visible`} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <style>{`
-            @keyframes laser-sweep {
-              0%, 100% { transform: translateY(12px); opacity: 0.3; }
-              50% { transform: translateY(52px); opacity: 0.95; }
-            }
-          `}</style>
-        </defs>
+
 
         {/* Technical framing lines */}
         <path d="M 6 12 L 6 6 L 12 6 M 58 12 L 58 6 L 52 6 M 6 52 L 6 58 L 12 58 M 58 52 L 58 58 L 52 58" stroke="rgba(124, 255, 0, 0.25)" strokeWidth="0.8" />
@@ -244,12 +208,12 @@ export default function FuturisticServiceIcon({ iconName, className = "w-14 h-14
         <line x1="8" y1="0" x2="56" y2="0" stroke="#7cff00" strokeWidth="1.5" style={{ filter: "drop-shadow(0px 0px 3px #7cff00)" }} className="animate-[laser-sweep_3.5s_ease-in-out_infinite]" />
         
         {/* Technical drafting calibration tags */}
-        <line x1="48" y1="24" x2="58" y2="24" stroke="rgba(255, 255, 255, 0.15)" strokeWidth="0.8" />
-        <line x1="58" y1="24" x2="58" y2="18" stroke="rgba(255, 255, 255, 0.15)" strokeWidth="0.8" />
+        <line x1="48" y1="24" x2="58" y2="24" stroke="rgba(124, 255, 0, 0.15)" strokeWidth="0.8" />
+        <line x1="58" y1="24" x2="58" y2="18" stroke="rgba(124, 255, 0, 0.15)" strokeWidth="0.8" />
         <text x="59" y="15" fill="rgba(124, 255, 0, 0.5)" fontSize="5.5" fontWeight="bold" className="font-display">Z: 3.42</text>
         
-        <line x1="16" y1="40" x2="6" y2="40" stroke="rgba(255, 255, 255, 0.15)" strokeWidth="0.8" />
-        <line x1="6" y1="40" x2="6" y2="46" stroke="rgba(255, 255, 255, 0.15)" strokeWidth="0.8" />
+        <line x1="16" y1="40" x2="6" y2="40" stroke="rgba(124, 255, 0, 0.15)" strokeWidth="0.8" />
+        <line x1="6" y1="40" x2="6" y2="46" stroke="rgba(124, 255, 0, 0.15)" strokeWidth="0.8" />
         <text x="5" y="52" fill="rgba(124, 255, 0, 0.5)" fontSize="5.5" fontWeight="bold" className="font-display">Y: 0.88</text>
       </svg>
     );

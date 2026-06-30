@@ -34,12 +34,12 @@ export default async function GameDevelopmentCompanyPage({ params }: { params: P
   const isEs = locale === "es";
 
   const copy = {
-    eyebrow: isEs ? "GAME DEVELOPMENT COMPANY" : "GAME DEVELOPMENT COMPANY",
-    titleA: isEs ? "Un partner de desarrollo" : "A game development company",
+    eyebrow: isEs ? "CASUAL GAME DEVELOPMENT COMPANY" : "CASUAL GAME DEVELOPMENT COMPANY",
+    titleA: isEs ? "Casual game developers" : "Casual game developers",
     titleB: isEs ? "para publishers que necesitan lanzar." : "for publishers who need to ship.",
     intro: isEs
-      ? "Casual Brothers ayuda a publishers, titulares de IP y estudios a convertir briefs complejos en juegos lanzados. Cubrimos desarrollo completo, co-desarrollo, porting, live ops y arte/tech con un equipo remoto de 50+ especialistas."
-      : "Casual Brothers helps publishers, IP owners, and studios turn complex briefs into shipped games. We cover full-cycle development, co-development, porting, live ops, and art/tech production with a remote team of 50+ specialists.",
+      ? "Casual Brothers es una casual game development company que ayuda a publishers, titulares de IP y estudios a convertir briefs complejos en juegos lanzados. Cubrimos desarrollo completo, co-desarrollo, porting, live ops y arte/tech con un equipo remoto de 50+ especialistas."
+      : "Casual Brothers is a casual game development company helping publishers, IP owners, and studios turn complex briefs into shipped games. We cover full-cycle development, co-development, porting, live ops, and art/tech production with a remote team of 50+ specialists.",
     primaryCta: isEs ? "Enviar brief confidencial" : "Send a confidential brief",
     secondaryCta: isEs ? "Ver juegos lanzados" : "See shipped games",
     trust: isEs
@@ -48,16 +48,16 @@ export default async function GameDevelopmentCompanyPage({ params }: { params: P
     fitTitle: isEs ? "Cuando tiene sentido hablar con nosotros" : "When it makes sense to talk to us",
     fitItems: isEs
       ? [
-          "Necesitas una game development company que pueda integrarse con tu pipeline sin frenar al equipo.",
+          "Necesitas una casual game company que pueda integrarse con tu pipeline sin frenar al equipo.",
           "Tienes una IP sensible y necesitas ejecucion fiable, documentada y lista para certificacion.",
           "Buscas casual game developers con experiencia real en juegos familiares, multiplataforma e hibrido-casual.",
-          "Tu proyecto necesita porting, optimizacion, live ops o refuerzo senior para llegar a fecha.",
+          "Comparas casual game studios y necesitas un partner con escala, procesos y resultados lanzados.",
         ]
       : [
-          "You need a game development company that can integrate with your pipeline without slowing the team down.",
+          "You need a casual game company that can integrate with your pipeline without slowing the team down.",
           "You have a sensitive IP and need reliable, documented, certification-aware execution.",
           "You are looking for casual game developers with real experience in family, multi-platform, and hybrid-casual games.",
-          "Your project needs porting, optimization, live ops, or senior capacity to hit a date.",
+          "You are comparing casual game studios and need a partner with scale, process, and shipped results.",
         ],
     processTitle: isEs ? "Como reducimos riesgo" : "How we reduce risk",
     process: isEs
@@ -72,6 +72,48 @@ export default async function GameDevelopmentCompanyPage({ params }: { params: P
           ["Visible delivery", "We work through milestones, direct communication, and fast feedback to avoid late surprises."],
         ],
   };
+  const searchIntent = isEs
+    ? [
+        ["Casual game company", "Para publishers que necesitan un equipo externo capaz de asumir desarrollo, porting o live ops sin convertir el proyecto en una apuesta."],
+        ["Casual game development company", "Produccion completa y co-desarrollo para juegos casual, familiares, hibrido-casual y multiplataforma."],
+        ["Casual game developers", "Perfiles senior de engineering, art, tech art, QA y production trabajando como extension del equipo del cliente."],
+        ["Casual game studios", "Un estudio remoto de 50+ especialistas con 15+ titulos lanzados y experiencia con IPs de entretenimiento."],
+      ]
+    : [
+        ["Casual game company", "For publishers that need an external team able to take on development, porting, or live ops without turning the project into a gamble."],
+        ["Casual game development company", "Full production and co-development for casual, family, hybrid-casual, and multi-platform games."],
+        ["Casual game developers", "Senior engineering, art, tech art, QA, and production profiles working as an extension of the client's team."],
+        ["Casual game studios", "A remote studio of 50+ specialists with 15+ shipped titles and entertainment IP experience."],
+      ];
+  const faqs = isEs
+    ? [
+        {
+          question: "Is Casual Brothers a casual game development company?",
+          answer: "Yes. Casual Brothers desarrolla juegos casual, familiares, hibrido-casual y multiplataforma para publishers, titulares de IP y estudios que necesitan capacidad senior.",
+        },
+        {
+          question: "Can you work as external casual game developers?",
+          answer: "Yes. Podemos integrarnos como equipo de co-desarrollo, porting, live ops, arte, tech art, QA o produccion segun el alcance del proyecto.",
+        },
+        {
+          question: "What makes Casual Brothers different from other casual game studios?",
+          answer: "Combinamos 50+ especialistas remotos, 15+ titulos lanzados, 100M+ descargas y experiencia en IPs de entretenimiento con comunicacion directa y milestones claros.",
+        },
+      ]
+    : [
+        {
+          question: "Is Casual Brothers a casual game development company?",
+          answer: "Yes. Casual Brothers develops casual, family, hybrid-casual, and multi-platform games for publishers, IP owners, and studios that need senior production capacity.",
+        },
+        {
+          question: "Can you work as external casual game developers?",
+          answer: "Yes. We can integrate as a co-development, porting, live ops, art, tech art, QA, or production team depending on the project's scope.",
+        },
+        {
+          question: "What makes Casual Brothers different from other casual game studios?",
+          answer: "We combine 50+ remote specialists, 15+ shipped titles, 100M+ downloads, and entertainment IP experience with direct communication and clear milestones.",
+        },
+      ];
   const pageUrl = `https://casualbrothers.com/${locale}/game-development-company`;
   const structuredData = {
     "@context": "https://schema.org",
@@ -115,6 +157,18 @@ export default async function GameDevelopmentCompanyPage({ params }: { params: P
           "@id": `${pageUrl}#service`,
         },
       },
+      {
+        "@type": "FAQPage",
+        "@id": `${pageUrl}#faq`,
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      },
     ],
   };
 
@@ -149,7 +203,7 @@ export default async function GameDevelopmentCompanyPage({ params }: { params: P
             <h1 className="font-display text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold uppercase leading-[0.95] max-w-5xl">
               {copy.titleA}
               <br />
-              <span className="text-gradient-brand" style={{ backgroundImage: "linear-gradient(135deg, #7cff00 0%, #ffffff 50%, #9eff24 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text", color: "transparent" }}>
+              <span className="text-gradient-brand">
                 {copy.titleB}
               </span>
             </h1>
@@ -186,7 +240,7 @@ export default async function GameDevelopmentCompanyPage({ params }: { params: P
       <section className="max-w-[1400px] mx-auto px-6 py-20 space-y-10">
         <div className="max-w-3xl space-y-3">
           <h2 className="font-display text-3xl md:text-4xl font-bold uppercase">
-            {isEs ? "Servicios para lanzar con menos friccion" : "Services built to ship with less friction"}
+            {isEs ? "Casual game development company para lanzar con menos friccion" : "A casual game development company built to ship with less friction"}
           </h2>
           <p className="text-white/45 leading-relaxed">{copy.trust}</p>
         </div>
@@ -200,6 +254,30 @@ export default async function GameDevelopmentCompanyPage({ params }: { params: P
               </p>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="max-w-[1400px] mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16">
+          <div className="space-y-3">
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-brand">
+              {isEs ? "BUSQUEDAS QUE RESOLVEMOS" : "SEARCH INTENT WE MATCH"}
+            </p>
+            <h2 className="font-display text-3xl md:text-4xl font-bold uppercase">
+              {isEs ? "Para quien busca casual game developers de verdad" : "For teams searching for real casual game developers"}
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {searchIntent.map(([title, text]) => (
+              <article key={title} className="rounded-lg border border-white/8 bg-white/[0.025] p-5">
+                <h3 className="font-display text-sm font-bold uppercase tracking-[0.14em] text-white/90">
+                  {title}
+                </h3>
+                <p className="mt-3 text-sm text-white/45 leading-relaxed">{text}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -244,6 +322,22 @@ export default async function GameDevelopmentCompanyPage({ params }: { params: P
       <div className="max-w-[1400px] mx-auto px-6 py-10">
         <PlatformLogos />
       </div>
+
+      <section className="max-w-[1000px] mx-auto px-6 py-16">
+        <div className="space-y-4">
+          <h2 className="font-display text-3xl md:text-4xl font-bold uppercase">
+            {isEs ? "Preguntas frecuentes para publishers" : "Publisher FAQ"}
+          </h2>
+          {faqs.map((faq) => (
+            <details key={faq.question} className="group rounded-lg border border-white/8 bg-white/[0.025] p-5">
+              <summary className="cursor-pointer font-display text-sm font-bold uppercase tracking-[0.12em] text-white/85">
+                {faq.question}
+              </summary>
+              <p className="mt-4 text-sm text-white/50 leading-relaxed">{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
 
       <CTASection dict={dict} locale={locale} />
     </>
