@@ -1,10 +1,12 @@
 import Link from "next/link";
-import { ArrowRight, BadgeCheck } from "lucide-react";
+import { ArrowRight, BadgeCheck, FileText, Users, Repeat, MonitorCheck } from "lucide-react";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import PlatformLogos from "@/components/ui/PlatformLogos";
+import FeaturedCaseStudies from "@/components/sections/FeaturedCaseStudies";
+import GamescomBanner from "@/components/sections/GamescomBanner";
 import { assetPath } from "@/lib/basePath";
 import { siteUrl } from "@/lib/seo";
-import type { CommercialPageData } from "@/data/commercialPages";
+import { featuredCaseStudySlugs, type CommercialPageData } from "@/data/commercialPages";
 
 export default function CommercialLandingPage({
   locale,
@@ -32,6 +34,30 @@ export default function CommercialLandingPage({
     description: page.metaDescription,
     url: pageUrl,
   };
+
+  const engagementModels = [
+    {
+      icon: Users,
+      title: isEs ? "Equipo full-cycle dedicado" : "Dedicated full-cycle team",
+      body: isEs
+        ? "Un equipo completo que lleva tu brief desde concepto hasta titulo lanzado, con milestones y comunicacion directa."
+        : "A complete team that takes your brief from concept to shipped title, with milestone-driven delivery and direct communication.",
+    },
+    {
+      icon: Repeat,
+      title: isEs ? "Pod de co-desarrollo" : "Co-development pod",
+      body: isEs
+        ? "Capacidad senior multidisciplinar integrada en tu pipeline, herramientas y ritmo de produccion, sin aumentar tu carga de gestion."
+        : "Senior multidisciplinary capacity embedded in your pipeline, tools and production rhythm, without adding management load.",
+    },
+    {
+      icon: MonitorCheck,
+      title: isEs ? "Porting y entrega en consola" : "Porting and console delivery",
+      body: isEs
+        ? "Adaptacion de plataforma con alcance cerrado y produccion preparada para los procesos de submission y certificacion de Nintendo, PlayStation y Xbox."
+        : "Fixed-scope platform adaptation with production prepared for Nintendo, PlayStation and Xbox submission and certification processes.",
+    },
+  ];
 
   const relatedLinks = [
     { href: `/${locale}/case-studies`, label: isEs ? "Case studies" : "Case studies" },
@@ -109,6 +135,8 @@ export default function CommercialLandingPage({
         </div>
       </section>
 
+      <GamescomBanner locale={locale} />
+
       <section className="mx-auto max-w-[1400px] px-6 py-20">
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
           {page.sections.map((section) => (
@@ -130,7 +158,31 @@ export default function CommercialLandingPage({
         </div>
       </section>
 
+      <FeaturedCaseStudies locale={locale} slugs={featuredCaseStudySlugs[page.slug]} />
+
       <section className="mx-auto max-w-[1400px] px-6 py-16">
+        <div className="mb-16 space-y-8">
+          <div className="max-w-3xl space-y-3">
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-brand">
+              {isEs ? "COMO TRABAJAMOS" : "HOW WE WORK"}
+            </p>
+            <h2 className="font-display text-3xl font-bold uppercase md:text-4xl">
+              {isEs ? "Modelos de colaboracion" : "Engagement models"}
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
+            {engagementModels.map((model) => (
+              <div key={model.title} className="rounded-lg border border-white/8 bg-white/[0.025] p-6">
+                <model.icon className="h-6 w-6 text-brand" />
+                <h3 className="mt-5 font-display text-base font-bold uppercase tracking-[0.12em] text-white/85">
+                  {model.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-white/48">{model.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 gap-8 border-y border-white/8 py-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
           <div>
             <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-brand">
@@ -147,6 +199,13 @@ export default function CommercialLandingPage({
                 : "Share scope, platforms, production stage and the type of support you need. If the project is confidential, send a short intro first and we can continue under NDA when appropriate."}
             </p>
             <div className="flex flex-wrap gap-3">
+              <a
+                href={`mailto:contact@casualbrothers.com?subject=${encodeURIComponent(isEs ? "Solicitud de capabilities deck — Casual Brothers" : "Capabilities deck request — Casual Brothers")}`}
+                className="inline-flex items-center gap-2 rounded border border-brand/40 px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] text-brand transition-colors hover:border-brand hover:bg-brand/10"
+              >
+                <FileText className="h-4 w-4" />
+                {isEs ? "Solicitar capabilities deck" : "Request capabilities deck"}
+              </a>
               {relatedLinks.map((link) => (
                 <Link key={link.href} href={link.href} className="rounded border border-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] text-white/45 transition-colors hover:border-brand hover:text-brand">
                   {link.label}

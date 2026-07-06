@@ -24,6 +24,16 @@ export interface CommercialPageData {
   cta: string;
 }
 
+// Shipped titles surfaced as proof on each landing. Slugs must exist in src/data/games.ts.
+export const featuredCaseStudySlugs: Record<CommercialPageSlug, string[]> = {
+  publishers: ["grinch", "bluey", "transformers", "killing-floor-2"],
+  "game-development-services": ["hot-rod-mayhem", "marupoyo", "grinch", "matchbox"],
+  "co-development-game-studio": ["killing-floor-2", "bluey", "barbie", "ice-age"],
+  "console-porting-services": ["transformers", "jumanji", "chicken-run", "my-little-pony"],
+  "licensed-ip-game-development": ["barbie", "bluey", "my-little-pony", "grinch"],
+  "unity-game-development-studio": ["hot-rod-mayhem", "gigantosaurus-world", "marupoyo", "jojo-siwa"],
+};
+
 export const commercialPages: Record<Locale, Record<CommercialPageSlug, CommercialPageData>> = {
   en: {
     publishers: {
@@ -57,9 +67,9 @@ export const commercialPages: Record<Locale, Record<CommercialPageSlug, Commerci
     },
     "game-development-services": {
       slug: "game-development-services",
-      title: "Game Development Services for Publishers and Studios",
+      title: "Game Development Services: Full-Cycle, Co-Dev, Porting and Live Ops",
       metaDescription:
-        "Full-cycle game development, co-development, technical art, live ops and production support for publishers, IP holders and funded studios.",
+        "Full-cycle game development, co-development, technical art, live ops and production support from a studio with a shipped multiplatform portfolio.",
       eyebrow: "GAME DEVELOPMENT SERVICES",
       h1: "Game development services for publishers and studios",
       intro:
@@ -86,9 +96,9 @@ export const commercialPages: Record<Locale, Record<CommercialPageSlug, Commerci
     },
     "co-development-game-studio": {
       slug: "co-development-game-studio",
-      title: "Game Co-Development Studio for Publishers",
+      title: "Game Co-Development Studio | Embedded Production Support",
       metaDescription:
-        "Casual Brothers provides co-development support for publishers and studios, helping teams scale production across gameplay, engineering, art, UI and console delivery.",
+        "Casual Brothers provides co-development support for studios and production teams, helping them scale gameplay, engineering, art, UI and console delivery.",
       eyebrow: "CO-DEVELOPMENT",
       h1: "Game co-development partner for production teams",
       intro:
@@ -146,7 +156,7 @@ export const commercialPages: Record<Locale, Record<CommercialPageSlug, Commerci
       slug: "licensed-ip-game-development",
       title: "Licensed IP Game Development Studio",
       metaDescription:
-        "Casual Brothers helps publishers and IP holders develop family-friendly and licensed IP games across PC, console and mobile.",
+        "Casual Brothers helps IP holders and brand teams develop family-friendly and licensed IP games across PC, console and mobile.",
       eyebrow: "LICENSED IP DEVELOPMENT",
       h1: "Licensed IP game development studio",
       intro:
@@ -175,7 +185,7 @@ export const commercialPages: Record<Locale, Record<CommercialPageSlug, Commerci
       slug: "unity-game-development-studio",
       title: "Unity Game Development Studio for Console and PC",
       metaDescription:
-        "Unity game development services for publishers and studios building games across PC, console and mobile.",
+        "Unity game development services for studios building and shipping games across PC, console and mobile.",
       eyebrow: "UNITY DEVELOPMENT",
       h1: "Unity game development studio for console and PC",
       intro:
@@ -233,9 +243,9 @@ export const commercialPages: Record<Locale, Record<CommercialPageSlug, Commerci
     },
     "game-development-services": {
       slug: "game-development-services",
-      title: "Servicios de Desarrollo de Videojuegos para Publishers y Estudios",
+      title: "Servicios de Desarrollo de Videojuegos: Full-Cycle, Co-Dev, Porting y Live Ops",
       metaDescription:
-        "Desarrollo completo, co-desarrollo, technical art, live ops y soporte de produccion para publishers, titulares de IP y estudios financiados.",
+        "Desarrollo completo, co-desarrollo, technical art, live ops y soporte de produccion de un estudio con portfolio multiplataforma lanzado.",
       eyebrow: "SERVICIOS DE DESARROLLO",
       h1: "Servicios de desarrollo de videojuegos para publishers y estudios",
       intro:
@@ -262,9 +272,9 @@ export const commercialPages: Record<Locale, Record<CommercialPageSlug, Commerci
     },
     "co-development-game-studio": {
       slug: "co-development-game-studio",
-      title: "Estudio de Co-Desarrollo de Videojuegos para Publishers",
+      title: "Estudio de Co-Desarrollo de Videojuegos | Soporte de Produccion Integrado",
       metaDescription:
-        "Casual Brothers ofrece soporte de co-desarrollo para publishers y estudios, ayudando a escalar produccion en gameplay, engineering, arte, UI y entrega en consola.",
+        "Casual Brothers ofrece soporte de co-desarrollo para estudios y equipos de produccion, ayudando a escalar gameplay, engineering, arte, UI y entrega en consola.",
       eyebrow: "CO-DESARROLLO",
       h1: "Partner de co-desarrollo para equipos de produccion",
       intro:
@@ -322,7 +332,7 @@ export const commercialPages: Record<Locale, Record<CommercialPageSlug, Commerci
       slug: "licensed-ip-game-development",
       title: "Estudio de Desarrollo de Juegos con IP Licenciada",
       metaDescription:
-        "Casual Brothers ayuda a publishers y titulares de IP a desarrollar juegos familiares y licenciados para PC, consola y movil.",
+        "Casual Brothers ayuda a titulares de IP y equipos de marca a desarrollar juegos familiares y licenciados para PC, consola y movil.",
       eyebrow: "DESARROLLO DE IP LICENCIADA",
       h1: "Estudio de desarrollo de juegos con IP licenciada",
       intro:
@@ -351,7 +361,7 @@ export const commercialPages: Record<Locale, Record<CommercialPageSlug, Commerci
       slug: "unity-game-development-studio",
       title: "Estudio de Desarrollo Unity para Consola y PC",
       metaDescription:
-        "Servicios de desarrollo Unity para publishers y estudios que crean juegos para PC, consola y movil.",
+        "Servicios de desarrollo Unity para estudios que crean y lanzan juegos para PC, consola y movil.",
       eyebrow: "UNITY DEVELOPMENT",
       h1: "Estudio de desarrollo Unity para consola y PC",
       intro:

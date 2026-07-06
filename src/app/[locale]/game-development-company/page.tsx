@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, BadgeCheck, Gamepad2, MonitorSmartphone, Palette, Rocket, ShieldCheck, Users } from "lucide-react";
 import CTASection from "@/components/sections/CTASection";
+import FeaturedCaseStudies from "@/components/sections/FeaturedCaseStudies";
+import GamescomBanner from "@/components/sections/GamescomBanner";
 import PlatformLogos from "@/components/ui/PlatformLogos";
 import { assetPath } from "@/lib/basePath";
 import { getDictionary } from "@/i18n/getDictionary";
@@ -237,6 +239,8 @@ export default async function GameDevelopmentCompanyPage({ params }: { params: P
         </div>
       </section>
 
+      <GamescomBanner locale={locale} />
+
       <section className="max-w-[1400px] mx-auto px-6 py-20 space-y-10">
         <div className="max-w-3xl space-y-3">
           <h2 className="font-display text-3xl md:text-4xl font-bold uppercase">
@@ -318,6 +322,8 @@ export default async function GameDevelopmentCompanyPage({ params }: { params: P
           </div>
         </div>
       </section>
+
+      <FeaturedCaseStudies locale={locale} slugs={["grinch", "bluey", "marupoyo", "matchbox"]} />
 
       <div className="max-w-[1400px] mx-auto px-6 py-10">
         <PlatformLogos />

@@ -7,6 +7,7 @@ import GamesSection from "@/components/sections/GamesSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import AboutSection from "@/components/sections/AboutSection";
 import CTASection from "@/components/sections/CTASection";
+import GamescomBanner from "@/components/sections/GamescomBanner";
 import StatsBar from "@/components/ui/StatsBar";
 import { ArrowRight, BadgeCheck } from "lucide-react";
 
@@ -78,6 +79,11 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             ))}
           </div>
         </section>
+      </div>
+
+      {/* GAMESCOM 2026 */}
+      <div className="mt-24">
+        <GamescomBanner locale={locale} />
       </div>
 
       {/* ABOUT — outside max-w container for full-bleed 3D */}
