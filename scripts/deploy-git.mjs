@@ -2,17 +2,13 @@ import { execSync } from "node:child_process";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { copyFileSync, existsSync, rmSync } from "node:fs";
-import dotenv from "dotenv";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const rootDir = join(__dirname, "..");
-dotenv.config({ path: join(rootDir, ".env.local") });
-
 const outDir = join(rootDir, "out");
 const cpanelConfig = join(rootDir, ".cpanel.yml");
 const outCpanelConfig = join(outDir, ".cpanel.yml");
-const cpanelGitRemote = process.env.CPANEL_GIT_REMOTE;
 
 console.log("\n🚀 Iniciando despliegue en GitHub...");
 console.log("══════════════════════════════════════════════");
@@ -54,9 +50,6 @@ try {
   execSync("git init", { stdio: "ignore", cwd: outDir });
   execSync("git checkout -b deploy", { stdio: "ignore", cwd: outDir });
   execSync("git remote add origin https://github.com/casual-brothers/web.git", { stdio: "ignore", cwd: outDir });
-  if (cpanelGitRemote) {
-    execSync(`git remote add cpanel "${cpanelGitRemote}"`, { stdio: "ignore", cwd: outDir });
-  }
   execSync("git add -A", { stdio: "ignore", cwd: outDir });
   execSync('git commit -m "deploy: Static compiled export of Casual Brothers website"', { stdio: "ignore", cwd: outDir });
   console.log("✅ Repositorio temporal preparado con éxito en /out");
@@ -70,12 +63,6 @@ console.log("\n📤 Paso 3/3: Subiendo a la rama 'deploy' en GitHub...");
 console.log("──────────────────────────────────────────────");
 try {
   execSync("git push origin deploy --force", { stdio: "inherit", cwd: outDir });
-  if (cpanelGitRemote) {
-    console.log("\n📤 Subiendo también al repo de cPanel para deploy automático...");
-    execSync("git push cpanel deploy --force", { stdio: "inherit", cwd: outDir });
-  } else {
-    console.log("\nℹ️  CPANEL_GIT_REMOTE no está configurado; solo se ha actualizado GitHub.");
-  }
   console.log("\n══════════════════════════════════════════════");
   console.log("🎉 ¡DESPLIEGUE COMPLETADO CON ÉXITO!");
   console.log("🌐 La web compilada ya está en la rama 'deploy' de GitHub.");
