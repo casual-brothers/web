@@ -2,7 +2,6 @@
 
 import React, { Suspense, Component } from "react";
 import { Canvas } from "@react-three/fiber";
-import { EffectComposer, Bloom } from "@react-three/postprocessing";
 
 /**
  * ErrorBoundary — Catches 3D/WebGL errors so the rest of the page still works.

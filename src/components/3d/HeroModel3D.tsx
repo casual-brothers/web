@@ -17,7 +17,7 @@ import * as THREE from "three";
  * - Float animation que nunca clipea (clamped dentro del viewport)
  * - Iluminación cinematográfica con brand green
  */
-export default function HeroModel3D() {
+export default function HeroModel3D({ onReady }: { onReady?: () => void }) {
   return (
     <>
       {/* === Cinematic Lighting === */}
@@ -61,7 +61,7 @@ export default function HeroModel3D() {
         clip=true evita que se renderice fuera del frustum.
       */}
       <Bounds fit clip observe margin={1.2}>
-        <HeroModelInner />
+        <HeroModelInner onReady={onReady} />
       </Bounds>
 
       {/* Magical dust particles — in front of and behind the model */}
@@ -73,7 +73,7 @@ export default function HeroModel3D() {
 /**
  * HeroModelInner — Modelo interactivo con drag-to-rotate y spring-back
  */
-function HeroModelInner() {
+function HeroModelInner({ onReady }: { onReady?: () => void }) {
   const groupRef = useRef<THREE.Group>(null);
   const { scene, animations } = useGLTF(assetPath("/models/HeroCasual.glb"));
   const { actions, names } = useAnimations(animations, groupRef);
@@ -119,7 +119,8 @@ function HeroModelInner() {
         }
       }
     });
-  }, [scene]);
+    onReady?.();
+  }, [scene, onReady]);
 
   // ========== Pointer Handlers ==========
   const onPointerDown = useCallback((e: any) => {

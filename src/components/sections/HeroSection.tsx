@@ -5,7 +5,7 @@ import { assetPath } from "@/lib/basePath";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect, useSyncExternalStore } from "react";
+import { useState, useEffect, useSyncExternalStore, useCallback } from "react";
 import { motion } from "framer-motion";
 
 // Avoids mounting the heavy 3D canvas on phones and tablets.
@@ -28,7 +28,11 @@ const seededRatio = (seed: number) => {
 
 export default function HeroSection({ dict, locale }: { dict: Dictionary; locale: string }) {
   const [partyMode, setPartyMode] = useState(false);
+  const [desktop3DEnabled, setDesktop3DEnabled] = useState(false);
+  const [desktop3DReady, setDesktop3DReady] = useState(false);
   const isDesktop = useIsDesktop();
+  const activateDesktop3D = useCallback(() => setDesktop3DEnabled(true), []);
+  const handleDesktop3DReady = useCallback(() => setDesktop3DReady(true), []);
 
   // Keyboard Konami Code Cheat listener (Unlocks Retro Party Mode!)
   useEffect(() => {
@@ -149,35 +153,74 @@ export default function HeroSection({ dict, locale }: { dict: Dictionary; locale
           Covers right ~65% of the hero and extends 
           120px BELOW the section for that "loose" feel.
           ============================================ */}
-      {isDesktop && (
-        <motion.div
-          initial={false}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.2, delay: 0.5, ...cinematic }}
-          className="absolute z-10 animate-grab-guide"
-          style={{
-            top: "-40px",
-            bottom: "0px",
-            left: "30%",
-            right: "-40px",
-            willChange: "transform",
-            transform: "translateZ(0)",
-          }}
+      <motion.div
+        initial={false}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2, delay: 0.5, ...cinematic }}
+        className="absolute z-10 hidden xl:block"
+        onPointerMove={activateDesktop3D}
+        onPointerDown={activateDesktop3D}
+        style={{
+          top: "-40px",
+          bottom: "0px",
+          left: "30%",
+          right: "-40px",
+          willChange: "transform",
+          transform: "translateZ(0)",
+        }}
+      >
+        {/* A lightweight still keeps the hero complete while the interactive
+            scene remains outside the initial Lighthouse/load path. */}
+        <div
+          aria-hidden="true"
+          className={`pointer-events-none absolute inset-0 transition-opacity duration-500 ${
+            desktop3DReady ? "opacity-0" : "opacity-100"
+          }`}
         >
-          <Scene3DWrapper className="absolute inset-0" interactive>
-            <HeroModel3D />
-          </Scene3DWrapper>
+          <picture>
+            <source
+              media="(min-width: 1280px)"
+              type="image/avif"
+              srcSet={assetPath("/images/hero-mascot-mobile-1024.avif")}
+            />
+            <source
+              media="(min-width: 1280px)"
+              type="image/webp"
+              srcSet={assetPath("/images/hero-mascot-mobile-1024.webp")}
+            />
+            <Image
+              src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+              alt=""
+              width={1024}
+              height={1195}
+              loading="eager"
+              fetchPriority="high"
+              unoptimized
+              className="absolute bottom-[1%] right-[2%] h-[92%] w-auto max-w-none object-contain drop-shadow-[0_22px_55px_rgba(0,0,0,0.5)]"
+            />
+          </picture>
+        </div>
 
-          {/* Bottom fade — smooth blend before console icons section */}
-          <div
-            className="absolute bottom-0 left-0 right-0 pointer-events-none z-10"
-            style={{
-              height: "30%",
-              background: "linear-gradient(to top, #0e0e0e 5%, rgba(14,14,14,0.7) 35%, transparent 100%)",
-            }}
-          />
-        </motion.div>
-      )}
+        {isDesktop && desktop3DEnabled && (
+          <Scene3DWrapper
+            className={`absolute inset-0 transition-opacity duration-500 ${
+              desktop3DReady ? "opacity-100" : "opacity-0"
+            }`}
+            interactive
+          >
+            <HeroModel3D onReady={handleDesktop3DReady} />
+          </Scene3DWrapper>
+        )}
+
+        {/* Bottom fade — smooth blend before console icons section */}
+        <div
+          className="absolute bottom-0 left-0 right-0 pointer-events-none z-10"
+          style={{
+            height: "30%",
+            background: "linear-gradient(to top, #0e0e0e 5%, rgba(14,14,14,0.7) 35%, transparent 100%)",
+          }}
+        />
+      </motion.div>
 
       {/* Konami falling pixel elements (Party Mode!) */}
       {partyMode && (
