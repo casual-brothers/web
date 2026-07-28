@@ -12,7 +12,7 @@ export interface GameData {
 }
 
 export const gamesData: GameData[] = [
-  // ── Full Development (12) ──────────────────────────────────
+  // ── Full Development (14) ──────────────────────────────────
   {
     id: "marupoyo",
     title: "Marupoyo: The Round Chick's Adventure",
@@ -31,11 +31,27 @@ export const gamesData: GameData[] = [
     featured: true,
   },
   {
+    id: "grinch-2-saving-christmas",
+    title: "The Grinch 2: Saving Christmas",
+    genre: "Adventure • Kids",
+    logo: "/images/Grinch-2-Saving-Christmas-Logo.webp",
+    screenshot: "/images/Grinch-2-Saving-Christmas.webp",
+    category: "full",
+  },
+  {
+    id: "hasbro-games-junior-collection",
+    title: "Hasbro Games Junior Collection",
+    genre: "Family • Kids",
+    logo: "/images/Hasbro-Games-Junior-Collection-Logo.webp",
+    screenshot: "/images/Hasbro-Games-Junior-Collection.webp",
+    category: "full",
+  },
+  {
     id: "cat-in-the-hat",
     title: "Cat In The Hat",
     genre: "Adventure • Kids",
-    logo: "/images/Cat-In-The-Hat-Logo.webp",
-    screenshot: "/images/Cat-In-The-Hat-Screenshot.webp",
+    logo: "/images/Cat-In-The-Hat-Rainy-Day-Mayhem-Logo.webp",
+    screenshot: "/images/Cat-In-The-Hat-Rainy-Day-Mayhem.webp",
     category: "full",
   },
   {

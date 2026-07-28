@@ -71,6 +71,7 @@ interface PlatformItem {
   name: string;
   icon: (props: IconProps) => React.ReactElement;
   accentColor: string;
+  href?: string;
   label?: string;
   iconClass: string;
 }
@@ -81,6 +82,7 @@ const platforms: PlatformItem[] = [
     name: "Steam",
     icon: SteamIcon,
     accentColor: "#00c0f3",
+    href: "https://store.steampowered.com/developer/CasualBrothersGames",
     iconClass: "w-10 h-10 md:w-11 md:h-11",
   },
   {
@@ -150,17 +152,8 @@ export default function PlatformLogos() {
       >
         {platforms.map((p, i) => {
           const isHovered = hoveredIndex === i;
-          return (
-            <motion.div
-              key={p.name}
-              onMouseEnter={() => setHoveredIndex(i)}
-              onMouseLeave={() => setHoveredIndex(null)}
-              className="relative flex items-center justify-center cursor-pointer select-none"
-              animate={{
-                scale: isHovered ? 1.18 : 1.0,
-              }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            >
+          const logo = (
+            <>
               {/* Clean, large vector logo with color transition and drop shadow on hover */}
               <div
                 className="flex items-center justify-center transition-all duration-300"
@@ -189,6 +182,37 @@ export default function PlatformLogos() {
                   {p.label}
                 </span>
               )}
+            </>
+          );
+
+          const animationProps = {
+            onMouseEnter: () => setHoveredIndex(i),
+            onMouseLeave: () => setHoveredIndex(null),
+            className: "relative flex items-center justify-center cursor-pointer select-none",
+            animate: {
+              scale: isHovered ? 1.18 : 1.0,
+            },
+            transition: { type: "spring" as const, stiffness: 300, damping: 20 },
+          };
+
+          if (p.href) {
+            return (
+              <motion.a
+                key={p.name}
+                href={p.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit Casual Brothers on Steam"
+                {...animationProps}
+              >
+                {logo}
+              </motion.a>
+            );
+          }
+
+          return (
+            <motion.div key={p.name} {...animationProps}>
+              {logo}
             </motion.div>
           );
         })}
