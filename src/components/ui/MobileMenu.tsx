@@ -4,6 +4,7 @@ import { assetPath } from "@/lib/basePath";
 
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -24,13 +25,11 @@ export default function MobileMenu({ navLinks, locale, ctaLabel }: MobileMenuPro
   const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
 
-  // Portal needs to wait for client mount
-  useEffect(() => setMounted(true), []);
-
-  // Close menu on route change
+  // The portal can only be attached after the client has mounted.
   useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- The body portal does not exist during SSR.
+    setMounted(true);
+  }, []);
 
   // Lock body scroll when open
   useEffect(() => {
@@ -77,7 +76,7 @@ export default function MobileMenu({ navLinks, locale, ctaLabel }: MobileMenuPro
           />
 
           {/* Menu Content */}
-          <nav className="relative z-10 flex flex-col items-center justify-center h-full px-8">
+          <nav className="relative z-10 flex h-full flex-col items-center justify-center px-8">
             {/* Logo at top */}
             <motion.div
               initial={{ opacity: 0, y: -10 }}
@@ -85,9 +84,12 @@ export default function MobileMenu({ navLinks, locale, ctaLabel }: MobileMenuPro
               transition={{ duration: 0.3 }}
               className="absolute top-6 left-6"
             >
-              <img
-                src={assetPath("/images/branding/cb-digital-w.webp")}
+              <Image
+                src={assetPath("/images/branding/cb-digital-w-640.webp")}
                 alt="Casual Brothers"
+                width={640}
+                height={154}
+                decoding="async"
                 className="h-10 w-auto opacity-60"
               />
             </motion.div>

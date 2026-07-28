@@ -21,7 +21,7 @@ export default function GamingStudioGraphic() {
 
   return (
     <div
-      className="relative w-full max-w-[520px] aspect-square flex items-center justify-center cursor-pointer select-none"
+      className="relative w-full max-w-[520px] aspect-[4/3] lg:aspect-square flex items-center justify-center cursor-pointer select-none"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >

@@ -8,9 +8,9 @@ import Link from "next/link";
 import { useState, useEffect, useSyncExternalStore } from "react";
 import { motion } from "framer-motion";
 
-// Avoids mounting heavy 3D canvas on mobile/tablet where it's not visible
+// Avoids mounting the heavy 3D canvas on phones and tablets.
 const subscribeResize = (cb: () => void) => { window.addEventListener("resize", cb); return () => window.removeEventListener("resize", cb); };
-const getIsDesktop = () => window.innerWidth >= 1024;
+const getIsDesktop = () => window.innerWidth >= 1280;
 const getIsDesktopServer = () => false;
 function useIsDesktop() { return useSyncExternalStore(subscribeResize, getIsDesktop, getIsDesktopServer); }
 import type { Dictionary } from "@/i18n/getDictionary";
@@ -66,12 +66,40 @@ export default function HeroSection({ dict, locale }: { dict: Dictionary; locale
       {/* Background container — overflow hidden to prevent bleed into sections below */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Background Image with camera drift */}
-        <div className="absolute -inset-[4%]" style={{ animation: 'hero-drift-x 29s ease-in-out infinite, hero-drift-y 19s ease-in-out infinite' }}>
-          <img
-            src={assetPath("/images/bg_hero_fantasy.webp")}
-            alt=""
-            className="absolute inset-0 w-full h-full object-cover opacity-70 mix-blend-screen"
-          />
+        <div className="hero-background-motion absolute -inset-[4%]">
+          <picture>
+            <source
+              media="(max-width: 1279px) and (orientation: portrait)"
+              type="image/avif"
+              srcSet={`${assetPath("/images/hero-bg-mobile-480.avif")} 480w, ${assetPath("/images/hero-bg-mobile-768.avif")} 768w`}
+              sizes="100vw"
+            />
+            <source
+              media="(max-width: 1279px) and (orientation: landscape)"
+              type="image/avif"
+              srcSet={assetPath("/images/hero-bg-tablet-1280.avif")}
+            />
+            <source
+              media="(max-width: 1279px) and (orientation: portrait)"
+              type="image/webp"
+              srcSet={`${assetPath("/images/hero-bg-mobile-480.webp")} 480w, ${assetPath("/images/hero-bg-mobile-768.webp")} 768w`}
+              sizes="100vw"
+            />
+            <source
+              media="(max-width: 1279px) and (orientation: landscape)"
+              type="image/webp"
+              srcSet={assetPath("/images/hero-bg-tablet-1280.webp")}
+            />
+            <Image
+              src={assetPath("/images/bg_hero_fantasy.webp")}
+              alt=""
+              width={1402}
+              height={1122}
+              fetchPriority="high"
+              decoding="async"
+              className="absolute inset-0 w-full h-full object-cover opacity-70 mix-blend-screen"
+            />
+          </picture>
         </div>
         {/* Dark overlays for readability — stronger left gradient to protect title text */}
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, #0e0e0e 10%, rgba(14,14,14,0.7) 40%, rgba(14,14,14,0.15) 65%, transparent 80%)' }} />
@@ -86,19 +114,19 @@ export default function HeroSection({ dict, locale }: { dict: Dictionary; locale
       </div>
 
       {/* Lightweight mobile mascot — responsive stills from the same HeroCasual.glb model. */}
-      <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none lg:hidden" aria-hidden="true">
+      <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none xl:hidden" aria-hidden="true">
         <picture>
           <source
-            media="(max-width: 1023px)"
+            media="(max-width: 1279px)"
             type="image/avif"
-            srcSet={`${assetPath("/images/hero-mascot-mobile-480.avif")} 480w, ${assetPath("/images/hero-mascot-mobile-768.avif")} 768w`}
-            sizes="100vw"
+            srcSet={`${assetPath("/images/hero-mascot-mobile-480.avif")} 480w, ${assetPath("/images/hero-mascot-mobile-768.avif")} 768w, ${assetPath("/images/hero-mascot-mobile-1024.avif")} 1024w`}
+            sizes="(max-width: 480px) 100vw, (max-width: 768px) 80vw, 66vw"
           />
           <source
-            media="(max-width: 1023px)"
+            media="(max-width: 1279px)"
             type="image/webp"
-            srcSet={`${assetPath("/images/hero-mascot-mobile-480.webp")} 480w, ${assetPath("/images/hero-mascot-mobile-768.webp")} 768w`}
-            sizes="100vw"
+            srcSet={`${assetPath("/images/hero-mascot-mobile-480.webp")} 480w, ${assetPath("/images/hero-mascot-mobile-768.webp")} 768w, ${assetPath("/images/hero-mascot-mobile-1024.webp")} 1024w`}
+            sizes="(max-width: 480px) 100vw, (max-width: 768px) 80vw, 66vw"
           />
           <Image
             src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
@@ -109,7 +137,7 @@ export default function HeroSection({ dict, locale }: { dict: Dictionary; locale
             fetchPriority="high"
             decoding="async"
             unoptimized
-            className="absolute top-28 right-[-38%] w-[110%] h-auto max-w-none object-contain opacity-75 drop-shadow-[0_18px_45px_rgba(0,0,0,0.45)] sm:top-20 sm:right-[-12%] sm:w-[78%] md:right-[-4%] md:w-[66%]"
+            className="absolute top-28 right-[-38%] w-[110%] h-auto max-w-none object-contain opacity-75 drop-shadow-[0_18px_45px_rgba(0,0,0,0.45)] sm:top-20 sm:right-[-12%] sm:w-[78%] md:right-[-4%] md:w-[66%] lg:top-12 lg:w-[62%]"
           />
         </picture>
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent" />
@@ -195,7 +223,7 @@ export default function HeroSection({ dict, locale }: { dict: Dictionary; locale
       )}
 
       {/* Text Content — on top of 3D model (pointer-events-none lets events reach the 3D mascot behind) */}
-      <div className="max-w-[1400px] w-full mx-auto px-6 pt-24 pb-28 lg:pb-32 relative z-20 pointer-events-none">
+      <div className="max-w-[1400px] w-full mx-auto px-6 pt-24 pb-32 lg:pb-32 relative z-20 pointer-events-none">
         <div className="max-w-xl space-y-8 pointer-events-auto">
           {/* Label - Premium Game Studio Pill Badge */}
           <motion.div
@@ -229,7 +257,7 @@ export default function HeroSection({ dict, locale }: { dict: Dictionary; locale
             initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5, ...cinematic }}
-            className="text-base md:text-lg text-white/50 max-w-lg leading-relaxed"
+            className="max-w-lg text-base leading-relaxed text-white/50 md:text-lg"
           >
             {dict.home.heroSubtitle}{" "}
             <span className="text-brand font-medium">{dict.home.heroHighlight1}</span>{" "}
@@ -265,8 +293,8 @@ export default function HeroSection({ dict, locale }: { dict: Dictionary; locale
       <div className="absolute bottom-0 left-0 right-0 h-36 z-30 pointer-events-none" style={{ background: 'linear-gradient(to top, #0e0e0e, transparent)' }} />
 
       {/* Platform Logos floating at the very bottom of the Hero */}
-      <div className="relative lg:absolute bottom-0 left-0 right-0 w-full z-40 mt-12 lg:mt-0">
-        <div className="max-w-[1400px] mx-auto px-6">
+      <div className="absolute inset-x-0 bottom-0 z-40 w-full bg-gradient-to-t from-background via-background/95 to-transparent pt-10 pb-[env(safe-area-inset-bottom)]">
+        <div className="max-w-[1400px] mx-auto px-3 sm:px-5 lg:px-6">
           <PlatformLogos />
         </div>
       </div>

@@ -1,7 +1,9 @@
 "use client";
 
+/* eslint-disable @next/next/no-img-element -- Portfolio assets are pre-compressed and require natural logo dimensions. */
+
 import { assetPath } from "@/lib/basePath";
-import { motion } from "framer-motion";
+import { motion, type PanInfo } from "framer-motion";
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import type { GameData } from "@/data/games";
 
@@ -10,9 +12,10 @@ interface GameCarousel3DProps {
   locale: string;
 }
 
-export default function GameCarousel3D({ games, locale }: GameCarousel3DProps) {
+export default function GameCarousel3D({ games }: GameCarousel3DProps) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
+  // Mobile-first initial state keeps SSR from advertising every carousel image.
+  const [isMobile, setIsMobile] = useState(true);
   const [isTablet, setIsTablet] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [logoConstraints, setLogoConstraints] = useState<{ [key: string]: string }>({});
@@ -63,7 +66,7 @@ export default function GameCarousel3D({ games, locale }: GameCarousel3DProps) {
   }, [isHovered, isActiveHovered, nextSlide]);
 
   // Drag handler for swipe gesture
-  const handleDragEnd = (event: any, info: any) => {
+  const handleDragEnd = (_event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
     const swipeThreshold = 50;
     if (info.offset.x < -swipeThreshold) {
       nextSlide();
@@ -156,6 +159,7 @@ export default function GameCarousel3D({ games, locale }: GameCarousel3DProps) {
           const absOffset = Math.abs(offset);
           const isActive = offset === 0;
           const isHoveredSide = hoveredIndex === idx;
+          const shouldLoadMedia = absOffset <= (isMobile || isTablet ? 1 : 2);
 
           // Spatial layout spacing calculations
           const horizontalSpacing = isMobile ? 180 : isTablet ? 250 : 340;
@@ -243,10 +247,13 @@ export default function GameCarousel3D({ games, locale }: GameCarousel3DProps) {
                     : "rgba(255, 255, 255, 0.05)",
                 }}
               >
-                {game.screenshot ? (
+                {game.screenshot && shouldLoadMedia ? (
                   <img
                     src={assetPath(game.screenshot)}
                     alt={game.title}
+                    loading="lazy"
+                    decoding="async"
+                    fetchPriority={isActive ? "auto" : "low"}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                     style={game.imagePosition ? { objectPosition: game.imagePosition } : undefined}
                   />
@@ -307,7 +314,7 @@ export default function GameCarousel3D({ games, locale }: GameCarousel3DProps) {
                 }}
               >
                 {/* Game Logo with auto-scaling & gentle zero-g breathing */}
-                {game.logo && (
+                {game.logo && shouldLoadMedia && (
                   <motion.div 
                     className={`w-[90%] h-16 sm:h-20 md:h-24 flex items-center justify-center mb-2 sm:mb-3`}
                     animate={isActive ? {
@@ -324,6 +331,9 @@ export default function GameCarousel3D({ games, locale }: GameCarousel3DProps) {
                     <img
                       src={assetPath(game.logo)}
                       alt={`${game.title} logo`}
+                      loading="lazy"
+                      decoding="async"
+                      fetchPriority="low"
                       className={`${logoConstraints[game.id] || "max-w-[80%] max-h-[80%]"} object-contain transition-transform duration-500 ${
                         isActive && isActiveHovered ? "scale-108" : ""
                       }`}

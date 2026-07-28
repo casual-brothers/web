@@ -2,6 +2,7 @@
 
 import { assetPath } from "@/lib/basePath";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import type { Dictionary } from "@/i18n/getDictionary";
@@ -15,28 +16,48 @@ export default function CTASection({ dict, locale }: { dict: Dictionary; locale:
       {/* Camera drift wrapper — slow cinematic movement */}
       <div className="absolute -inset-[5%]" style={{ animation: 'drift-x 23s ease-in-out infinite, drift-y 17s ease-in-out infinite' }}>
         {/* Idle layer — always visible stars & clouds */}
-        <img
+        <Image
           src={assetPath("/images/callaction_off.webp")}
           alt=""
+          fill
+          sizes="100vw"
+          loading="lazy"
+          decoding="async"
+          fetchPriority="low"
           className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-screen"
         />
 
         {/* Lightning layers — flash on top of idle */}
-        <img
+        <Image
           src={assetPath("/images/callaction.webp")}
           alt=""
+          fill
+          sizes="100vw"
+          loading="lazy"
+          decoding="async"
+          fetchPriority="low"
           className="absolute inset-0 w-full h-full object-cover mix-blend-screen"
           style={{ animation: 'storm-a 7s ease-in-out infinite' }}
         />
-        <img
+        <Image
           src={assetPath("/images/callaction.webp")}
           alt=""
+          fill
+          sizes="100vw"
+          loading="lazy"
+          decoding="async"
+          fetchPriority="low"
           className="absolute inset-0 w-full h-full object-cover mix-blend-screen"
           style={{ animation: 'storm-b 11s ease-in-out infinite' }}
         />
-        <img
+        <Image
           src={assetPath("/images/callaction.webp")}
           alt=""
+          fill
+          sizes="100vw"
+          loading="lazy"
+          decoding="async"
+          fetchPriority="low"
           className="absolute inset-0 w-full h-full object-cover mix-blend-screen blur-[2px] scale-105"
           style={{ animation: 'storm-c 5s ease-in-out infinite' }}
         />

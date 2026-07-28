@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { getCaseStudy } from "@/data/caseStudies";
+import { caseStudies } from "@/data/caseStudies";
 import { assetPath } from "@/lib/basePath";
 
 export default function FeaturedCaseStudies({
@@ -11,9 +11,10 @@ export default function FeaturedCaseStudies({
   slugs: string[];
 }) {
   const isEs = locale === "es";
-  const studies = slugs
-    .map((slug) => getCaseStudy(slug))
-    .filter((study): study is NonNullable<typeof study> => Boolean(study));
+  // Keep the selected titles in the same canonical sequence as /games.
+  // Landing pages only choose which titles appear; the portfolio owns their order.
+  const selectedSlugs = new Set(slugs);
+  const studies = caseStudies.filter((study) => selectedSlugs.has(study.slug));
 
   if (studies.length === 0) return null;
 

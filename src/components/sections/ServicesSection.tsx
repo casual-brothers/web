@@ -1,6 +1,7 @@
 "use client";
 
 import { assetPath } from "@/lib/basePath";
+import Image from "next/image";
 import Link from "next/link";
 import ServiceCard from "@/components/ui/ServiceCard";
 import type { ServiceData } from "@/data/services";
@@ -19,9 +20,14 @@ export default function ServicesSection({
     <section id="services" className="relative -mx-6 px-6 py-20 overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
-        <img
+        <Image
           src={assetPath("/images/bg_services_adventure.webp")}
           alt=""
+          fill
+          sizes="100vw"
+          loading="lazy"
+          decoding="async"
+          fetchPriority="low"
           className="absolute inset-0 w-full h-full object-cover opacity-70 mix-blend-screen"
         />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, #0e0e0e, transparent, #0e0e0e)' }} />

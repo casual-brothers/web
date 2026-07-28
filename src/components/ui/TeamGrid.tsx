@@ -325,6 +325,51 @@ export default function TeamGrid({ members, locale }: { members: TeamMember[]; l
 
   return (
     <div className="space-y-12">
+      {/* Mobile-first roster: make it immediately clear this is a team, not one profile. */}
+      <div className="rounded-xl border border-white/10 bg-black/30 p-3 md:hidden">
+        <div className="mb-3 flex items-center justify-between gap-3 text-[8px] font-display font-bold uppercase tracking-[0.14em]">
+          <span className="text-brand">
+            {locale === "es" ? "Equipo // perfiles" : "Team // profiles"}
+          </span>
+          <span className="text-white/45">
+            {locale === "es" ? "Toca un perfil" : "Tap a profile"}
+          </span>
+        </div>
+        <div className="grid grid-cols-5 gap-2">
+          {members.map((member) => {
+            const isSelected = selectedMember?.id === member.id;
+
+            return (
+              <button
+                key={member.id}
+                type="button"
+                onClick={() => handleSelect(member)}
+                aria-pressed={isSelected}
+                aria-label={`${locale === "es" ? "Ver perfil de" : "View profile for"} ${member.name}`}
+                className={`flex min-w-0 flex-col items-center gap-1 rounded-lg px-1 py-1.5 transition-colors ${
+                  isSelected
+                    ? "bg-brand/10 text-brand"
+                    : "text-white/55 active:bg-white/5"
+                }`}
+              >
+                <span className={`h-11 w-11 overflow-hidden rounded-full border transition-colors ${
+                  isSelected ? "border-brand shadow-[0_0_10px_rgba(124,255,0,0.3)]" : "border-white/15"
+                }`}>
+                  <img
+                    src={assetPath(member.avatar)}
+                    alt=""
+                    className="h-full w-full object-cover"
+                  />
+                </span>
+                <span className="w-full truncate text-center text-[7px] font-bold uppercase tracking-wide">
+                  {member.name.split(" ")[0]}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
       {/* ─── 1. ARCADE CHARACTER SELECTION HUD DASHBOARD ─── */}
       <motion.div
         animate={isShaking ? {
@@ -479,9 +524,16 @@ export default function TeamGrid({ members, locale }: { members: TeamMember[]; l
                     <span className="text-brand animate-pulse font-mono">]</span>
                   </h3>
                   <p className="text-[10.5px] font-display font-medium text-white/35 leading-relaxed max-w-sm uppercase tracking-wider">
-                    {locale === "es"
-                      ? "Activa el sonido, pasa el cursor sobre un miembro o haz clic para bloquear tu personaje y activar su habilidad definitiva."
-                      : "Turn audio ON, hover over a team member or click to lock your character and trigger their ultimate ability."}
+                    <span className="md:hidden">
+                      {locale === "es"
+                        ? "Toca un perfil del equipo para ver su rol, experiencia y habilidades."
+                        : "Tap a team profile to see their role, experience and abilities."}
+                    </span>
+                    <span className="hidden md:inline">
+                      {locale === "es"
+                        ? "Activa el sonido, pasa el cursor sobre un miembro o haz clic para bloquear tu personaje y activar su habilidad definitiva."
+                        : "Turn audio ON, hover over a team member or click to lock your character and trigger their ultimate ability."}
+                    </span>
                   </p>
                 </motion.div>
               )}
@@ -609,7 +661,7 @@ export default function TeamGrid({ members, locale }: { members: TeamMember[]; l
       </motion.div>
 
       {/* ─── 2. THE TEAM CARDS GRID ─── */}
-      <div className="flex flex-wrap justify-center gap-x-12 gap-y-14">
+      <div className="hidden flex-wrap justify-center gap-x-12 gap-y-14 md:flex">
         {members.map((member, i) => {
           const rpg = rpgStatsMap[member.id] || defaultRpg;
           const isSelected = selectedMember?.id === member.id;

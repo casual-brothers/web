@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import "../globals.css";
 import { assetPath, basePath } from "@/lib/basePath";
@@ -127,7 +128,7 @@ export default async function LocaleLayout({
           navLinks={navLinks}
           locale={locale}
           ctaLabel={dict.nav.workWithUs}
-          logoSrc={assetPath("/images/branding/cb-digital-w.webp")}
+          logoSrc={assetPath("/images/branding/cb-digital-w-640.webp")}
         />
       </ScrollHeader>
 
@@ -142,7 +143,15 @@ export default async function LocaleLayout({
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             {/* Brand */}
             <div className="space-y-4">
-              <img src={assetPath("/images/branding/cb-digital-w.webp")} alt="Casual Brothers" className="h-10 w-auto" />
+              <Image
+                src={assetPath("/images/branding/cb-digital-w-640.webp")}
+                alt="Casual Brothers"
+                width={640}
+                height={154}
+                loading="lazy"
+                decoding="async"
+                className="h-10 w-auto"
+              />
               <p className="text-sm text-white/40 max-w-xs">
                 {locale === "es"
                   ? "Game development studio para publishers, titulares de IP y estudios financiados."

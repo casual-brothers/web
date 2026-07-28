@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import MobileMenu from "./MobileMenu";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
@@ -21,9 +22,12 @@ export default function HeaderNav({ navLinks, locale, ctaLabel, logoSrc }: Heade
     <nav className="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
       {/* Logo */}
       <Link href={`/${locale}`} className="flex items-center gap-3 group shrink-0">
-        <img
+        <Image
           src={logoSrc}
           alt="Casual Brothers"
+          width={640}
+          height={154}
+          decoding="async"
           className="h-11 w-auto group-hover:brightness-125 transition-all duration-300"
         />
       </Link>

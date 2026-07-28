@@ -26,7 +26,7 @@ export interface CommercialPageData {
 
 // Shipped titles surfaced as proof on each landing. Slugs must exist in src/data/games.ts.
 export const featuredCaseStudySlugs: Record<CommercialPageSlug, string[]> = {
-  publishers: ["grinch", "bluey", "transformers", "killing-floor-2"],
+  publishers: ["marupoyo", "hot-rod-mayhem", "grinch-2-saving-christmas", "hasbro-games-junior-collection"],
   "game-development-services": ["hot-rod-mayhem", "marupoyo", "grinch", "matchbox"],
   "co-development-game-studio": ["killing-floor-2", "bluey", "barbie", "ice-age"],
   "console-porting-services": ["transformers", "jumanji", "chicken-run", "my-little-pony"],

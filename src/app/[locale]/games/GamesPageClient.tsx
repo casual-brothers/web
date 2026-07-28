@@ -247,32 +247,35 @@ export default function GamesPageClient({ dict, locale }: { dict: Dictionary; lo
       {/* Sticky Category Tab Bar */}
       <div 
         ref={tabBarRef}
-        className="sticky top-[64px] z-40 border-b border-white/5"
+        className="sticky top-[56px] z-40 border-b border-white/5 sm:top-[64px]"
         style={{ 
           background: 'rgba(14, 14, 14, 0.85)',
           backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',
         }}
       >
-        <div className="max-w-[1400px] mx-auto px-6">
-          <div className="flex items-center gap-1 overflow-x-auto scrollbar-hide py-1">
+        <div className="max-w-[1400px] mx-auto px-2 sm:px-6">
+          <div className="grid grid-cols-3 items-stretch gap-0 py-1 sm:gap-1">
             {categories.map((cat) => {
               const isActive = activeTab === cat.key;
               return (
                 <button
                   key={cat.key}
                   onClick={() => scrollToCategory(cat.key)}
-                  className={`relative flex items-center gap-2.5 px-5 py-3.5 text-[11px] font-bold uppercase tracking-[0.15em] transition-all duration-300 whitespace-nowrap cursor-pointer rounded-t-lg ${
+                  aria-current={isActive ? "true" : undefined}
+                  className={`relative flex min-w-0 flex-col items-center justify-center gap-1 rounded-t-lg px-1 py-2.5 text-center text-[8px] font-bold uppercase leading-tight tracking-[0.08em] transition-all duration-300 cursor-pointer sm:flex-row sm:gap-2 sm:px-3 sm:py-3.5 sm:text-[10px] sm:tracking-[0.12em] lg:gap-2.5 lg:px-5 lg:text-[11px] lg:tracking-[0.15em] ${
                     isActive
                       ? "text-brand"
                       : "text-white/35 hover:text-white/70"
                   }`}
                 >
-                  <span className={`transition-colors duration-300 ${isActive ? "text-brand" : "text-white/25"}`}>
+                  <span className={`shrink-0 transition-colors duration-300 [&>svg]:h-4 [&>svg]:w-4 sm:[&>svg]:h-5 sm:[&>svg]:w-5 ${isActive ? "text-brand" : "text-white/25"}`}>
                     {cat.icon}
                   </span>
-                  {data[cat.titleKey]}
-                  <span className={`ml-1 text-[9px] font-extrabold px-1.5 py-0.5 rounded-full transition-all duration-300 ${
+                  <span className="min-w-0 break-words">
+                    {data[cat.titleKey]}
+                  </span>
+                  <span className={`text-[8px] font-extrabold px-1.5 py-0.5 rounded-full transition-all duration-300 sm:ml-0.5 sm:text-[9px] ${
                     isActive 
                       ? "bg-brand/15 text-brand" 
                       : "bg-white/5 text-white/30"
@@ -283,7 +286,7 @@ export default function GamesPageClient({ dict, locale }: { dict: Dictionary; lo
                   {isActive && (
                     <motion.div
                       layoutId="activeTabIndicator"
-                      className="absolute bottom-0 left-2 right-2 h-[2px] bg-brand rounded-full"
+                      className="absolute bottom-0 left-1 right-1 h-[2px] bg-brand rounded-full sm:left-2 sm:right-2"
                       transition={{ type: "spring", stiffness: 400, damping: 30 }}
                     />
                   )}
@@ -301,7 +304,7 @@ export default function GamesPageClient({ dict, locale }: { dict: Dictionary; lo
             key={cat.key}
             ref={(el) => { sectionRefs.current[cat.key] = el; }}
             data-category={cat.key}
-            className="max-w-[1400px] w-full mx-auto px-6 pt-16 pb-8"
+            className="max-w-[1400px] w-full mx-auto px-5 pt-12 pb-8 sm:px-6 sm:pt-16"
           >
             {/* Category Header */}
             <motion.div
@@ -309,22 +312,22 @@ export default function GamesPageClient({ dict, locale }: { dict: Dictionary; lo
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="mb-10"
+              className="mb-7 sm:mb-10"
             >
-              <div className="flex items-center gap-4 mb-3">
-                <div className="flex items-center justify-center w-10 h-10 rounded-lg border border-brand/20 text-brand" style={{ background: 'rgba(124,255,0,0.06)' }}>
+              <div className="flex items-start gap-3 mb-3 sm:items-center sm:gap-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-brand/20 text-brand" style={{ background: 'rgba(124,255,0,0.06)' }}>
                   {cat.icon}
                 </div>
-                <div>
-                  <h2 className="font-display text-2xl md:text-3xl font-bold uppercase tracking-tight text-white">
+                <div className="min-w-0 flex-1">
+                  <h2 className="font-display text-xl sm:text-2xl md:text-3xl font-bold uppercase leading-tight tracking-tight text-white">
                     {data[cat.titleKey]}
                   </h2>
-                  <p className="text-sm text-white/35 mt-0.5">
+                  <p className="mt-1 text-sm leading-relaxed text-white/35 sm:mt-0.5">
                     {data[cat.descKey]}
                   </p>
                 </div>
-                <div className="flex-1 h-px bg-white/5 ml-4" />
-                <span className="text-[11px] font-bold uppercase tracking-widest text-white/20">
+                <div className="ml-4 hidden h-px flex-1 bg-white/5 sm:block" />
+                <span className="hidden shrink-0 text-[11px] font-bold uppercase tracking-widest text-white/20 sm:block">
                   {cat.games.length} {cat.games.length === 1 ? "title" : "titles"}
                 </span>
               </div>

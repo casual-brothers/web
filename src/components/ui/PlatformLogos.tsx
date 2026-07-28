@@ -83,56 +83,56 @@ const platforms: PlatformItem[] = [
     icon: SteamIcon,
     accentColor: "#00c0f3",
     href: "https://store.steampowered.com/developer/CasualBrothersGames",
-    iconClass: "w-10 h-10 md:w-11 md:h-11",
+    iconClass: "w-6 h-6 sm:w-7 sm:h-7 lg:w-11 lg:h-11",
   },
   {
     name: "PS5",
     icon: PS5Icon,
     accentColor: "#0070d1",
-    iconClass: "w-14 h-5 md:w-16 md:h-6",
+    iconClass: "w-8 h-3 sm:w-10 sm:h-4 lg:w-16 lg:h-6",
   },
   {
     name: "PS4",
     icon: PS4Icon,
     accentColor: "#0070d1",
-    iconClass: "w-14 h-5 md:w-16 md:h-6",
+    iconClass: "w-8 h-3 sm:w-10 sm:h-4 lg:w-16 lg:h-6",
   },
   {
     name: "Xbox",
     icon: XboxIcon,
     accentColor: "#52b043",
-    iconClass: "w-10 h-10 md:w-11 md:h-11",
+    iconClass: "w-6 h-6 sm:w-7 sm:h-7 lg:w-11 lg:h-11",
   },
   {
     name: "Nintendo Switch",
     icon: SwitchIcon,
     accentColor: "#e60012",
-    iconClass: "w-10 h-10 md:w-11 md:h-11",
+    iconClass: "w-6 h-6 sm:w-7 sm:h-7 lg:w-11 lg:h-11",
   },
   {
     name: "Nintendo Switch 2",
     icon: SwitchIcon,
     accentColor: "#e60012",
     label: "2",
-    iconClass: "w-10 h-10 md:w-11 md:h-11",
+    iconClass: "w-6 h-6 sm:w-7 sm:h-7 lg:w-11 lg:h-11",
   },
   {
     name: "Android",
     icon: AndroidIcon,
     accentColor: "#3ddc84",
-    iconClass: "w-10 h-10 md:w-11 md:h-11",
+    iconClass: "w-6 h-6 sm:w-7 sm:h-7 lg:w-11 lg:h-11",
   },
   {
     name: "iOS",
     icon: AppleIcon,
     accentColor: "#ffffff",
-    iconClass: "w-9 h-9 md:w-10 md:h-10",
+    iconClass: "w-6 h-6 sm:w-7 sm:h-7 lg:w-10 lg:h-10",
   },
   {
     name: "Epic Games",
     icon: EpicGamesIcon,
     accentColor: "#ffffff",
-    iconClass: "w-9 h-9 md:w-10 md:h-10",
+    iconClass: "w-6 h-6 sm:w-7 sm:h-7 lg:w-10 lg:h-10",
   },
 ];
 
@@ -142,13 +142,13 @@ export default function PlatformLogos() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <div ref={ref} className="relative py-8 overflow-visible flex items-center justify-center">
+    <div ref={ref} className="relative flex w-full items-center justify-center overflow-hidden py-3 sm:py-4 lg:py-8">
       {/* Simple, clean, centered flex list of logos */}
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="flex flex-wrap items-center justify-center gap-8 sm:gap-10 md:gap-12 lg:gap-14 max-w-5xl px-6"
+        className="flex w-full max-w-5xl flex-nowrap items-center justify-between gap-2 px-1 sm:gap-4 sm:px-2 lg:gap-14 lg:px-6"
       >
         {platforms.map((p, i) => {
           const isHovered = hoveredIndex === i;
@@ -188,7 +188,7 @@ export default function PlatformLogos() {
           const animationProps = {
             onMouseEnter: () => setHoveredIndex(i),
             onMouseLeave: () => setHoveredIndex(null),
-            className: "relative flex items-center justify-center cursor-pointer select-none",
+            className: "relative flex shrink-0 items-center justify-center cursor-pointer select-none",
             animate: {
               scale: isHovered ? 1.18 : 1.0,
             },

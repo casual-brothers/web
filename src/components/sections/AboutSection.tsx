@@ -2,6 +2,7 @@
 
 import { assetPath } from "@/lib/basePath";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import type { Dictionary } from "@/i18n/getDictionary";
@@ -12,9 +13,14 @@ export default function AboutSection({ dict, locale }: { dict: Dictionary; local
     <section id="about" className="relative py-28 px-6 overflow-hidden">
       {/* Background — full section */}
       <div className="absolute inset-0">
-        <img
+        <Image
           src={assetPath("/images/about-bg.webp")}
           alt=""
+          fill
+          sizes="100vw"
+          loading="lazy"
+          decoding="async"
+          fetchPriority="low"
           className="absolute inset-0 w-full h-full object-cover opacity-75"
         />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, #0e0e0e, transparent, #0e0e0e)' }} />
