@@ -24,6 +24,9 @@ export const metadata: Metadata = {
   },
   description:
     "We make games worth remembering. 15+ titles shipped, 100M+ downloads. Game development, co-development, porting, and live ops for the world's biggest entertainment IPs.",
+  other: {
+    "cb-build": "viewport-repaint-20260728",
+  },
 };
 
 export default function RootLayout({
