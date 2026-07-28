@@ -2,4 +2,7 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/casua9/public_html/
-    - /usr/bin/rsync -a --delete --exclude='.git' --exclude='.cpanel.yml' ./ $DEPLOYPATH
+    - /bin/mkdir -p $DEPLOYPATH
+    - /bin/rm -rf $DEPLOYPATH/_next $DEPLOYPATH/_not-found $DEPLOYPATH/404 $DEPLOYPATH/api $DEPLOYPATH/en $DEPLOYPATH/es $DEPLOYPATH/fonts $DEPLOYPATH/images $DEPLOYPATH/models
+    - /bin/cp -R _next _not-found 404 api en es fonts images models $DEPLOYPATH
+    - /bin/cp .htaccess 404.html apple-icon.png file.svg globe.svg googled1d5ae5708fdd870.html icon.png index.html index.txt next.svg robots.txt sitemap.xml vercel.svg window.svg _headers __next._full.txt __next._head.txt __next._index.txt __next._tree.txt __next.__PAGE__.txt $DEPLOYPATH
