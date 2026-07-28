@@ -37,6 +37,7 @@ export const gamesData: GameData[] = [
     logo: "/images/Grinch-2-Saving-Christmas-Logo.webp",
     screenshot: "/images/Grinch-2-Saving-Christmas.webp",
     category: "full",
+    featured: true,
   },
   {
     id: "hasbro-games-junior-collection",
@@ -61,7 +62,6 @@ export const gamesData: GameData[] = [
     logo: "/images/Grinch-Logo-scaled.webp",
     screenshot: "/images/Grinch-Screenshot-1.webp",
     category: "full",
-    featured: true,
   },
   {
     id: "westerner",
