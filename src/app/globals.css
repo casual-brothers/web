@@ -52,6 +52,21 @@ body > * {
   min-width: 0;
 }
 
+html.viewport-repaint-active,
+html.viewport-repaint-active body {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+#viewport-repaint-sentinel {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  pointer-events: none;
+  background: rgba(14, 14, 14, 0.001);
+  transform: translateZ(0);
+}
+
 /* ========== TYPOGRAPHY ========== */
 
 .font-display {
