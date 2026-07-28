@@ -1,12 +1,14 @@
 import { execSync } from "node:child_process";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { existsSync, rmSync } from "node:fs";
+import { copyFileSync, existsSync, rmSync } from "node:fs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const rootDir = join(__dirname, "..");
 const outDir = join(rootDir, "out");
+const cpanelConfig = join(rootDir, ".cpanel.yml");
+const outCpanelConfig = join(outDir, ".cpanel.yml");
 
 console.log("\n🚀 Iniciando despliegue en GitHub...");
 console.log("══════════════════════════════════════════════");
@@ -25,6 +27,13 @@ try {
 // 2. Preparar el repositorio local en la carpeta /out
 console.log("\n📂 Paso 2/3: Preparando archivos en /out...");
 console.log("──────────────────────────────────────────────");
+
+if (!existsSync(cpanelConfig)) {
+  console.error("Falta .cpanel.yml en la raiz. cPanel no podra desplegar la rama deploy.");
+  process.exit(1);
+}
+
+copyFileSync(cpanelConfig, outCpanelConfig);
 
 const gitDir = join(outDir, ".git");
 if (existsSync(gitDir)) {
