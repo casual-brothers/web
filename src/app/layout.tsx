@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Montserrat } from "next/font/google";
+import ViewportRecalibration from "@/components/system/ViewportRecalibration";
 import "./globals.css";
 
 const inter = Inter({
@@ -33,6 +34,7 @@ export default function RootLayout({
   return (
     <html lang="es" className="scroll-smooth">
       <body suppressHydrationWarning className={`${inter.variable} ${montserrat.variable} antialiased min-h-screen flex flex-col relative bg-background text-white`}>
+        <ViewportRecalibration />
         {children}
       </body>
     </html>
