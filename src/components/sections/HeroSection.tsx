@@ -3,6 +3,7 @@
 import { assetPath } from "@/lib/basePath";
 
 import dynamic from "next/dynamic";
+import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useSyncExternalStore } from "react";
 import { motion } from "framer-motion";
@@ -82,6 +83,37 @@ export default function HeroSection({ dict, locale }: { dict: Dictionary; locale
       {/* Ambient green glow — subtle and cinematic */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-[10%] right-[20%] w-[500px] h-[500px] rounded-full blur-[250px]" style={{ background: 'rgba(124,255,0,0.05)' }} />
+      </div>
+
+      {/* Lightweight mobile mascot — responsive stills from the same HeroCasual.glb model. */}
+      <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none lg:hidden" aria-hidden="true">
+        <picture>
+          <source
+            media="(max-width: 1023px)"
+            type="image/avif"
+            srcSet={`${assetPath("/images/hero-mascot-mobile-480.avif")} 480w, ${assetPath("/images/hero-mascot-mobile-768.avif")} 768w`}
+            sizes="100vw"
+          />
+          <source
+            media="(max-width: 1023px)"
+            type="image/webp"
+            srcSet={`${assetPath("/images/hero-mascot-mobile-480.webp")} 480w, ${assetPath("/images/hero-mascot-mobile-768.webp")} 768w`}
+            sizes="100vw"
+          />
+          <Image
+            src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+            alt=""
+            width={768}
+            height={896}
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+            unoptimized
+            className="absolute top-28 right-[-38%] w-[110%] h-auto max-w-none object-contain opacity-75 drop-shadow-[0_18px_45px_rgba(0,0,0,0.45)] sm:top-20 sm:right-[-12%] sm:w-[78%] md:right-[-4%] md:w-[66%]"
+          />
+        </picture>
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent" />
       </div>
 
       {/* ============================================
