@@ -19,7 +19,7 @@ interface HeaderNavProps {
 
 export default function HeaderNav({ navLinks, locale, ctaLabel, logoSrc }: HeaderNavProps) {
   return (
-    <nav className="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
+    <nav className="max-w-[1400px] mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
       {/* Logo */}
       <Link href={`/${locale}`} className="flex items-center gap-3 group shrink-0">
         <Image
@@ -28,7 +28,7 @@ export default function HeaderNav({ navLinks, locale, ctaLabel, logoSrc }: Heade
           width={640}
           height={154}
           decoding="async"
-          className="h-11 w-auto group-hover:brightness-125 transition-all duration-300"
+          className="h-9 w-auto sm:h-11 group-hover:brightness-125 transition-all duration-300"
         />
       </Link>
 
@@ -46,7 +46,7 @@ export default function HeaderNav({ navLinks, locale, ctaLabel, logoSrc }: Heade
       </div>
 
       {/* Right side */}
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-2 sm:gap-4">
         <LanguageSwitcher currentLocale={locale} />
         <Link
           href={`/${locale}/contact`}

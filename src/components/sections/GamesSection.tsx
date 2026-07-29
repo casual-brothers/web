@@ -15,7 +15,7 @@ export default function GamesSection({
   games: GameData[];
 }) {
   return (
-    <section id="games" className="space-y-6 overflow-visible">
+    <section id="games" className="space-y-6 overflow-x-clip overflow-y-visible lg:overflow-visible">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div className="space-y-2">
@@ -41,7 +41,7 @@ export default function GamesSection({
       </div>
 
       {/* 3D Interactive Perspective Carousel */}
-      <div className="w-full overflow-visible">
+      <div className="w-full overflow-x-clip overflow-y-visible lg:overflow-visible">
         <GameCarousel3D
           games={games}
           locale={locale}

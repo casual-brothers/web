@@ -286,7 +286,7 @@ export default function HeroSection({ dict, locale }: { dict: Dictionary; locale
             initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.3, ...cinematic }}
-            className="font-display text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold uppercase leading-[0.95]"
+            className="font-display text-[clamp(2.25rem,11.8vw,3rem)] md:text-6xl lg:text-7xl xl:text-8xl font-bold uppercase leading-[0.95]"
           >
             {dict.home.heroLine1}
             <br />
