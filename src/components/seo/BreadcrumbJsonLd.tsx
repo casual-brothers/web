@@ -1,4 +1,4 @@
-import { siteUrl } from "@/lib/seo";
+import { getLocalizedUrl } from "@/lib/seo";
 
 export default function BreadcrumbJsonLd({
   locale,
@@ -14,7 +14,7 @@ export default function BreadcrumbJsonLd({
       "@type": "ListItem",
       position: index + 1,
       name: item.name,
-      item: `${siteUrl}/${locale}${item.path}`,
+      item: getLocalizedUrl(locale, item.path),
     })),
   };
 

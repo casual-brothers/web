@@ -9,7 +9,7 @@ import CookieBanner from "@/components/ui/CookieBanner";
 import ScrollHeader from "@/components/ui/ScrollHeader";
 import HeaderNav from "@/components/ui/HeaderNav";
 import JsonLd from "@/components/seo/JsonLd";
-import { getDefaultSeo, getSeoAlternates, siteUrl } from "@/lib/seo";
+import { getDefaultSeo, getLocalizedUrl, getSeoAlternates, siteUrl } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -49,7 +49,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       siteName: "Casual Brothers",
       title: `${seo.title} | Casual Brothers`,
       description: seo.description,
-      url: `${siteUrl}/${locale}`,
+      url: getLocalizedUrl(locale),
       images: [
         {
           url: `${basePath}/images/branding/og-cover.png`,

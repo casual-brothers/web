@@ -2,6 +2,21 @@ import { Metadata } from "next";
 
 export const siteUrl = "https://casualbrothers.com";
 
+function cleanSeoPath(path: string = "") {
+  return path.split("/").filter(Boolean).join("/");
+}
+
+/**
+ * Devuelve la URL publica y canonica de una pagina localizada.
+ * El sitio usa `trailingSlash: true`, por lo que todas las rutas HTML
+ * deben terminar en `/` para evitar redirecciones y senales SEO duplicadas.
+ */
+export function getLocalizedUrl(locale: string, path: string = "") {
+  const safeLocale = locale === "es" ? "es" : "en";
+  const cleanPath = cleanSeoPath(path);
+  return `${siteUrl}/${safeLocale}/${cleanPath ? `${cleanPath}/` : ""}`;
+}
+
 const defaultDescriptions = {
   en: "Casual Brothers is a game development studio helping publishers and IP holders build, co-develop and port licensed, family and multiplatform games across PC, console and mobile.",
   es: "Casual Brothers es un estudio de desarrollo de videojuegos que ayuda a publishers y titulares de IP a crear, co-desarrollar y portar juegos licenciados, familiares y multiplataforma para PC, consola y movil.",
@@ -93,13 +108,12 @@ export type SeoLocale = keyof typeof pageSeo;
  * @param path - Ruta relativa de la página (ej: 'about', 'games/my-game', etc.)
  */
 export function getSeoAlternates(locale: string, path: string = ""): Metadata["alternates"] {
-  const cleanPath = path ? `/${path}` : "";
   return {
-    canonical: `${siteUrl}/${locale}${cleanPath}`,
+    canonical: getLocalizedUrl(locale, path),
     languages: {
-      en: `${siteUrl}/en${cleanPath}`,
-      es: `${siteUrl}/es${cleanPath}`,
-      "x-default": `${siteUrl}/en${cleanPath}`,
+      en: getLocalizedUrl("en", path),
+      es: getLocalizedUrl("es", path),
+      "x-default": getLocalizedUrl("en", path),
     },
   };
 }
@@ -116,7 +130,6 @@ export function getDefaultSeo(locale: string) {
 
 export function getPageMetadata(locale: string, page: SeoPage, path: string = ""): Metadata {
   const seo = getPageSeo(locale, page);
-  const cleanPath = path ? `/${path}` : "";
 
   return {
     title: seo.title,
@@ -125,7 +138,7 @@ export function getPageMetadata(locale: string, page: SeoPage, path: string = ""
     openGraph: {
       title: `${seo.title} | Casual Brothers`,
       description: seo.description,
-      url: `${siteUrl}/${locale}${cleanPath}`,
+      url: getLocalizedUrl(locale, path),
     },
     twitter: {
       title: `${seo.title} | Casual Brothers`,
@@ -140,8 +153,6 @@ export function buildCustomMetadata(
   description: string,
   path: string,
 ): Metadata {
-  const cleanPath = path ? `/${path}` : "";
-
   return {
     title,
     description,
@@ -151,7 +162,7 @@ export function buildCustomMetadata(
       siteName: "Casual Brothers",
       title: `${title} | Casual Brothers`,
       description,
-      url: `${siteUrl}/${locale}${cleanPath}`,
+      url: getLocalizedUrl(locale, path),
       images: [
         {
           url: "/images/branding/og-cover.png",

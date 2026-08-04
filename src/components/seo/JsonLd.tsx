@@ -10,7 +10,7 @@ export default function JsonLd() {
         "@id": organizationId,
         name: "Casual Brothers",
         legalName: "Casual Brothers Ltd.",
-        url: "https://casualbrothers.com",
+        url: "https://casualbrothers.com/",
         logo: "https://casualbrothers.com/images/branding/cb-digital-w.webp",
         image: "https://casualbrothers.com/images/branding/og-cover.png",
         description:
@@ -56,7 +56,7 @@ export default function JsonLd() {
       {
         "@type": "WebSite",
         "@id": websiteId,
-        url: "https://casualbrothers.com",
+        url: "https://casualbrothers.com/",
         name: "Casual Brothers",
         inLanguage: ["en", "es"],
         publisher: {

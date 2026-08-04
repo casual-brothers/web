@@ -5,7 +5,7 @@ import PlatformLogos from "@/components/ui/PlatformLogos";
 import FeaturedCaseStudies from "@/components/sections/FeaturedCaseStudies";
 import GamescomBanner from "@/components/sections/GamescomBanner";
 import { assetPath } from "@/lib/basePath";
-import { siteUrl } from "@/lib/seo";
+import { getLocalizedUrl, siteUrl } from "@/lib/seo";
 import { featuredCaseStudySlugs, type CommercialPageData } from "@/data/commercialPages";
 
 export default function CommercialLandingPage({
@@ -16,7 +16,7 @@ export default function CommercialLandingPage({
   page: CommercialPageData;
 }) {
   const isEs = locale === "es";
-  const pageUrl = `${siteUrl}/${locale}/${page.slug}`;
+  const pageUrl = getLocalizedUrl(locale, page.slug);
   const serviceJsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",

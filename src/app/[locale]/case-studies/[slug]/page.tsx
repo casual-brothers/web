@@ -5,7 +5,7 @@ import { ArrowRight, BadgeCheck } from "lucide-react";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import LiteYouTubeEmbed from "@/components/ui/LiteYouTubeEmbed";
 import { assetPath } from "@/lib/basePath";
-import { buildCustomMetadata, siteUrl } from "@/lib/seo";
+import { buildCustomMetadata, getLocalizedUrl, siteUrl } from "@/lib/seo";
 import { caseStudies, getCaseStudy } from "@/data/caseStudies";
 
 export async function generateStaticParams() {
@@ -29,7 +29,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ loca
   const study = getCaseStudy(slug);
   if (!study) notFound();
   const isEs = locale === "es";
-  const pageUrl = `${siteUrl}/${locale}/case-studies/${study.slug}`;
+  const pageUrl = getLocalizedUrl(locale, `case-studies/${study.slug}`);
   const videoGameSchema = {
     "@context": "https://schema.org",
     "@type": "VideoGame",

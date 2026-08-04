@@ -11,14 +11,15 @@ RewriteBase /
 # ── Canonical locale redirects ───────────────────────
 # Search Console still sees legacy/non-localized paths. Send them to the
 # English x-default versions with a single 301 hop.
-RewriteRule ^$ /en [R=301,L]
-RewriteRule ^(games|services|game-development-company|publishers|game-development-services|co-development-game-studio|console-porting-services|licensed-ip-game-development|unity-game-development-studio|case-studies|resources|about|careers|contact|privacy-policy|cookie-policy|legal-notice)/?$ /en/$1 [R=301,L]
-RewriteRule ^case-studies/(.+)/?$ /en/case-studies/$1 [R=301,L]
-RewriteRule ^juegos/?$ /es/games [R=301,L]
-RewriteRule ^servicios/?$ /es/services [R=301,L]
-RewriteRule ^estudio/?$ /es/about [R=301,L]
-RewriteRule ^empleo/?$ /es/careers [R=301,L]
-RewriteRule ^contacto/?$ /es/contact [R=301,L]
+RewriteRule ^$ /en/ [R=301,L]
+RewriteRule ^hot-rod-mayhem/?$ /en/case-studies/hot-rod-mayhem/ [R=301,L]
+RewriteRule ^(games|services|game-development-company|publishers|game-development-services|co-development-game-studio|console-porting-services|licensed-ip-game-development|unity-game-development-studio|case-studies|resources|about|careers|contact|privacy-policy|cookie-policy|legal-notice)/?$ /en/$1/ [R=301,L]
+RewriteRule ^case-studies/(.+?)/?$ /en/case-studies/$1/ [R=301,L]
+RewriteRule ^juegos/?$ /es/games/ [R=301,L]
+RewriteRule ^servicios/?$ /es/services/ [R=301,L]
+RewriteRule ^estudio/?$ /es/about/ [R=301,L]
+RewriteRule ^empleo/?$ /es/careers/ [R=301,L]
+RewriteRule ^contacto/?$ /es/contact/ [R=301,L]
 
 # ── Clean URLs ───────────────────────────────────────
 # If request matches a directory AND a sibling .html file exists, serve the .html
