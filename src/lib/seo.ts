@@ -19,13 +19,13 @@ export function getLocalizedUrl(locale: string, path: string = "") {
 
 const defaultDescriptions = {
   en: "Casual Brothers is a game development studio helping publishers and IP holders build, co-develop and port licensed, family and multiplatform games across PC, console and mobile.",
-  es: "Casual Brothers es un estudio de desarrollo de videojuegos que ayuda a publishers y titulares de IP a crear, co-desarrollar y portar juegos licenciados, familiares y multiplataforma para PC, consola y movil.",
+  es: "Casual Brothers es un estudio de desarrollo de videojuegos que ayuda a publishers y titulares de IP a crear, co-desarrollar y portar juegos licenciados, familiares y multiplataforma para PC, consola y móvil.",
 };
 
 const pageSeo = {
   en: {
     home: {
-      title: "Casual Brothers | Game Development Studio for Publishers",
+      title: "Game Development Studio for Publishers",
       description: defaultDescriptions.en,
     },
     games: {
@@ -61,7 +61,7 @@ const pageSeo = {
   },
   es: {
     home: {
-      title: "Casual Brothers | Estudio de Desarrollo para Publishers",
+      title: "Estudio de Desarrollo de Videojuegos para Publishers",
       description: defaultDescriptions.es,
     },
     games: {
@@ -82,17 +82,17 @@ const pageSeo = {
     about: {
       title: "Sobre el Estudio",
       description:
-        "Conoce Casual Brothers: estudio remoto de desarrollo de videojuegos con 50+ especialistas, 15+ titulos lanzados y experiencia con grandes IPs de entretenimiento.",
+        "Conoce Casual Brothers: estudio remoto de desarrollo de videojuegos con 50+ especialistas, 15+ títulos lanzados y experiencia con grandes IPs de entretenimiento.",
     },
     careers: {
       title: "Empleo en Desarrollo de Videojuegos",
       description:
-        "Unete a un equipo remoto de desarrollo de videojuegos que lanza proyectos comerciales en Unity y Unreal para PC, consola, movil e IPs reconocidas.",
+        "Únete a un equipo remoto de desarrollo de videojuegos que lanza proyectos comerciales en Unity y Unreal para PC, consola, móvil e IPs reconocidas.",
     },
     contact: {
       title: "Contacta con un Partner de Desarrollo de Videojuegos",
       description:
-        "Habla con Casual Brothers sobre desarrollo completo, co-desarrollo, porting, live ops, produccion artistica o un brief confidencial para publishers.",
+        "Habla con Casual Brothers sobre desarrollo completo, co-desarrollo, porting, live ops, producción artística o un brief confidencial para publishers.",
     },
   },
 } as const;
@@ -130,6 +130,7 @@ export function getDefaultSeo(locale: string) {
 
 export function getPageMetadata(locale: string, page: SeoPage, path: string = ""): Metadata {
   const seo = getPageSeo(locale, page);
+  const imageUrl = `${siteUrl}/images/branding/og-cover-1200x630.png`;
 
   return {
     title: seo.title,
@@ -139,10 +140,13 @@ export function getPageMetadata(locale: string, page: SeoPage, path: string = ""
       title: `${seo.title} | Casual Brothers`,
       description: seo.description,
       url: getLocalizedUrl(locale, path),
+      images: [{ url: imageUrl, width: 1200, height: 630, alt: `${seo.title} — Casual Brothers` }],
     },
     twitter: {
       title: `${seo.title} | Casual Brothers`,
       description: seo.description,
+      card: "summary_large_image",
+      images: [imageUrl],
     },
   };
 }
@@ -152,7 +156,10 @@ export function buildCustomMetadata(
   title: string,
   description: string,
   path: string,
+  imagePath: string = "/images/branding/og-cover-1200x630.png",
 ): Metadata {
+  const imageUrl = imagePath.startsWith("http") ? imagePath : `${siteUrl}${imagePath}`;
+
   return {
     title,
     description,
@@ -165,10 +172,10 @@ export function buildCustomMetadata(
       url: getLocalizedUrl(locale, path),
       images: [
         {
-          url: "/images/branding/og-cover.png",
+          url: imageUrl,
           width: 1200,
           height: 630,
-          alt: "Casual Brothers game development studio portfolio",
+          alt: `${title} — Casual Brothers`,
         },
       ],
     },
@@ -176,7 +183,7 @@ export function buildCustomMetadata(
       card: "summary_large_image",
       title: `${title} | Casual Brothers`,
       description,
-      images: ["/images/branding/og-cover.png"],
+      images: [imageUrl],
     },
     robots: {
       index: true,

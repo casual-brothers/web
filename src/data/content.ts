@@ -79,6 +79,6 @@ export const siteContent = {
   },
   footer: {
     address: "1 Scholars Walk, RH12 1AS, UK",
-    disclaimer: "All trademarks, logos, and video game content featured on this website are the sole property of their respective developers and publishers. Any brand names or copyrighted materials used are done so strictly for commentary and informational purposes. No copyright infringement is intended."
+    disclaimer: "Third-party trademarks, logos, game footage, and artwork remain the property of their respective owners and are displayed to identify projects in our portfolio. For rights-related enquiries, contact contact@casualbrothers.com."
   }
 };

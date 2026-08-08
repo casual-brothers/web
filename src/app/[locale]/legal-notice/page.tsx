@@ -1,18 +1,14 @@
 import type { Metadata } from "next";
-import { getDictionary } from "@/i18n/getDictionary";
-import { getSeoAlternates } from "@/lib/seo";
+import { buildCustomMetadata } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  return {
-    title: locale === "es" ? "Aviso Legal" : "Legal Notice",
-    alternates: getSeoAlternates(locale, "legal-notice"),
-  };
+  const isEs = locale === "es";
+  return buildCustomMetadata(locale, isEs ? "Aviso legal" : "Legal Notice", isEs ? "Datos societarios, condiciones de uso y propiedad intelectual de Casual Brothers Ltd." : "Company details, terms of use and intellectual property information for Casual Brothers Ltd.", "legal-notice");
 }
 
 export default async function LegalNoticePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const dict = await getDictionary(locale);
   const isEs = locale === "es";
 
   return (
@@ -45,8 +41,9 @@ export default async function LegalNoticePage({ params }: { params: Promise<{ lo
             </h2>
             <div className="space-y-1">
               <p><strong className="text-white/80">{isEs ? "Razón Social" : "Company Name"}:</strong> Casual Brothers Ltd.</p>
-              <p><strong className="text-white/80">{isEs ? "Domicilio Social" : "Registered Address"}:</strong> 1 Scholars Walk, Horsham, RH12 1AS, United Kingdom</p>
-              <p><strong className="text-white/80">{isEs ? "Número de Registro" : "Company Number"}:</strong> [Company Number]</p>
+              <p><strong className="text-white/80">{isEs ? "Domicilio Social" : "Registered Office"}:</strong> 1 Scholars Walk, Horsham, England, RH12 1QH, United Kingdom</p>
+              <p><strong className="text-white/80">{isEs ? "Número de Registro" : "Company Number"}:</strong> 07121064</p>
+              <p><strong className="text-white/80">{isEs ? "Registro" : "Place of Registration"}:</strong> {isEs ? "Inglaterra y Gales" : "England and Wales"}</p>
               <p><strong className="text-white/80">Email:</strong> <a href="mailto:contact@casualbrothers.com" className="text-brand hover:underline">contact@casualbrothers.com</a></p>
               <p><strong className="text-white/80">{isEs ? "Actividad" : "Activity"}:</strong> {isEs ? "Desarrollo de videojuegos y software interactivo" : "Video game and interactive software development"}</p>
             </div>
@@ -91,8 +88,8 @@ export default async function LegalNoticePage({ params }: { params: Promise<{ lo
             </h2>
             <p>
               {isEs
-                ? "El presente Aviso Legal se rige por la legislación del Reino Unido. Para la resolución de cualquier controversia que pudiera derivarse del acceso al Sitio Web, el usuario y Casual Brothers Ltd. acuerdan someterse a los tribunales competentes del Reino Unido, salvo que la normativa aplicable disponga otra cosa."
-                : "This Legal Notice is governed by the laws of the United Kingdom. For the resolution of any dispute arising from access to the Website, the user and Casual Brothers Ltd. agree to submit to the competent courts of the United Kingdom, unless applicable regulations provide otherwise."}
+                ? "Este Aviso Legal se rige por las leyes de Inglaterra y Gales. Nada de lo aquí indicado limita los derechos imperativos que correspondan a un usuario conforme a la normativa aplicable."
+                : "This Legal Notice is governed by the laws of England and Wales. Nothing in this notice limits any mandatory rights available to a user under applicable law."}
             </p>
           </div>
 
@@ -108,7 +105,7 @@ export default async function LegalNoticePage({ params }: { params: Promise<{ lo
           </div>
 
           <p className="text-white/30 text-xs pt-4">
-            {isEs ? "Última actualización: Mayo 2026" : "Last updated: May 2026"}
+            {isEs ? "Última actualización: 8 de agosto de 2026" : "Last updated: 8 August 2026"}
           </p>
         </div>
       </section>

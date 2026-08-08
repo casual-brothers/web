@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { assetPath } from "@/lib/basePath";
 import { motion, AnimatePresence } from "framer-motion";
 import type { TeamMember } from "@/data/team";
@@ -140,7 +140,8 @@ const getAudioContext = (): AudioContext | null => {
   if (typeof window === "undefined") return null;
   try {
     if (!sharedCtx) {
-      const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
+      const audioWindow = window as typeof window & { webkitAudioContext?: typeof AudioContext };
+      const AudioContextClass = window.AudioContext || audioWindow.webkitAudioContext;
       if (AudioContextClass) {
         sharedCtx = new AudioContextClass();
       }

@@ -340,6 +340,7 @@ export default function GamesPageClient({ dict, locale }: { dict: Dictionary; lo
                   key={game.id}
                   game={game}
                   index={catIdx * 10 + idx}
+                  locale={locale}
                 />
               ))}
             </div>

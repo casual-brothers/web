@@ -52,7 +52,7 @@ export const gamesData: GameData[] = [
     title: "Cat In The Hat",
     genre: "Adventure • Kids",
     logo: "/images/Cat-In-The-Hat-Rainy-Day-Mayhem-Logo.webp",
-    screenshot: "/images/Cat-In-The-Hat-Rainy-Day-Mayhem.webp",
+    screenshot: "/images/Cat-In-The-Hat-Rainy-Day-Mayhem-ai-enhanced.webp",
     category: "full",
   },
   {
@@ -108,7 +108,7 @@ export const gamesData: GameData[] = [
     title: "Levantate",
     genre: "Casual • TV",
     logo: "/images/Levantate-Logo.webp",
-    screenshot: "/images/Levantate-Screenshot.webp",
+    screenshot: "/images/Levantate-Screenshot-upscaled.webp",
     category: "full",
   },
   {
@@ -150,7 +150,7 @@ export const gamesData: GameData[] = [
     title: "Evil Dead",
     genre: "Action • Horror",
     logo: "/images/Evil-Dead-Logo.webp",
-    screenshot: "/images/Evil-Dead-About-Us-Page-Image-3.webp",
+    screenshot: "/images/Evil-Dead-About-Us-Page-Image-3-upscaled.webp",
     category: "codev",
     featured: true,
   },
@@ -252,7 +252,7 @@ export const gamesData: GameData[] = [
     title: "Trollhunters",
     genre: "Action • Adventure",
     logo: "/images/Trollhunters-Logo.webp",
-    screenshot: "/images/Trollhunters-Screenshot.webp",
+    screenshot: "/images/Trollhunters-Screenshot-upscaled.webp",
     category: "console",
   },
   {

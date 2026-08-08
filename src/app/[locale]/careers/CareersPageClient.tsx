@@ -15,13 +15,13 @@ export default function CareersPageClient({ dict, locale }: { dict: Dictionary; 
   // ─── Application Modal State ─────────────────────
   const [modalOpen, setModalOpen] = useState(false);
   const [modalPosition, setModalPosition] = useState("");
-  const [applyForm, setApplyForm] = useState({ name: "", email: "", message: "" });
+  const [applyForm, setApplyForm] = useState({ name: "", email: "", message: "", website: "", privacyAccepted: false });
   const [applyStatus, setApplyStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [applyError, setApplyError] = useState("");
 
   const openModal = (position: string) => {
     setModalPosition(position);
-    setApplyForm({ name: "", email: "", message: "" });
+    setApplyForm({ name: "", email: "", message: "", website: "", privacyAccepted: false });
     setApplyStatus("idle");
     setApplyError("");
     setModalOpen(true);
@@ -46,7 +46,7 @@ export default function CareersPageClient({ dict, locale }: { dict: Dictionary; 
 
   const handleApplySubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!applyForm.name || !applyForm.email || !applyForm.message) return;
+    if (!applyForm.name || !applyForm.email || !applyForm.message || !applyForm.privacyAccepted) return;
 
     setApplyStatus("submitting");
     setApplyError("");
@@ -60,15 +60,16 @@ export default function CareersPageClient({ dict, locale }: { dict: Dictionary; 
           email: applyForm.email,
           message: applyForm.message,
           position: modalPosition,
-          website: "", // honeypot
+          website: applyForm.website,
+          privacyAccepted: applyForm.privacyAccepted,
         }),
       });
       const result = await res.json().catch(() => ({}));
       if (!res.ok || !result.ok) throw new Error(result.error || "Failed to send");
       setApplyStatus("success");
-    } catch (err: any) {
+    } catch (err: unknown) {
       setApplyStatus("error");
-      setApplyError(err.message || "");
+      setApplyError(err instanceof Error ? err.message : "");
     }
   };
 
@@ -312,6 +313,10 @@ export default function CareersPageClient({ dict, locale }: { dict: Dictionary; 
                 </motion.div>
               ) : (
                 <form onSubmit={handleApplySubmit} className="space-y-4">
+                  <div className="absolute -left-[10000px]" aria-hidden="true">
+                    <label htmlFor="application-website">Website</label>
+                    <input id="application-website" type="text" tabIndex={-1} autoComplete="off" value={applyForm.website} onChange={(event) => setApplyForm((previous) => ({ ...previous, website: event.target.value }))} />
+                  </div>
                   {applyStatus === "error" && (
                     <motion.div
                       initial={{ opacity: 0, y: -10 }}
@@ -330,6 +335,8 @@ export default function CareersPageClient({ dict, locale }: { dict: Dictionary; 
                       <input
                         type="text"
                         required
+                        maxLength={120}
+                        autoComplete="name"
                         value={applyForm.name}
                         onChange={(e) => setApplyForm(p => ({ ...p, name: e.target.value }))}
                         disabled={applyStatus === "submitting"}
@@ -344,6 +351,8 @@ export default function CareersPageClient({ dict, locale }: { dict: Dictionary; 
                       <input
                         type="email"
                         required
+                        maxLength={254}
+                        autoComplete="email"
                         value={applyForm.email}
                         onChange={(e) => setApplyForm(p => ({ ...p, email: e.target.value }))}
                         disabled={applyStatus === "submitting"}
@@ -360,6 +369,7 @@ export default function CareersPageClient({ dict, locale }: { dict: Dictionary; 
                     <textarea
                       required
                       rows={5}
+                      maxLength={5000}
                       value={applyForm.message}
                       onChange={(e) => setApplyForm(p => ({ ...p, message: e.target.value }))}
                       disabled={applyStatus === "submitting"}
@@ -367,6 +377,15 @@ export default function CareersPageClient({ dict, locale }: { dict: Dictionary; 
                       placeholder={data.applyFormMessagePlaceholder}
                     />
                   </div>
+
+                  <label className="flex items-start gap-3 text-xs leading-relaxed text-white/50">
+                    <input type="checkbox" required checked={applyForm.privacyAccepted} onChange={(event) => setApplyForm((previous) => ({ ...previous, privacyAccepted: event.target.checked }))} className="mt-0.5 h-4 w-4 accent-[#7cff00]" />
+                    <span>
+                      {locale === "es" ? "He leído la " : "I have read the "}
+                      <Link href={`/${locale}/privacy-policy`} className="text-brand hover:underline">{locale === "es" ? "política de privacidad" : "privacy policy"}</Link>
+                      {locale === "es" ? " y entiendo cómo se tratarán los datos de mi candidatura." : " and understand how my application data will be processed."}
+                    </span>
+                  </label>
 
                   <button
                     type="submit"

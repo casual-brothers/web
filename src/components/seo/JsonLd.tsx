@@ -12,7 +12,7 @@ export default function JsonLd() {
         legalName: "Casual Brothers Ltd.",
         url: "https://casualbrothers.com/",
         logo: "https://casualbrothers.com/images/branding/cb-digital-w.webp",
-        image: "https://casualbrothers.com/images/branding/og-cover.png",
+        image: "https://casualbrothers.com/images/branding/og-cover-1200x630.png",
         description:
           "Game development studio for publishers and IP owners, specializing in full-cycle development, co-development, porting, live ops, and art/tech production. 15+ titles shipped, 100M+ downloads.",
         foundingDate: "2014",

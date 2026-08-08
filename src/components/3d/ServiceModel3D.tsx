@@ -2,7 +2,7 @@
 
 import { assetPath } from "@/lib/basePath";
 
-import { useRef, useEffect, useState, useCallback, Suspense, createContext, useContext, memo } from "react";
+import { useRef, useEffect, useState, useCallback, Suspense, createContext, useContext } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF, useAnimations, Environment, ContactShadows } from "@react-three/drei";
 import * as THREE from "three";

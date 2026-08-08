@@ -1,7 +1,5 @@
 "use client";
 
-/* eslint-disable @next/next/no-img-element -- Portfolio assets are pre-compressed and require natural logo dimensions. */
-
 import { assetPath } from "@/lib/basePath";
 import { motion, type PanInfo } from "framer-motion";
 import React, { useState, useEffect, useRef, useCallback } from "react";

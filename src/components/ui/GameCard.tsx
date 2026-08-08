@@ -3,6 +3,7 @@
 import { assetPath } from "@/lib/basePath";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { useState, useCallback, useRef } from "react";
 import type { GameData } from "@/data/games";
 
@@ -10,6 +11,11 @@ interface GameCardProps {
   game: GameData;
   index: number;
   isHero?: boolean;
+  /**
+   * Cuando se pasa, la tarjeta enlaza a la ficha del juego
+   * (/[locale]/case-studies/[slug]/). Sin locale la tarjeta es decorativa.
+   */
+  locale?: string;
 }
 
 /**
@@ -50,7 +56,7 @@ function applyConstraints(img: HTMLImageElement): string | null {
   return null;
 }
 
-export default function GameCard({ game, index, isHero = false }: GameCardProps) {
+export default function GameCard({ game, index, isHero = false, locale }: GameCardProps) {
   const [logoConstraints, setLogoConstraints] = useState("max-w-[80%] max-h-[80%]");
   const measured = useRef(false);
 
@@ -100,9 +106,9 @@ export default function GameCard({ game, index, isHero = false }: GameCardProps)
     setIsHovered(false);
   };
 
-  return (
-    <div 
-      style={{ perspective: "1000px", transformStyle: "preserve-3d" }} 
+  const card = (
+    <div
+      style={{ perspective: "1000px", transformStyle: "preserve-3d" }}
       className={`w-full h-full ${isHero ? 'h-full' : 'aspect-[4/5]'}`}
     >
       <motion.div
@@ -245,6 +251,13 @@ export default function GameCard({ game, index, isHero = false }: GameCardProps)
           </motion.div>
         )}
 
+        {/* Call to action — solo cuando la tarjeta es navegable */}
+        {locale && (
+          <span className="text-[9px] font-extrabold uppercase tracking-[0.16em] text-brand opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            {locale === "es" ? "Ver ficha" : "View case study"}
+          </span>
+        )}
+
         {/* Text title (sr-only for accessibility/SEO) */}
         <h3 className="sr-only">
           {game.title}
@@ -253,5 +266,17 @@ export default function GameCard({ game, index, isHero = false }: GameCardProps)
         </motion.div>
       </motion.div>
     </div>
+  );
+
+  if (!locale) return card;
+
+  return (
+    <Link
+      href={`/${locale}/case-studies/${game.id}`}
+      aria-label={game.title}
+      className={`block w-full ${isHero ? 'h-full' : ''} rounded-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand`}
+    >
+      {card}
+    </Link>
   );
 }

@@ -2,6 +2,11 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import {
+  COOKIE_PREFERENCES_EVENT,
+  readCookieConsent,
+  saveCookieConsent,
+} from "@/lib/cookieConsent";
 
 interface CookieBannerProps {
   locale: string;
@@ -11,21 +16,26 @@ export default function CookieBanner({ locale }: CookieBannerProps) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const consent = localStorage.getItem("cb-cookie-consent");
+    const consent = readCookieConsent();
     if (!consent) {
-      // Small delay so it doesn't flash on load
       const timer = setTimeout(() => setVisible(true), 1000);
       return () => clearTimeout(timer);
     }
   }, []);
 
+  useEffect(() => {
+    const openPreferences = () => setVisible(true);
+    window.addEventListener(COOKIE_PREFERENCES_EVENT, openPreferences);
+    return () => window.removeEventListener(COOKIE_PREFERENCES_EVENT, openPreferences);
+  }, []);
+
   const accept = () => {
-    localStorage.setItem("cb-cookie-consent", "accepted");
+    saveCookieConsent("accepted");
     setVisible(false);
   };
 
   const reject = () => {
-    localStorage.setItem("cb-cookie-consent", "rejected");
+    saveCookieConsent("rejected");
     setVisible(false);
   };
 
@@ -41,8 +51,8 @@ export default function CookieBanner({ locale }: CookieBannerProps) {
           <div className="flex-1 space-y-1">
             <p className="text-sm text-white/70 leading-relaxed">
               {isEs
-                ? "Utilizamos cookies propias y de terceros para mejorar tu experiencia de navegación y analizar el tráfico del sitio."
-                : "We use our own and third-party cookies to improve your browsing experience and analyze site traffic."}
+                ? "Solo usamos almacenamiento necesario para recordar tus preferencias. YouTube se carga únicamente si aceptas el contenido externo."
+                : "We only use necessary storage to remember your preferences. YouTube loads only if you accept external media."}
               {" "}
               <Link
                 href={`/${locale}/cookie-policy`}
@@ -54,16 +64,16 @@ export default function CookieBanner({ locale }: CookieBannerProps) {
           </div>
 
           {/* Buttons */}
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="grid w-full grid-cols-2 gap-3 md:w-auto md:min-w-[250px] shrink-0">
             <button
               onClick={reject}
-              className="px-5 py-2.5 text-[11px] font-bold uppercase tracking-wider text-white/50 border border-white/10 rounded hover:bg-white/5 hover:text-white/70 transition-all"
+              className="px-5 py-2.5 text-[11px] font-bold uppercase tracking-wider text-white border border-white/30 rounded hover:bg-white/10 transition-all"
             >
               {isEs ? "Rechazar" : "Reject"}
             </button>
             <button
               onClick={accept}
-              className="px-5 py-2.5 text-[11px] font-bold uppercase tracking-wider text-background bg-brand rounded hover:bg-brand-hover hover:text-white transition-all shadow-lg" style={{ boxShadow: '0 10px 15px -3px rgba(124,255,0,0.1)' }}
+              className="px-5 py-2.5 text-[11px] font-bold uppercase tracking-wider text-background bg-brand border border-brand rounded hover:bg-brand-hover hover:text-white transition-all"
             >
               {isEs ? "Aceptar" : "Accept"}
             </button>

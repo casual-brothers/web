@@ -19,7 +19,7 @@ console.log("──────────────────────�
 try {
   execSync("npm run build", { stdio: "inherit", cwd: rootDir });
   console.log("✅ ¡Compilación completada con éxito!");
-} catch (err) {
+} catch {
   console.error("❌ La compilación falló. Corrige los errores antes de desplegar.");
   process.exit(1);
 }
@@ -40,7 +40,7 @@ if (existsSync(gitDir)) {
   try {
     // Si ya existe .git en out, lo eliminamos para evitar conflictos y asegurar un despliegue limpio
     rmSync(gitDir, { recursive: true, force: true });
-  } catch (err) {
+  } catch {
     console.log("ℹ️  Limpiando configuración git previa en /out...");
   }
 }
@@ -67,7 +67,7 @@ try {
   console.log("🎉 ¡DESPLIEGUE COMPLETADO CON ÉXITO!");
   console.log("🌐 La web compilada ya está en la rama 'deploy' de GitHub.");
   console.log("══════════════════════════════════════════════\n");
-} catch (err) {
+} catch {
   console.error("\n❌ Falló el envío a GitHub. Verifica tus permisos o conexión.");
   process.exit(1);
 }

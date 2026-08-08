@@ -2,10 +2,13 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import "../globals.css";
+import { fontVariables } from "../fonts";
+import ViewportRecalibration from "@/components/system/ViewportRecalibration";
 import { assetPath, basePath } from "@/lib/basePath";
 import { getDictionary } from "@/i18n/getDictionary";
 import { i18n } from "@/i18n/config";
 import CookieBanner from "@/components/ui/CookieBanner";
+import CookiePreferencesButton from "@/components/ui/CookiePreferencesButton";
 import ScrollHeader from "@/components/ui/ScrollHeader";
 import HeaderNav from "@/components/ui/HeaderNav";
 import JsonLd from "@/components/seo/JsonLd";
@@ -16,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const seo = getDefaultSeo(locale);
   return {
     metadataBase: new URL(siteUrl),
-    title: seo.title,
+    title: { default: `${seo.title} | Casual Brothers`, template: "%s | Casual Brothers" },
     description: seo.description,
     keywords: [
       "game development studio",
@@ -52,7 +55,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       url: getLocalizedUrl(locale),
       images: [
         {
-          url: `${basePath}/images/branding/og-cover.png`,
+          url: `${basePath}/images/branding/og-cover-1200x630.png`,
           width: 1200,
           height: 630,
           alt: "Casual Brothers — Game Development Studio",
@@ -65,7 +68,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       creator: "@casualbrothers",
       title: `${seo.title} | Casual Brothers`,
       description: seo.description,
-      images: [`${basePath}/images/branding/og-cover.png`],
+      images: [`${basePath}/images/branding/og-cover-1200x630.png`],
     },
     robots: {
       index: true,
@@ -118,7 +121,9 @@ export default async function LocaleLayout({
   ];
 
   return (
-    <>
+    <html lang={locale === "es" ? "es" : "en"} className="scroll-smooth">
+      <body suppressHydrationWarning className={`${fontVariables} antialiased min-h-screen flex flex-col relative bg-background text-white`}>
+      <ViewportRecalibration />
       {/* ========== SEO ========== */}
       <JsonLd />
 
@@ -227,6 +232,7 @@ export default async function LocaleLayout({
                 <Link href={`/${locale}/legal-notice`} className="hover:text-brand transition-colors duration-300">
                   {locale === 'es' ? 'Aviso Legal' : 'Legal Notice'}
                 </Link>
+                <CookiePreferencesButton locale={locale} />
               </div>
             </div>
           </div>
@@ -242,6 +248,7 @@ export default async function LocaleLayout({
 
       {/* Cookie Banner */}
       <CookieBanner locale={locale} />
-    </>
+      </body>
+    </html>
   );
 }

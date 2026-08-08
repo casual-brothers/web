@@ -3,6 +3,7 @@
 import { assetPath, basePath } from "@/lib/basePath";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Mail, Globe } from "lucide-react";
 import type { Dictionary } from "@/i18n/getDictionary";
@@ -19,6 +20,8 @@ export default function ContactPageClient({ dict }: { dict: Dictionary }) {
     targetPlatforms: "",
     productionStage: "",
     message: "",
+    website: "",
+    privacyAccepted: false,
     type: "GENERAL" as "GENERAL" | "BUSINESS",
   });
 
@@ -32,7 +35,7 @@ export default function ContactPageClient({ dict }: { dict: Dictionary }) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) {
+    if (!formData.name || !formData.email || !formData.message || !formData.privacyAccepted) {
       setStatus("error");
       setErrorDetails(
         dict.nav.contact === "CONTACTO"
@@ -70,7 +73,8 @@ export default function ContactPageClient({ dict }: { dict: Dictionary }) {
           targetPlatforms: formData.targetPlatforms,
           productionStage: formData.productionStage,
           type: formData.type,
-          website: "", // honeypot
+          website: formData.website,
+          privacyAccepted: formData.privacyAccepted,
         }),
       });
 
@@ -78,7 +82,7 @@ export default function ContactPageClient({ dict }: { dict: Dictionary }) {
 
       if (response.ok && resultData.ok) {
         setStatus("success");
-        setFormData({ name: "", company: "", email: "", subject: "", serviceNeeded: "", targetPlatforms: "", productionStage: "", message: "", type: "GENERAL" });
+        setFormData({ name: "", company: "", email: "", subject: "", serviceNeeded: "", targetPlatforms: "", productionStage: "", message: "", website: "", privacyAccepted: false, type: "GENERAL" });
       } else {
         throw new Error(resultData.error || "Failed to send message.");
       }
@@ -275,6 +279,10 @@ export default function ContactPageClient({ dict }: { dict: Dictionary }) {
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
+                  <div className="absolute -left-[10000px]" aria-hidden="true">
+                    <label htmlFor="website">Website</label>
+                    <input id="website" type="text" tabIndex={-1} autoComplete="off" value={formData.website} onChange={handleChange} />
+                  </div>
                   {status === "error" && (
                     <motion.div
                       initial={{ opacity: 0, y: -10 }}
@@ -295,6 +303,8 @@ export default function ContactPageClient({ dict }: { dict: Dictionary }) {
                         type="text"
                         id="name"
                         required
+                        maxLength={120}
+                        autoComplete="name"
                         value={formData.name}
                         onChange={handleChange}
                         disabled={status === "submitting"}
@@ -324,6 +334,8 @@ export default function ContactPageClient({ dict }: { dict: Dictionary }) {
                         type="email"
                         id="email"
                         required
+                        maxLength={254}
+                        autoComplete="email"
                         value={formData.email}
                         onChange={handleChange}
                         disabled={status === "submitting"}
@@ -423,6 +435,7 @@ export default function ContactPageClient({ dict }: { dict: Dictionary }) {
                       id="message"
                       required
                       rows={5}
+                      maxLength={5000}
                       value={formData.message}
                       onChange={handleChange}
                       disabled={status === "submitting"}
@@ -430,6 +443,23 @@ export default function ContactPageClient({ dict }: { dict: Dictionary }) {
                       placeholder={data.formMessagePlaceholder}
                     />
                   </div>
+
+                  <label className="flex items-start gap-3 text-xs leading-relaxed text-white/50">
+                    <input
+                      type="checkbox"
+                      required
+                      checked={formData.privacyAccepted}
+                      onChange={(event) => setFormData((previous) => ({ ...previous, privacyAccepted: event.target.checked }))}
+                      className="mt-0.5 h-4 w-4 accent-[#7cff00]"
+                    />
+                    <span>
+                      {dict.nav.contact === "CONTACTO" ? "He leído la " : "I have read the "}
+                      <Link href={`/${dict.nav.contact === "CONTACTO" ? "es" : "en"}/privacy-policy`} className="text-brand hover:underline">
+                        {dict.nav.contact === "CONTACTO" ? "política de privacidad" : "privacy policy"}
+                      </Link>
+                      {dict.nav.contact === "CONTACTO" ? " y entiendo cómo se tratarán mis datos para responder a esta solicitud." : " and understand how my data will be processed to answer this request."}
+                    </span>
+                  </label>
 
                   <button
                     type="submit"

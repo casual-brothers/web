@@ -1,5 +1,8 @@
 "use client";
 
+/* Three.js interaction is intentionally imperative; these values are mutated by the render loop. */
+/* eslint-disable react-hooks/immutability, react-hooks/purity, @typescript-eslint/no-explicit-any */
+
 import { assetPath } from "@/lib/basePath";
 
 import { useRef, useEffect, useCallback, useMemo } from "react";
@@ -86,10 +89,8 @@ function HeroModelInner({ onReady }: { onReady?: () => void }) {
   const currentRotation = useRef({ x: 0, y: 0 }); // current smooth rotation
 
   // Limits
-  const MAX_DRAG_ROT_Y = Math.PI * 2;  // full 360° — let them spin it
   const MAX_DRAG_ROT_X = 0.6;          // ~34° up/down
   const IDLE_ROT_Y_MAX = 0.15;         // idle auto-rotation clamp
-  const IDLE_ROT_X_MAX = 0.05;         // idle tilt clamp
   const FLOAT_AMPLITUDE = 0.03;        // very subtle float
   const SPRING_SPEED = 0.04;           // how fast it snaps back (0-1)
   const DRAG_SENSITIVITY = 0.008;      // how responsive the drag feels

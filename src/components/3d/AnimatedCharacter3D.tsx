@@ -66,8 +66,6 @@ export default function AnimatedCharacter3D() {
   const rightHandMatRef = useRef<THREE.MeshStandardMaterial>(null);
   const antennaGlowMatRef = useRef<THREE.MeshStandardMaterial>(null);
 
-  // Material brand color memoized
-  const brandEmissive = useMemo(() => new THREE.Color("#7cff00"), []);
   const bodyWhite = useMemo(() => new THREE.Color("#e8e8e8"), []);
   const bodyLight = useMemo(() => new THREE.Color("#d0d0d0"), []);
   const bodyAccent = useMemo(() => new THREE.Color("#c0c0c0"), []);

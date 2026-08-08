@@ -8,8 +8,6 @@ export interface TeamMember {
   avatar: string;
 }
 
-const male = "/images/team/avatar-placeholder.webp";
-const female = "/images/team/avatar-female-placeholder.webp";
 
 export const teamData: TeamMember[] = [
   {

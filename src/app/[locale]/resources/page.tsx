@@ -16,8 +16,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   return buildCustomMetadata(
     locale,
-    "Game Development Resources for Publishers",
-    "A planned resource hub from Casual Brothers for publishers and studios evaluating co-development, console porting, licensed IP production and technical art.",
+    locale === "es" ? "Recursos de Desarrollo de Videojuegos para Publishers" : "Game Development Resources for Publishers",
+    locale === "es"
+      ? "Recursos de Casual Brothers para publishers y estudios que evalúan co-desarrollo, porting a consolas, producción de IP licenciada y arte técnico."
+      : "Resources from Casual Brothers for publishers and studios evaluating co-development, console porting, licensed IP production and technical art.",
     "resources",
   );
 }

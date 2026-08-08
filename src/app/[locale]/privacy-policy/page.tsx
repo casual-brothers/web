@@ -1,142 +1,66 @@
 import type { Metadata } from "next";
-import { getDictionary } from "@/i18n/getDictionary";
-import { getSeoAlternates } from "@/lib/seo";
+import Link from "next/link";
+import { buildCustomMetadata } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  const dict = await getDictionary(locale);
-  return {
-    title: dict.privacy.title,
-    alternates: getSeoAlternates(locale, "privacy-policy"),
-  };
+  const isEs = locale === "es";
+  return buildCustomMetadata(
+    locale,
+    isEs ? "Política de privacidad" : "Privacy Policy",
+    isEs
+      ? "Información sobre cómo Casual Brothers Ltd trata los datos de contacto, consultas comerciales y candidaturas."
+      : "How Casual Brothers Ltd processes contact details, business enquiries and job applications.",
+    "privacy-policy",
+  );
 }
 
 export default async function PrivacyPolicyPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const dict = await getDictionary(locale);
   const isEs = locale === "es";
+  const sections = isEs
+    ? [
+        ["1. Responsable del tratamiento", <>CASUAL BROTHERS LTD (n.º 07121064), con domicilio social en 1 Scholars Walk, Horsham, England, RH12 1QH, Reino Unido, es responsable del tratamiento. Contacto: <a className="text-brand hover:underline" href="mailto:contact@casualbrothers.com">contact@casualbrothers.com</a>.</>],
+        ["2. Datos que tratamos", <>Cuando nos escribes mediante los formularios tratamos tu nombre, correo electrónico, empresa, información del proyecto y mensaje. En candidaturas tratamos además el puesto solicitado y la información profesional que decidas incluir. El servidor de alojamiento puede registrar temporalmente IP, fecha, navegador, URL solicitada y datos técnicos de seguridad. No utilizamos analítica publicitaria ni elaboramos perfiles.</>],
+        ["3. Finalidades y bases jurídicas", <>Tratamos consultas y propuestas para responder y adoptar medidas precontractuales solicitadas por ti; relaciones comerciales para ejecutar contratos y cumplir obligaciones legales; candidaturas para valorar tu solicitud y adoptar medidas previas a una posible contratación; y registros técnicos para nuestro interés legítimo en mantener la seguridad y disponibilidad del sitio. El contenido externo de YouTube solo se carga con tu consentimiento, que puedes retirar en cualquier momento.</>],
+        ["4. Destinatarios", <>Los datos pueden ser tratados por nuestros proveedores de alojamiento, correo electrónico y soporte técnico, sujetos a obligaciones de confidencialidad y protección de datos. No vendemos datos personales. YouTube/Google solo recibe datos de conexión cuando aceptas contenido externo y cargas un vídeo; consulta nuestra <Link className="text-brand hover:underline" href={`/${locale}/cookie-policy`}>Política de cookies</Link>.</>],
+        ["5. Conservación", <>Las consultas se conservan durante el tiempo necesario para responder y, normalmente, hasta 12 meses después del último contacto; la documentación contractual y fiscal, durante los plazos legales aplicables. Las candidaturas no seleccionadas se conservan hasta 6 meses tras cerrar el proceso, salvo que autorices un periodo mayor. Los registros técnicos se conservan normalmente hasta 90 días, excepto cuando deban preservarse para investigar un incidente.</>],
+        ["6. Transferencias internacionales", <>CASUAL BROTHERS LTD está establecida en Reino Unido. Cuando un proveedor trate datos fuera del Reino Unido o del EEE utilizaremos una decisión de adecuación o garantías apropiadas, como cláusulas contractuales tipo, cuando sean exigibles.</>],
+        ["7. Tus derechos", <>Puedes solicitar acceso, rectificación, supresión, limitación, oposición o portabilidad, y retirar un consentimiento sin afectar al tratamiento anterior. Escribe a <a className="text-brand hover:underline" href="mailto:contact@casualbrothers.com">contact@casualbrothers.com</a>. También puedes reclamar ante la <a className="text-brand hover:underline" href="https://ico.org.uk/make-a-complaint/" target="_blank" rel="noopener noreferrer">Information Commissioner’s Office</a> o, si procede, ante tu autoridad de control local, incluida la <a className="text-brand hover:underline" href="https://www.aepd.es/" target="_blank" rel="noopener noreferrer">AEPD</a>.</>],
+        ["8. Carácter de los datos", <>Los campos marcados como obligatorios son necesarios para tramitar tu solicitud. Si no los facilitas, no podremos responder mediante el formulario. No realizamos decisiones exclusivamente automatizadas con efectos jurídicos o similares.</>],
+        ["9. Seguridad y cambios", <>Aplicamos medidas razonables de seguridad y revisaremos esta política cuando cambien nuestras actividades o proveedores. Publicaremos aquí la versión vigente y su fecha de actualización.</>],
+      ]
+    : [
+        ["1. Data controller", <>CASUAL BROTHERS LTD (company no. 07121064), registered office at 1 Scholars Walk, Horsham, England, RH12 1QH, United Kingdom, is the data controller. Contact: <a className="text-brand hover:underline" href="mailto:contact@casualbrothers.com">contact@casualbrothers.com</a>.</>],
+        ["2. Data we process", <>When you use our forms, we process your name, email address, company, project information and message. For job applications, we also process the role and any professional information you choose to provide. Our hosting server may temporarily log IP address, date, browser, requested URL and technical security data. We do not use advertising analytics or profiling.</>],
+        ["3. Purposes and lawful bases", <>We process enquiries and proposals to respond and take pre-contractual steps you request; business relationships to perform contracts and meet legal obligations; applications to assess your request and take steps before possible employment; and technical logs for our legitimate interest in site security and availability. External YouTube content loads only with your consent, which you may withdraw at any time.</>],
+        ["4. Recipients", <>Data may be processed by our hosting, email and technical support providers under confidentiality and data-protection obligations. We do not sell personal data. YouTube/Google receives connection data only when you accept external media and load a video; see our <Link className="text-brand hover:underline" href={`/${locale}/cookie-policy`}>Cookie Policy</Link>.</>],
+        ["5. Retention", <>Enquiries are kept as long as needed to respond and normally for up to 12 months after the last contact; contractual and tax records are kept for applicable statutory periods. Unsuccessful applications are kept for up to 6 months after the process closes unless you authorise longer retention. Technical logs are normally kept for up to 90 days unless preserved to investigate an incident.</>],
+        ["6. International transfers", <>CASUAL BROTHERS LTD is established in the United Kingdom. Where a provider processes data outside the UK or EEA, we use an adequacy decision or appropriate safeguards, such as standard contractual clauses, where required.</>],
+        ["7. Your rights", <>You may request access, correction, deletion, restriction, objection or portability, and withdraw consent without affecting earlier processing. Email <a className="text-brand hover:underline" href="mailto:contact@casualbrothers.com">contact@casualbrothers.com</a>. You may also complain to the <a className="text-brand hover:underline" href="https://ico.org.uk/make-a-complaint/" target="_blank" rel="noopener noreferrer">Information Commissioner’s Office</a> or, where applicable, your local supervisory authority.</>],
+        ["8. Required information", <>Fields marked as required are needed to handle your request. If you do not provide them, we cannot respond through the form. We do not make solely automated decisions producing legal or similarly significant effects.</>],
+        ["9. Security and changes", <>We apply reasonable security measures and will review this policy when our activities or providers change. The current version and update date will be published here.</>],
+      ];
 
   return (
     <>
-      {/* Hero Header */}
-      <section className="relative pt-32 pb-16 overflow-hidden">
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, #0e0e0e, rgba(14,14,14,0.9), #0e0e0e)' }} />
-        <div className="max-w-[1400px] mx-auto px-6 relative z-10 space-y-4">
-          <div className="flex items-center gap-3">
-            <div className="w-2 h-2 rounded-full bg-brand" />
-            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/40">
-              {isEs ? "INFORMACIÓN LEGAL" : "LEGAL INFORMATION"}
-            </span>
-            <div className="flex-1 h-px bg-white/5" />
-          </div>
-          <h1 className="font-display text-5xl md:text-6xl font-bold uppercase leading-[0.95] tracking-tight">
-            {dict.privacy.title}{" "}
-            <span className="text-gradient-brand">{dict.privacy.titleBrand}</span>
-          </h1>
-          <p className="text-lg text-white/50 max-w-xl leading-relaxed">
-            {dict.privacy.intro}
-          </p>
+      <section className="relative overflow-hidden pb-16 pt-32">
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background" />
+        <div className="relative z-10 mx-auto max-w-[1400px] space-y-4 px-6">
+          <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-brand">{isEs ? "Información legal" : "Legal information"}</p>
+          <h1 className="font-display text-5xl font-bold uppercase tracking-tight md:text-6xl">{isEs ? "Política de privacidad" : "Privacy Policy"}</h1>
+          <p className="max-w-2xl text-lg leading-relaxed text-white/50">{isEs ? "Cómo tratamos y protegemos tus datos personales." : "How we process and protect your personal data."}</p>
         </div>
       </section>
-
-      {/* Content */}
-      <section className="max-w-[900px] mx-auto px-6 pb-24">
-        <div className="space-y-8 text-white/60 text-sm leading-relaxed">
-
-          <p>{dict.privacy.fullIntro}</p>
-
-          <div className="space-y-3">
-            <h2 className="font-display text-lg font-bold uppercase tracking-tight text-white">
-              {isEs ? "1. Información que recopilamos" : "1. Information We Collect"}
-            </h2>
-            <p>{isEs ? "Podemos recopilar los siguientes tipos de datos personales:" : "We may collect the following types of personal data:"}</p>
-            <ul className="list-none space-y-2 ml-0">
-              <li className="flex items-start gap-2">
-                <div className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style={{ background: 'rgba(124,255,0,0.5)' }} />
-                <span><strong className="text-white/80">{isEs ? "Información de contacto" : "Contact Information"}:</strong> {isEs ? "Nombre, email, teléfono y datos similares cuando rellenas un formulario o nos contactas directamente." : "Name, email, phone number, and similar data when you fill out a form or contact us directly."}</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <div className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style={{ background: 'rgba(124,255,0,0.5)' }} />
-                <span><strong className="text-white/80">{isEs ? "Datos de uso" : "Usage Data"}:</strong> {isEs ? "Información sobre cómo usas nuestro sitio web, como tu dirección IP, tipo de navegador y páginas visitadas." : "Information about how you use our website, such as your IP address, browser type, and pages viewed."}</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <div className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style={{ background: 'rgba(124,255,0,0.5)' }} />
-                <span><strong className="text-white/80">Cookies:</strong> {isEs ? "Utilizamos cookies para mejorar tu experiencia de navegación." : "We use cookies to enhance your browsing experience."}</span>
-              </li>
-            </ul>
-          </div>
-
-          <div className="space-y-3">
-            <h2 className="font-display text-lg font-bold uppercase tracking-tight text-white">
-              {isEs ? "2. Cómo utilizamos tu información" : "2. How We Use Your Information"}
-            </h2>
-            <ul className="list-none space-y-2">
-              {(isEs
-                ? ["Proporcionar y mejorar nuestros servicios.", "Responder a tus consultas o solicitudes.", "Enviar actualizaciones o newsletters (con tu consentimiento).", "Analizar el uso del sitio web para mejorar la experiencia.", "Cumplir con obligaciones legales bajo el UK DPA 2018, GDPR y la LOPDGDD española."]
-                : ["Provide and improve our services.", "Respond to your inquiries or requests.", "Send you updates or newsletters (with your consent).", "Analyze usage of our website to enhance user experience.", "Comply with legal obligations under the UK DPA 2018, GDPR, and the Spanish LOPDGDD."]
-              ).map((item, i) => (
-                <li key={i} className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style={{ background: 'rgba(124,255,0,0.5)' }} />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="space-y-3">
-            <h2 className="font-display text-lg font-bold uppercase tracking-tight text-white">
-              {isEs ? "3. Compartición de datos" : "3. How We Share Your Information"}
-            </h2>
-            <p>{isEs ? "No vendemos, comerciamos ni alquilamos tu información personal a terceros." : "We do not sell, trade, or rent your personal information to third parties."}</p>
-          </div>
-
-          <div className="space-y-3">
-            <h2 className="font-display text-lg font-bold uppercase tracking-tight text-white">
-              {isEs ? "4. Seguridad de datos" : "4. Data Security"}
-            </h2>
-            <p>{isEs ? "Implementamos medidas técnicas y organizativas apropiadas para proteger tus datos personales contra accesos no autorizados, pérdidas o divulgación." : "We implement appropriate technical and organizational measures to protect your personal data from unauthorized access, loss, or disclosure."}</p>
-          </div>
-
-          <div className="space-y-3">
-            <h2 className="font-display text-lg font-bold uppercase tracking-tight text-white">
-              {isEs ? "5. Tus derechos" : "5. Your Rights"}
-            </h2>
-            <p>
-              {isEs
-                ? "Bajo el GDPR, el UK DPA 2018 y la LOPDGDD, tienes los siguientes derechos: Acceso, Rectificación, Supresión, Limitación del tratamiento, Oposición y Portabilidad de datos."
-                : "Under the GDPR, UK DPA 2018, and the Spanish LOPDGDD, you have the following rights: Access, Rectification, Erasure, Restriction, Objection, and Data Portability."}
-            </p>
-            <p>
-              {isEs ? "Para ejercer cualquiera de estos derechos, contáctanos en " : "To exercise any of these rights, please contact us at "}
-              <a href="mailto:contact@casualbrothers.com" className="text-brand hover:underline">contact@casualbrothers.com</a>.
-            </p>
-          </div>
-
-          <div className="space-y-3">
-            <h2 className="font-display text-lg font-bold uppercase tracking-tight text-white">
-              {isEs ? "6. Transferencias internacionales" : "6. International Transfers"}
-            </h2>
-            <p>
-              {isEs
-                ? "Tus datos pueden ser tratados en el Reino Unido y en el Espacio Económico Europeo. Ambas jurisdicciones ofrecen un nivel adecuado de protección de datos según la normativa vigente."
-                : "Your data may be processed in the United Kingdom and the European Economic Area. Both jurisdictions offer an adequate level of data protection under applicable regulations."}
-            </p>
-          </div>
-
-          <div className="space-y-3">
-            <h2 className="font-display text-lg font-bold uppercase tracking-tight text-white">
-              {isEs ? "7. Contacto" : "7. Contact Us"}
-            </h2>
-            <address className="not-italic space-y-1">
-              <p><strong className="text-white/80">Casual Brothers Ltd.</strong></p>
-              <p>Email: <a href="mailto:contact@casualbrothers.com" className="text-brand hover:underline">contact@casualbrothers.com</a></p>
-              <p>{isEs ? "Dirección" : "Address"}: 1 Scholars Walk, Horsham, RH12 1AS, United Kingdom</p>
-            </address>
-          </div>
-
-          <p className="text-white/30 text-xs pt-4">
-            {isEs ? "Última actualización: Mayo 2026" : "Last updated: May 2026"}
-          </p>
+      <section className="mx-auto max-w-[900px] px-6 pb-24">
+        <div className="space-y-8 text-sm leading-relaxed text-white/60">
+          {sections.map(([title, body]) => (
+            <div key={String(title)} className="space-y-3">
+              <h2 className="font-display text-lg font-bold uppercase tracking-tight text-white">{title}</h2>
+              <p>{body}</p>
+            </div>
+          ))}
+          <p className="border-t border-white/5 pt-6 text-xs text-white/30">{isEs ? "Última actualización: 8 de agosto de 2026" : "Last updated: 8 August 2026"}</p>
         </div>
       </section>
     </>

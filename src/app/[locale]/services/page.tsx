@@ -22,7 +22,6 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
   const dict = await getDictionary(locale);
   const isEs = locale === "es";
 
-  const heroService = servicesData[0];
   const heroDict = dict.services[0];
   const gridServices = servicesData.slice(1);
   const gridDict = dict.services.slice(1);

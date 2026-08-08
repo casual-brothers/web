@@ -41,23 +41,13 @@ async function createFtpClient() {
   const client = new Client();
   client.ftp.verbose = false;
 
-  // Try TLS first, fallback to plain FTP
-  try {
-    await client.access({
-      host: HOST,
-      user: USER,
-      password: PASS,
-      secure: true,
-      secureOptions: { rejectUnauthorized: false },
-    });
-  } catch {
-    await client.access({
-      host: HOST,
-      user: USER,
-      password: PASS,
-      secure: false,
-    });
-  }
+  await client.access({
+    host: HOST,
+    user: USER,
+    password: PASS,
+    secure: true,
+    secureOptions: { rejectUnauthorized: true },
+  });
 
   return client;
 }

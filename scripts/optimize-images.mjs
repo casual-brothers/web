@@ -3,7 +3,7 @@
  * Run: node scripts/optimize-images.mjs
  */
 import sharp from "sharp";
-import { readdir, stat, unlink } from "fs/promises";
+import { readdir, stat } from "fs/promises";
 import { join, extname, basename, relative } from "path";
 
 const IMAGES_DIR = "public/images";

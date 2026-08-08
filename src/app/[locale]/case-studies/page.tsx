@@ -4,14 +4,17 @@ import { ArrowRight } from "lucide-react";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import { assetPath } from "@/lib/basePath";
 import { buildCustomMetadata } from "@/lib/seo";
-import { caseStudies } from "@/data/caseStudies";
+import { caseStudies, t } from "@/data/caseStudies";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
+  const isEs = locale === "es";
   return buildCustomMetadata(
     locale,
-    "Game Development Case Studies",
-    "Explore shipped games and production case studies from Casual Brothers across licensed IP, family games, console development, co-development and porting.",
+    isEs ? "Casos de Estudio de Desarrollo de Videojuegos" : "Game Development Case Studies",
+    isEs
+      ? "Descubre juegos lanzados y casos de estudio de Casual Brothers en desarrollo completo, co-desarrollo, porting y producción de videojuegos familiares y licenciados."
+      : "Explore shipped games and production case studies from Casual Brothers across licensed IP, family games, console development, co-development and porting.",
     "case-studies",
   );
 }
@@ -25,8 +28,8 @@ export default async function CaseStudiesPage({ params }: { params: Promise<{ lo
       <BreadcrumbJsonLd
         locale={locale}
         items={[
-          { name: "Home", path: "" },
-          { name: "Case Studies", path: "/case-studies" },
+          { name: isEs ? "Inicio" : "Home", path: "" },
+          { name: isEs ? "Casos de estudio" : "Case Studies", path: "/case-studies" },
         ]}
       />
 
@@ -40,7 +43,7 @@ export default async function CaseStudiesPage({ params }: { params: Promise<{ lo
             {isEs ? "PORTFOLIO INDEXABLE" : "INDEXABLE PORTFOLIO"}
           </p>
           <h1 className="mt-4 max-w-4xl font-display text-5xl font-bold uppercase leading-[0.96] md:text-6xl lg:text-7xl">
-            {isEs ? "Game development case studies" : "Game development case studies"}
+            {isEs ? "Casos de estudio de videojuegos" : "Game development case studies"}
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/52">
             {isEs
@@ -56,14 +59,14 @@ export default async function CaseStudiesPage({ params }: { params: Promise<{ lo
             <article key={study.slug} className="overflow-hidden rounded-lg border border-white/8 bg-white/[0.025]">
               <img
                 src={assetPath(study.game.screenshot)}
-                alt={`${study.game.title} gameplay screenshot - Casual Brothers shipped game portfolio`}
+                alt={isEs ? `Captura de ${study.game.title} en el portfolio de Casual Brothers` : `${study.game.title} gameplay screenshot - Casual Brothers portfolio`}
                 className="aspect-video w-full object-cover"
                 loading="lazy"
               />
               <div className="space-y-4 p-5">
-                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-brand">{study.scopeLabel}</p>
+                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-brand">{t(study.scopeLabel, locale)}</p>
                 <h2 className="font-display text-xl font-bold uppercase">{study.game.title}</h2>
-                <p className="text-sm leading-relaxed text-white/48">{study.shortDescription}</p>
+                <p className="text-sm leading-relaxed text-white/48">{t(study.shortDescription, locale)}</p>
                 <Link href={`/${locale}/case-studies/${study.slug}`} className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-white/55 transition-colors hover:text-brand">
                   {isEs ? "Ver case study" : "View case study"}
                   <ArrowRight className="h-4 w-4" />

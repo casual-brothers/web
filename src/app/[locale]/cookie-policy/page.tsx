@@ -1,135 +1,34 @@
 import type { Metadata } from "next";
-import { getDictionary } from "@/i18n/getDictionary";
-import { getSeoAlternates } from "@/lib/seo";
+import CookiePreferencesButton from "@/components/ui/CookiePreferencesButton";
+import { buildCustomMetadata } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  return {
-    title: locale === "es" ? "Política de Cookies" : "Cookie Policy",
-    alternates: getSeoAlternates(locale, "cookie-policy"),
-  };
+  const isEs = locale === "es";
+  return buildCustomMetadata(locale, isEs ? "Política de cookies" : "Cookie Policy", isEs ? "Información sobre el almacenamiento necesario y el contenido externo de YouTube utilizado por Casual Brothers." : "Information about necessary storage and external YouTube media used by Casual Brothers.", "cookie-policy");
 }
 
 export default async function CookiePolicyPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const dict = await getDictionary(locale);
   const isEs = locale === "es";
-
   return (
     <>
-      {/* Hero Header */}
-      <section className="relative pt-32 pb-16 overflow-hidden">
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, #0e0e0e, rgba(14,14,14,0.9), #0e0e0e)' }} />
-        <div className="max-w-[1400px] mx-auto px-6 relative z-10 space-y-4">
-          <div className="flex items-center gap-3">
-            <div className="w-2 h-2 rounded-full bg-brand" />
-            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/40">
-              {isEs ? "INFORMACIÓN LEGAL" : "LEGAL INFORMATION"}
-            </span>
-            <div className="flex-1 h-px bg-white/5" />
-          </div>
-          <h1 className="font-display text-5xl md:text-6xl font-bold uppercase leading-[0.95] tracking-tight">
-            {isEs ? "POLÍTICA DE " : "COOKIE "}
-            <span className="text-gradient-brand">COOKIES</span>
-          </h1>
+      <section className="relative overflow-hidden pb-16 pt-32">
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background" />
+        <div className="relative z-10 mx-auto max-w-[1400px] space-y-4 px-6">
+          <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-brand">{isEs ? "Información legal" : "Legal information"}</p>
+          <h1 className="font-display text-5xl font-bold uppercase tracking-tight md:text-6xl">{isEs ? "Política de cookies" : "Cookie Policy"}</h1>
+          <p className="max-w-2xl text-lg leading-relaxed text-white/50">{isEs ? "Control claro sobre el almacenamiento y los contenidos externos." : "Clear control over storage and external media."}</p>
         </div>
       </section>
-
-      {/* Content */}
-      <section className="max-w-[900px] mx-auto px-6 pb-24">
-        <div className="space-y-8 text-white/60 text-sm leading-relaxed">
-
-          <div className="space-y-3">
-            <p>
-              {isEs
-                ? "En cumplimiento con lo dispuesto en el artículo 22.2 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), el Reglamento (UE) 2016/679 (GDPR) y la UK Privacy and Electronic Communications Regulations (PECR), esta Política de Cookies describe cómo Casual Brothers Ltd. utiliza cookies y tecnologías similares."
-                : "In compliance with the EU General Data Protection Regulation (GDPR) and the UK Privacy and Electronic Communications Regulations (PECR), this Cookie Policy describes how Casual Brothers Ltd. uses cookies and similar technologies."}
-            </p>
-          </div>
-
-          <div className="space-y-3">
-            <h2 className="font-display text-lg font-bold uppercase tracking-tight text-white">
-              {isEs ? "1. ¿Qué son las cookies?" : "1. What are cookies?"}
-            </h2>
-            <p>
-              {isEs
-                ? "Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo cuando visitas un sitio web. Se utilizan ampliamente para hacer que los sitios web funcionen de manera más eficiente, así como para proporcionar información a los propietarios del sitio."
-                : "Cookies are small text files that are stored on your device when you visit a website. They are widely used to make websites work more efficiently, as well as to provide information to the website owners."}
-            </p>
-          </div>
-
-          <div className="space-y-3">
-            <h2 className="font-display text-lg font-bold uppercase tracking-tight text-white">
-              {isEs ? "2. Tipos de cookies que utilizamos" : "2. Types of cookies we use"}
-            </h2>
-
-            <div className="rounded-lg border border-white/5 bg-white/[0.02] overflow-x-auto">
-              <table className="w-full text-sm min-w-[500px] md:min-w-full">
-                <thead>
-                  <tr className="border-b border-white/5">
-                    <th className="text-left p-4 text-white/80 font-bold text-xs uppercase tracking-wider">{isEs ? "Tipo" : "Type"}</th>
-                    <th className="text-left p-4 text-white/80 font-bold text-xs uppercase tracking-wider">{isEs ? "Finalidad" : "Purpose"}</th>
-                    <th className="text-left p-4 text-white/80 font-bold text-xs uppercase tracking-wider">{isEs ? "Duración" : "Duration"}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="border-b border-white/5">
-                    <td className="p-4 text-white/60">{isEs ? "Técnicas" : "Essential"}</td>
-                    <td className="p-4 text-white/40">{isEs ? "Necesarias para el funcionamiento del sitio web" : "Necessary for the website to function properly"}</td>
-                    <td className="p-4 text-white/40">{isEs ? "Sesión" : "Session"}</td>
-                  </tr>
-                  <tr className="border-b border-white/5">
-                    <td className="p-4 text-white/60">{isEs ? "Preferencias" : "Preferences"}</td>
-                    <td className="p-4 text-white/40">{isEs ? "Recordar tus preferencias de idioma y consentimiento" : "Remember your language and consent preferences"}</td>
-                    <td className="p-4 text-white/40">{isEs ? "1 año" : "1 year"}</td>
-                  </tr>
-                  <tr>
-                    <td className="p-4 text-white/60">{isEs ? "Analíticas" : "Analytics"}</td>
-                    <td className="p-4 text-white/40">{isEs ? "Analizar el tráfico y el comportamiento de los usuarios" : "Analyze traffic and user behavior"}</td>
-                    <td className="p-4 text-white/40">{isEs ? "2 años" : "2 years"}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div className="space-y-3">
-            <h2 className="font-display text-lg font-bold uppercase tracking-tight text-white">
-              {isEs ? "3. Gestión de cookies" : "3. Managing cookies"}
-            </h2>
-            <p>
-              {isEs
-                ? "Puedes configurar tu navegador para rechazar cookies o para que te avise cuando se envíen. Sin embargo, algunas funciones del sitio web podrían no funcionar correctamente sin cookies. También puedes modificar tu consentimiento en cualquier momento a través del banner de cookies del sitio."
-                : "You can configure your browser to reject cookies or to alert you when cookies are being sent. However, some features of the website may not function properly without cookies. You can also modify your consent at any time through the cookie banner on the site."}
-            </p>
-          </div>
-
-          <div className="space-y-3">
-            <h2 className="font-display text-lg font-bold uppercase tracking-tight text-white">
-              {isEs ? "4. Cookies de terceros" : "4. Third-party cookies"}
-            </h2>
-            <p>
-              {isEs
-                ? "Nuestro sitio web puede incluir funcionalidades proporcionadas por terceros (como herramientas de análisis o redes sociales) que pueden establecer sus propias cookies. No tenemos control sobre estas cookies de terceros."
-                : "Our website may include functionality provided by third parties (such as analytics tools or social networks) which may set their own cookies. We have no control over these third-party cookies."}
-            </p>
-          </div>
-
-          <div className="space-y-3">
-            <h2 className="font-display text-lg font-bold uppercase tracking-tight text-white">
-              {isEs ? "5. Contacto" : "5. Contact"}
-            </h2>
-            <p>
-              {isEs
-                ? "Si tienes preguntas sobre nuestra Política de Cookies, contáctanos en "
-                : "If you have questions about our Cookie Policy, contact us at "}
-              <a href="mailto:contact@casualbrothers.com" className="text-brand hover:underline">contact@casualbrothers.com</a>.
-            </p>
-          </div>
-
-          <p className="text-white/30 text-xs pt-4">
-            {isEs ? "Última actualización: Mayo 2026" : "Last updated: May 2026"}
-          </p>
+      <section className="mx-auto max-w-[900px] px-6 pb-24">
+        <div className="space-y-8 text-sm leading-relaxed text-white/60">
+          <div className="space-y-3"><h2 className="font-display text-lg font-bold uppercase text-white">{isEs ? "1. Qué utilizamos" : "1. What we use"}</h2><p>{isEs ? "La web no utiliza actualmente cookies de analítica ni publicidad. Guardamos una preferencia en el almacenamiento local del navegador para recordar si has aceptado o rechazado el contenido externo. Este almacenamiento es necesario para respetar tu elección." : "The site does not currently use analytics or advertising cookies. We store one preference in your browser’s local storage to remember whether you accepted or rejected external media. This storage is necessary to respect your choice."}</p></div>
+          <div className="overflow-x-auto rounded-lg border border-white/10"><table className="w-full text-left"><thead className="bg-white/5 text-white"><tr><th className="p-4">{isEs ? "Elemento" : "Item"}</th><th className="p-4">{isEs ? "Finalidad" : "Purpose"}</th><th className="p-4">{isEs ? "Duración" : "Duration"}</th></tr></thead><tbody><tr className="border-t border-white/10"><td className="p-4 font-mono text-brand">cb-cookie-consent</td><td className="p-4">{isEs ? "Recordar si aceptas o rechazas YouTube" : "Remember whether you accept or reject YouTube"}</td><td className="p-4">{isEs ? "Hasta que borres los datos del sitio o cambies la preferencia" : "Until you clear site data or change the preference"}</td></tr></tbody></table></div>
+          <div className="space-y-3"><h2 className="font-display text-lg font-bold uppercase text-white">{isEs ? "2. YouTube" : "2. YouTube"}</h2><p>{isEs ? "Los vídeos, sus miniaturas y el reproductor no se solicitan a YouTube hasta que aceptas contenido externo. Después de aceptar, Google/YouTube puede recibir tu dirección IP, datos del navegador y la página visitada, y utilizar sus propias tecnologías conforme a sus políticas. Utilizamos el modo de privacidad mejorada de YouTube para el reproductor." : "Videos, thumbnails and the player are not requested from YouTube until you accept external media. After acceptance, Google/YouTube may receive your IP address, browser data and visited page, and use its own technologies under its policies. We use YouTube’s privacy-enhanced player mode."}</p></div>
+          <div className="space-y-3"><h2 className="font-display text-lg font-bold uppercase text-white">{isEs ? "3. Cambiar tu elección" : "3. Change your choice"}</h2><p>{isEs ? "Puedes aceptar, rechazar o retirar tu consentimiento en cualquier momento. Al rechazar, los vídeos permanecen bloqueados." : "You can accept, reject or withdraw consent at any time. When rejected, videos remain blocked."}</p><CookiePreferencesButton locale={locale} /></div>
+          <div className="space-y-3"><h2 className="font-display text-lg font-bold uppercase text-white">{isEs ? "4. Contacto" : "4. Contact"}</h2><p><a className="text-brand hover:underline" href="mailto:contact@casualbrothers.com">contact@casualbrothers.com</a></p></div>
+          <p className="border-t border-white/5 pt-6 text-xs text-white/30">{isEs ? "Última actualización: 8 de agosto de 2026" : "Last updated: 8 August 2026"}</p>
         </div>
       </section>
     </>

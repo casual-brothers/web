@@ -1,5 +1,8 @@
 "use client";
 
+/* react-three/drei View intentionally consumes stable element refs during render. */
+/* eslint-disable react-hooks/refs */
+
 import { assetPath } from "@/lib/basePath";
 import { Suspense, useRef, useEffect, createRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
