@@ -1,0 +1,51 @@
+1:"$Sreact.fragment"
+2:I[56168,["/_next/static/chunks/4374vay6t38pw.js","/_next/static/chunks/0ik475yk22a6o.js","/_next/static/chunks/0brk7n3i7sfhx.js"],"default"]
+3:I[97367,["/_next/static/chunks/0h2qsuyze9ds1.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+8:I[97367,["/_next/static/chunks/0h2qsuyze9ds1.js"],"ViewportBoundary"]
+9:I[97367,["/_next/static/chunks/0h2qsuyze9ds1.js"],"MetadataBoundary"]
+7:X
+2a:X
+2a:C
+0:{"buildId":"_3nTTl9nY8hgaJGcnY62M","data":[{"rsc":["$","$1","c",{"children":[[["$","section",null,{"className":"relative overflow-hidden pb-16 pt-32","children":[["$","div",null,{"className":"absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background"}],["$","div",null,{"className":"relative z-10 mx-auto max-w-[1400px] space-y-4 px-6","children":[["$","p",null,{"className":"text-[11px] font-bold uppercase tracking-[0.2em] text-brand","children":"Información legal"}],["$","h1",null,{"className":"font-display text-5xl font-bold uppercase tracking-tight md:text-6xl","children":"Política de cookies"}],["$","p",null,{"className":"max-w-2xl text-lg leading-relaxed text-white/50","children":"Control claro sobre el almacenamiento y los contenidos externos."}]]}]]}],["$","section",null,{"className":"mx-auto max-w-[900px] px-6 pb-24","children":["$","div",null,{"className":"space-y-8 text-sm leading-relaxed text-white/60","children":[["$","div",null,{"className":"space-y-3","children":[["$","h2",null,{"className":"font-display text-lg font-bold uppercase text-white","children":"1. Qué utilizamos"}],["$","p",null,{"children":"La web no utiliza actualmente cookies de analítica ni publicidad. Guardamos una preferencia en el almacenamiento local del navegador para recordar si has aceptado o rechazado el contenido externo. Este almacenamiento es necesario para respetar tu elección."}]]}],["$","div",null,{"className":"overflow-x-auto rounded-lg border border-white/10","children":["$","table",null,{"className":"w-full text-left","children":[["$","thead",null,{"className":"bg-white/5 text-white","children":["$","tr",null,{"children":[["$","th",null,{"className":"p-4","children":"Elemento"}],["$","th",null,{"className":"p-4","children":"Finalidad"}],["$","th",null,{"className":"p-4","children":"Duración"}]]}]}],["$","tbody",null,{"children":["$","tr",null,{"className":"border-t border-white/10","children":[["$","td",null,{"className":"p-4 font-mono text-brand","children":"cb-cookie-consent"}],["$","td",null,{"className":"p-4","children":"Recordar si aceptas o rechazas YouTube"}],["$","td",null,{"className":"p-4","children":"Hasta que borres los datos del sitio o cambies la preferencia"}]]}]}]]}]}],["$","div",null,{"className":"space-y-3","children":[["$","h2",null,{"className":"font-display text-lg font-bold uppercase text-white","children":"2. YouTube"}],["$","p",null,{"children":"Los vídeos, sus miniaturas y el reproductor no se solicitan a YouTube hasta que aceptas contenido externo. Después de aceptar, Google/YouTube puede recibir tu dirección IP, datos del navegador y la página visitada, y utilizar sus propias tecnologías conforme a sus políticas. Utilizamos el modo de privacidad mejorada de YouTube para el reproductor."}]]}],["$","div",null,{"className":"space-y-3","children":[["$","h2",null,{"className":"font-display text-lg font-bold uppercase text-white","children":"3. Cambiar tu elección"}],["$","p",null,{"children":"Puedes aceptar, rechazar o retirar tu consentimiento en cualquier momento. Al rechazar, los vídeos permanecen bloqueados."}],["$","$L2",null,{"locale":"es"}]]}],["$","div",null,{"className":"space-y-3","children":[["$","h2",null,{"className":"font-display text-lg font-bold uppercase text-white","children":"4. Contacto"}],["$","p",null,{"children":["$","a",null,{"className":"text-brand hover:underline","href":"mailto:contact@casualbrothers.com","children":"contact@casualbrothers.com"}]}]]}],["$","p",null,{"className":"border-t border-white/5 pt-6 text-xs text-white/30","children":"Última actualización: 8 de agosto de 2026"}]]}]}]],null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$L8",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L9",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Política de cookies | Casual Brothers"}],["$","meta","1",{"name":"description","content":"Información sobre el almacenamiento necesario y el contenido externo de YouTube utilizado por Casual Brothers."}],"$La","$Lb","$Lc","$Ld","$Le","$Lf","$L10","$L11","$L12","$L13","$L14","$L15","$L16","$L17","$L18","$L19","$L1a","$L1b","$L1c","$L1d","$L1e","$L1f","$L20","$L21","$L22","$L23","$L24","$L25"]}]}]}],"$L26"]}],"isPartial":"$@27","staleTime":"$7","varyParams":null},{"rsc":"$L28","isPartial":"$@29","staleTime":"$7","varyParams":"$2a"}],"isUpgradeableISRFallback":false,"a":"$@2b","rootVaryParams":null,"needsRuntimeRequest":"$@2c"}
+2d:I[27201,["/_next/static/chunks/0h2qsuyze9ds1.js"],"IconMark"]
+2e:I[39756,["/_next/static/chunks/0h2qsuyze9ds1.js"],"default"]
+2f:I[37457,["/_next/static/chunks/0h2qsuyze9ds1.js"],"default"]
+5:null
+a:["$","link","2",{"rel":"author","href":"https://casualbrothers.com"}]
+b:["$","meta","3",{"name":"author","content":"Casual Brothers"}]
+c:["$","meta","4",{"name":"keywords","content":"game development studio,casual game company,casual game developers,casual game development company,hybrid casual game development,co-development,game porting,console porting,Unity development,Unreal Engine,live ops,AA game studio,Casual Brothers,video game development UK"}]
+d:["$","meta","5",{"name":"creator","content":"Casual Brothers"}]
+e:["$","meta","6",{"name":"publisher","content":"Casual Brothers"}]
+f:["$","meta","7",{"name":"robots","content":"index, follow"}]
+10:["$","meta","8",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}]
+11:["$","link","9",{"rel":"canonical","href":"https://casualbrothers.com/es/cookie-policy/"}]
+12:["$","link","10",{"rel":"alternate","hrefLang":"en","href":"https://casualbrothers.com/en/cookie-policy/"}]
+13:["$","link","11",{"rel":"alternate","hrefLang":"es","href":"https://casualbrothers.com/es/cookie-policy/"}]
+14:["$","link","12",{"rel":"alternate","hrefLang":"x-default","href":"https://casualbrothers.com/en/cookie-policy/"}]
+15:["$","meta","13",{"property":"og:title","content":"Política de cookies | Casual Brothers"}]
+16:["$","meta","14",{"property":"og:description","content":"Información sobre el almacenamiento necesario y el contenido externo de YouTube utilizado por Casual Brothers."}]
+17:["$","meta","15",{"property":"og:url","content":"https://casualbrothers.com/es/cookie-policy/"}]
+18:["$","meta","16",{"property":"og:site_name","content":"Casual Brothers"}]
+19:["$","meta","17",{"property":"og:image","content":"https://casualbrothers.com/images/branding/og-cover-1200x630.png"}]
+1a:["$","meta","18",{"property":"og:image:width","content":"1200"}]
+1b:["$","meta","19",{"property":"og:image:height","content":"630"}]
+1c:["$","meta","20",{"property":"og:image:alt","content":"Política de cookies — Casual Brothers"}]
+1d:["$","meta","21",{"property":"og:type","content":"website"}]
+1e:["$","meta","22",{"name":"twitter:card","content":"summary_large_image"}]
+1f:["$","meta","23",{"name":"twitter:title","content":"Política de cookies | Casual Brothers"}]
+20:["$","meta","24",{"name":"twitter:description","content":"Información sobre el almacenamiento necesario y el contenido externo de YouTube utilizado por Casual Brothers."}]
+21:["$","meta","25",{"name":"twitter:image","content":"https://casualbrothers.com/images/branding/og-cover-1200x630.png"}]
+22:["$","link","26",{"rel":"shortcut icon","href":"/images/branding/cb-icon-01.svg"}]
+23:["$","link","27",{"rel":"icon","href":"/images/branding/cb-icon-01.svg"}]
+24:["$","link","28",{"rel":"apple-touch-icon","href":"/images/branding/cb-icon-01.svg"}]
+25:["$","$L2d","29",{}]
+26:["$","meta",null,{"name":"next-size-adjust","content":""}]
+28:["$","$1","c",{"children":[null,["$","$L2e",null,{"parallelRouterKey":"children","template":["$","$L2f",null,{}]}]]}]
+2c:true
+7:300
+7:C
+2b:0
+27:"$undefined"
+29:"$undefined"
+6:"$undefined"
